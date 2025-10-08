@@ -11,5 +11,13 @@ config_version=5
 [application]
 
 config/name="Civitas"
+run/main_scene="uid://c7gaeajity5ts"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+left={
+"deadzone": 0.2,
+"events": []
+}
