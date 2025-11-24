@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2rdkiu3ymdr"]
+
+[ext_resource type="Script" uid="uid://c12uf4wefv1xs" path="res://Scripts/clickable.gd" id="1_ql278"]
+[ext_resource type="Texture2D" uid="uid://pma38q75x878" path="res://Assets/TopDownFantasy-Forest/Decorations/Rock.png" id="2_ql278"]
+[ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/ClockPopup.tscn" id="2_ynly3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_ql278")
+clock_popup_scene = ExtResource("2_ynly3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ql278")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_cwwtg")
