@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://c7gaeajity5ts"]
 
+
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_tex"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_trunk"]
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_house"]
 [ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="8_ui"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_tex")
