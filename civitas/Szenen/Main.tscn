@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c7gaeajity5ts"]
+[gd_scene load_steps=10 format=4 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_wo14p"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_k3l1v"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_q4yvx"]
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_h34ww"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_5h1gi"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_h34ww"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_k3l1v")
@@ -453,7 +454,7 @@ tile_map_data = PackedByteArray("AAD2/+v/AAAAAAIAAAD2/+z/AAACAAIAAAD2/+3/AAAAAAI
 tile_set = SubResource("TileSet_0r0to")
 
 [node name="Tree" parent="." instance=ExtResource("3_wo14p")]
-position = Vector2(-53, -45)
+position = Vector2(-46, -50)
 
 [node name="Tree2" parent="." instance=ExtResource("4_q4yvx")]
 position = Vector2(14, -9)
@@ -463,3 +464,6 @@ position = Vector2(-144, 21)
 
 [node name="Tree4" parent="." instance=ExtResource("6_5h1gi")]
 position = Vector2(-40, 28)
+
+[node name="TestHouse" parent="." instance=ExtResource("7_h34ww")]
+position = Vector2(62, 62)
