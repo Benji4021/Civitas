@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c12uf4wefv1xs" path="res://Scripts/clickable.gd" id="1_rj51l"]
 [ext_resource type="Texture2D" uid="uid://dy4pm1wlim8ly" path="res://Assets/TopDownFantasy-Forest/Decorations/Trunk.png" id="2_1jegd"]
-[ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/ClockPopup.tscn" id="2_d3enp"]
+[ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/Test/ClockPopup.tscn" id="2_d3enp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 

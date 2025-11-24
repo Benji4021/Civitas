@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_h34ww"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_5h1gi"]
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_h34ww"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="3_p7my4"]
+[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/MainUI.tscn" id="3_p7my4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_k3l1v")

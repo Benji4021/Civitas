@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://eilxyulcuiaw"]
 
-[ext_resource type="Script" uid="uid://bs1x2ny6ylewq" path="res://Szenen/box_container.gd" id="1_xyrge"]
-[ext_resource type="Script" uid="uid://cc5le6r1ke5ma" path="res://Szenen/texture_rect.gd" id="2_8aa32"]
+[ext_resource type="Script" uid="uid://bs1x2ny6ylewq" path="res://Scripts/box_container.gd" id="1_d2ac3"]
+[ext_resource type="Script" uid="uid://cc5le6r1ke5ma" path="res://Scripts/texture_rect.gd" id="2_ehpv0"]
 
 [node name="BoxContainer" type="VBoxContainer"]
 offset_left = 840.0
@@ -9,7 +9,7 @@ offset_top = 67.0
 offset_right = 948.0
 offset_bottom = 102.0
 scale = Vector2(2.8167388, 15.124527)
-script = ExtResource("1_xyrge")
+script = ExtResource("1_d2ac3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -31,8 +31,8 @@ size_flags_stretch_ratio = 0.14
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
 layout_mode = 2
-script = ExtResource("2_8aa32")
+script = ExtResource("2_ehpv0")
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer2"]
 layout_mode = 2
-script = ExtResource("2_8aa32")
+script = ExtResource("2_ehpv0")
