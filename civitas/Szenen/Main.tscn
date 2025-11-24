@@ -1,18 +1,18 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7gaeajity5ts"]
+[gd_scene load_steps=11 format=4 uid="uid://c7gaeajity5ts"]
 
-[ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_wo14p"]
-[ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_k3l1v"]
-[ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_wo14p"]
-[ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_q4yvx"]
-[ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_h34ww"]
-[ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_5h1gi"]
-[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_h34ww"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="3_p7my4"]
+[ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
+[ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_tex"]
+[ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
+[ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_small"]
+[ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_stone"]
+[ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_trunk"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_house"]
+[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="8_ui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
-texture = ExtResource("2_k3l1v")
+texture = ExtResource("2_tex")
 texture_region_size = Vector2i(32, 32)
-# (dein kompletter TileSetAtlasSource Inhalt unverändert …)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0r0to"]
 tile_shape = 1
@@ -24,31 +24,26 @@ sources/0 = SubResource("TileSetAtlasSource_org3e")
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
 zoom = Vector2(2, 2)
-script = ExtResource("1_wo14p")
+script = ExtResource("1_cam")
 
-[node name="MainUi" parent="Camera2D" instance=ExtResource("3_p7my4")]
+[node name="MainUi" parent="Camera2D" instance=ExtResource("8_ui")]
 offset_left = -386.00006
 offset_top = -132.00003
 offset_right = -386.00006
 offset_bottom = -132.00003
-scale = Vector2(0.5999999, 0.40000063)
+scale = Vector2(0.6, 0.4)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD/////AAACAAIAAAD2/+v/AAACAAIAAAD2/+z/AAAIAAIAAAD2/+3/... (gekürzt)")
-tile_set = SubResource("TileSet_0r0to")
-
-[node name="Tree" parent="." instance=ExtResource("3_wo14p")]
+[node name="Tree" parent="." instance=ExtResource("3_big")]
 position = Vector2(-46, -50)
 
-[node name="Tree2" parent="." instance=ExtResource("4_q4yvx")]
+[node name="Tree2" parent="." instance=ExtResource("4_small")]
 position = Vector2(14, -9)
 
-[node name="Tree3" parent="." instance=ExtResource("5_h34ww")]
+[node name="Tree3" parent="." instance=ExtResource("5_stone")]
 position = Vector2(-144, 21)
 
-[node name="Tree4" parent="." instance=ExtResource("6_5h1gi")]
+[node name="Tree4" parent="." instance=ExtResource("6_trunk")]
 position = Vector2(-40, 28)
 
-[node name="TestHouse" parent="." instance=ExtResource("7_h34ww")]
+[node name="TestHouse" parent="." instance=ExtResource("7_house")]
 position = Vector2(62, 62)
