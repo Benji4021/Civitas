@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://77qt1jvdsb8f"]
 
-[ext_resource type="Script" uid="uid://ojhpxvaisbk4" path="res://Szenen/left_area.gd" id="1_gash1"]
-[ext_resource type="Script" uid="uid://cljtl6n5k7d55" path="res://Szenen/add_box_button.gd" id="2_gash1"]
+[ext_resource type="Script" uid="uid://ojhpxvaisbk4" path="res://Scripts/left_area.gd" id="1_gash1"]
+[ext_resource type="Script" uid="uid://cljtl6n5k7d55" path="res://Scripts/add_box_button.gd" id="2_gash1"]
 
 [node name="MainUi" type="Control"]
 layout_mode = 3
