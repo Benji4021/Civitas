@@ -1,44 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene load_steps=2 format=3 uid="uid://77qt1jvdsb8f"]
 
-[ext_resource type="Script" uid="uid://ojhpxvaisbk4" path="res://Szenen/left_area.gd" id="1_gash1"]
-[ext_resource type="Script" uid="uid://cljtl6n5k7d55" path="res://Szenen/add_box_button.gd" id="2_gash1"]
+[ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_0bom8"]
 
-[node name="MainUi" type="Control"]
+[node name="UI" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="SlidePanel" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_bottom = 0.27
+offset_left = 11.0
+offset_top = 39.0
+offset_right = 300.0
+offset_bottom = 368.0
+script = ExtResource("1_0bom8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LeftArea" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(800, 600)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.62
-script = ExtResource("1_gash1")
-
-[node name="RightArea" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.14
-
-[node name="AddBoxButton" type="Button" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="SlidePanel"]
+custom_minimum_size = Vector2(250, 500)
 layout_mode = 0
-offset_left = 1095.0
-offset_top = 275.0
-offset_right = 1134.0
-offset_bottom = 344.0
-text = "<"
-script = ExtResource("2_gash1")
+offset_right = 40.0
+offset_bottom = 40.0
 
-[connection signal="pressed" from="AddBoxButton" to="AddBoxButton" method="_on_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlidePanel/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SlidePanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="SlidePanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="SlidePanel"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 203.0
+offset_right = -25.0
+offset_bottom = 282.0
+text = "<"
+
+[connection signal="pressed" from="SlidePanel/ToggleButton" to="SlidePanel" method="_on_ToggleButton_pressed"]
