@@ -15,6 +15,10 @@ run/main_scene="uid://dwmi3ojm07uth"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+Globals="*res://Scripts/Global/Globals.gd"
+
 [input]
 
 up={
