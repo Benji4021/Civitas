@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkwk6yrhm3awv"]
+[gd_scene load_steps=10 format=3 uid="uid://d1i0etbsg5akp"]
 
-[ext_resource type="Texture2D" uid="uid://gpl27h3qpygr" path="res://Assets/Summer5.png" id="1_k0d6w"]
-[ext_resource type="Script" uid="uid://dicu4k5av2b1h" path="res://Szenen/menu.gd" id="1_y4t7a"]
-[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_y4t7a"]
-[ext_resource type="AudioStream" uid="uid://bexppjc4omy5t" path="res://Szenen/click-button-140881.mp3" id="4_aejsx"]
+[ext_resource type="Texture2D" path="res://Summer5.png" id="1_k0d6w"]
+[ext_resource type="Script" path="res://Szenen/menu.gd" id="1_y4t7a"]
+[ext_resource type="FontFile" path="res://Jacquard12-Regular.ttf" id="2_y4t7a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4mgg"]
 texture = ExtResource("1_k0d6w")
@@ -107,9 +106,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_y4t7a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k0d6w")
 text = "Settings"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
-stream = ExtResource("4_aejsx")
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -130,7 +126,5 @@ theme_override_fonts/font = ExtResource("2_y4t7a")
 theme_override_font_sizes/font_size = 117
 text = "Civitas"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
