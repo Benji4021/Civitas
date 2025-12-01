@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b65xy5tq46i7n"]
 
-[ext_resource type="Script" uid="uid://4s443l1si33l" path="res://ClockPopup.gd" id="1_l8vqc"]
+[ext_resource type="Script" uid="uid://4s443l1si33l" path="res://Scripts/ClockPopup.gd" id="1_l8vqc"]
 [ext_resource type="Texture2D" uid="uid://bfw4fs1fm2si7" path="res://Assets/Special/clock.png" id="2_wli28"]
 
 [node name="ClockPopup" type="Node2D"]
 script = ExtResource("1_l8vqc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
 texture = ExtResource("2_wli28")

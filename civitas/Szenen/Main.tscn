@@ -1,25 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://c7gaeajity5ts"]
-
+[gd_scene load_steps=6 format=3 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
-[ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_tex"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
-[ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_small"]
-[ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_stone"]
-[ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="6_trunk"]
+[ext_resource type="Script" uid="uid://c0nlk0ggqgikl" path="res://Scripts/Global/Terrain_Generator.gd" id="5_64mrx"]
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_house"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="8_ui"]
-
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
-texture = ExtResource("2_tex")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_0r0to"]
-tile_shape = 1
-tile_size = Vector2i(32, 16)
-sources/0 = SubResource("TileSetAtlasSource_org3e")
+[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/MainUI.tscn" id="8_ui"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,23 +14,16 @@ zoom = Vector2(2, 2)
 script = ExtResource("1_cam")
 
 [node name="MainUi" parent="Camera2D" instance=ExtResource("8_ui")]
-offset_left = -386.00006
-offset_top = -132.00003
-offset_right = -386.00006
-offset_bottom = -132.00003
 scale = Vector2(0.6, 0.4)
-
-[node name="Tree" parent="." instance=ExtResource("3_big")]
-position = Vector2(-46, -50)
-
-[node name="Tree2" parent="." instance=ExtResource("4_small")]
-position = Vector2(14, -9)
-
-[node name="Tree3" parent="." instance=ExtResource("5_stone")]
-position = Vector2(-144, 21)
-
-[node name="Tree4" parent="." instance=ExtResource("6_trunk")]
-position = Vector2(-40, 28)
+transform = Transform2D(0.6, 0, 0, 0.4, 0, 0)
 
 [node name="TestHouse" parent="." instance=ExtResource("7_house")]
 position = Vector2(62, 62)
+
+[node name="Tree" parent="." instance=ExtResource("3_big")]
+position = Vector2(-29, 4)
+
+[node name="Generator" type="Node2D" parent="."]
+position = Vector2(-29, 4)
+script = ExtResource("5_64mrx")
+tree_scene = ExtResource("3_big")
