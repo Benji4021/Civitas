@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1i0etbsg5akp"]
+
+[ext_resource type="Texture2D" path="res://Summer5.png" id="1_k0d6w"]
+[ext_resource type="Script" path="res://Szenen/menu.gd" id="1_y4t7a"]
+[ext_resource type="FontFile" path="res://Jacquard12-Regular.ttf" id="2_y4t7a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4mgg"]
+texture = ExtResource("1_k0d6w")
+modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_j3id7"]
+base_font = ExtResource("2_y4t7a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu4aj"]
+bg_color = Color(0.96862745, 0.90588236, 0.8039216, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0d6w"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4t7a"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0d6w"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4t7a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4mgg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -71.0
+offset_right = 201.0
+offset_bottom = 143.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_j3id7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_bu4aj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0d6w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y4t7a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0d6w")
+text = "Start game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_j3id7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_bu4aj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0d6w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y4t7a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0d6w")
+text = "Settings"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -267.0
+offset_right = 151.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 9
+theme_override_fonts/font = ExtResource("2_y4t7a")
+theme_override_font_sizes/font_size = 117
+text = "Civitas"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
