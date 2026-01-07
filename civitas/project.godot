@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="Civitas"
-run/main_scene="uid://dwmi3ojm07uth"
+run/main_scene="uid://bkwk6yrhm3awv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
+
+Sound="*res://Szenen/sound.tscn"
 Globals="*res://Scripts/Global/Globals.gd"
+
 
 [input]
 
