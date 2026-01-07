@@ -4,7 +4,7 @@ extends Area2D
 # ENTFERNE: @export var removal_time := 2  # Nicht mehr exportieren
 
 # Diese Variable wird vom Generator gesetzt
-var removal_time := 2.0  # Standardwert
+var removal_time := 5.0  # Standardwert
 var clicked := false
 
 func _ready():
