@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
+[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="2_org3e"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_p7my4"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/MainUI.tscn" id="3_p7my4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_p7my4")
@@ -445,12 +445,8 @@ top_level = true
 zoom = Vector2(2, 2)
 script = ExtResource("2_h4bth")
 
-[node name="MainUi" parent="Camera2D" instance=ExtResource("3_p7my4")]
-offset_left = -386.00006
-offset_top = -132.00003
-offset_right = -386.00006
-offset_bottom = -132.00003
-scale = Vector2(0.5999999, 0.40000063)
+[node name="UI" parent="Camera2D" instance=ExtResource("2_org3e")]
+follow_viewport_enabled = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
