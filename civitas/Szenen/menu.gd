@@ -12,8 +12,16 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Szenen/Main.tscn")
+	get_tree().change_scene_to_file("res://Szenen/Test.tscn")
 
 
 func _on_settings_pressed() -> void:
 	print("Settings pressed");
+
+
+func _on_button_pressed() -> void:
+	$VBoxContainer/AudioStreamPlayer.play()
+
+
+func _on_button_2_pressed() -> void:
+	$VBoxContainer/AudioStreamPlayer.play()

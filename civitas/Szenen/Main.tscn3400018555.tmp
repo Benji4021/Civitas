@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7gaeajity5ts"]
+[gd_scene load_steps=13 format=3 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
 [ext_resource type="Script" uid="uid://c0nlk0ggqgikl" path="res://Scripts/Global/Terrain_Generator.gd" id="5_64mrx"]
 [ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="6_5h1gi"]
+[ext_resource type="Script" uid="uid://8sm317ds3nyt" path="res://Scripts/treesmall.gd" id="6_vnike"]
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_house"]
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="7_mr1yn"]
+[ext_resource type="Script" uid="uid://b78kl4jopxfcv" path="res://Scripts/stone.gd" id="8_elhvx"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="8_nutdd"]
 [ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/MainUI.tscn" id="8_ui"]
+[ext_resource type="Script" uid="uid://d1i751pr01gqw" path="res://Scripts/trunk.gd" id="10_8rogh"]
+[ext_resource type="Script" uid="uid://cysg32kfg6kca" path="res://Scripts/treebig.gd" id="12_pyjwj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,5 +30,18 @@ position = Vector2(62, 62)
 [node name="Generator" type="Node2D" parent="."]
 position = Vector2(-29, 4)
 script = ExtResource("5_64mrx")
-tree_scenes = Array[PackedScene]([ExtResource("6_5h1gi"), ExtResource("3_big"), ExtResource("7_mr1yn"), ExtResource("8_nutdd")])
-spawn_counts = Array[int]([11, 9, 20, 5])
+
+[node name="Tree2" parent="Generator" instance=ExtResource("6_5h1gi")]
+position = Vector2(-47, -94)
+script = ExtResource("6_vnike")
+
+[node name="Tree3" parent="Generator" instance=ExtResource("7_mr1yn")]
+position = Vector2(62, -96)
+script = ExtResource("8_elhvx")
+
+[node name="Tree4" parent="Generator" instance=ExtResource("8_nutdd")]
+position = Vector2(110, -46)
+script = ExtResource("10_8rogh")
+
+[node name="Tree" parent="Generator" instance=ExtResource("3_big")]
+script = ExtResource("12_pyjwj")

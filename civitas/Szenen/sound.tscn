@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhmx462wyq8mo"]
+
+[ext_resource type="AudioStream" uid="uid://c0giui1iks5tv" path="res://Szenen/medieval-happy-music-412790.mp3" id="1_077kl"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_077kl")
+autoplay = true

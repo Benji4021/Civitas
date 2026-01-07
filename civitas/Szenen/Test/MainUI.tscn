@@ -5,12 +5,14 @@
 [ext_resource type="Texture2D" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="3_msvcy"]
 [ext_resource type="Texture2D" uid="uid://i8xp22373em1" path="res://Assets/78d1ecc1595341c97053d89332de87c1.jpg" id="4_40q61"]
 
+[gd_scene format=3 uid="uid://77qt1jvdsb8f"]
 
-[node name="UI" type="CanvasLayer"]
-follow_viewport_enabled = true
+[node name="Ui" type="CanvasLayer"]
 
-[node name="SlidePanel" type="Control" parent="."]
+
+[node name="SidePanel" type="Control" parent="."]
 layout_mode = 3
+
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.27
