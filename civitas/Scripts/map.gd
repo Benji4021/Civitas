@@ -26,7 +26,7 @@ func try_place_house(cell: Vector2i):
 		return false
 
 	# Place your house
-	var house = preload("res://Assets/house.png").instantiate()
+	var house = preload("res://Szenen/Buildings/TestHouse.tscn").instantiate()
 	house.position = map_to_local(cell)
 	add_child(house)
 

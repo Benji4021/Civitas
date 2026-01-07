@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c75r3ex3jft7i"]
+[gd_scene load_steps=6 format=3 uid="uid://c75r3ex3jft7i"]
 
-[ext_resource type="Script" uid="uid://c12uf4wefv1xs" path="res://Scripts/clickable.gd" id="1_rj51l"]
+[ext_resource type="Script" uid="uid://d1i751pr01gqw" path="res://Scripts/trunk.gd" id="1_7y8yb"]
 [ext_resource type="Texture2D" uid="uid://dy4pm1wlim8ly" path="res://Assets/TopDownFantasy-Forest/Decorations/Trunk.png" id="2_1jegd"]
 [ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/Test/ClockPopup.tscn" id="2_d3enp"]
+[ext_resource type="Script" uid="uid://bde32budf5qan" path="res://Scripts/clickable.gd" id="4_7y8yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 
 [node name="Tree" type="Area2D"]
-script = ExtResource("1_rj51l")
+script = ExtResource("1_7y8yb")
 clock_popup_scene = ExtResource("2_d3enp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1jegd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Clickable" type="Area2D" parent="."]
+script = ExtResource("4_7y8yb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_cwwtg")
