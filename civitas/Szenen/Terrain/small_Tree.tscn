@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://rn2cxvngeeb8"]
+
+[ext_resource type="Script" uid="uid://8sm317ds3nyt" path="res://Scripts/treesmall.gd" id="1_frcfb"]
+[ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/Test/ClockPopup.tscn" id="2_egtdd"]
+[ext_resource type="Texture2D" uid="uid://0xbgqi4s4fqt" path="res://Assets/TopDownFantasy-Forest/Decorations/small_tree_grass.png" id="2_rj51l"]
+[ext_resource type="Script" uid="uid://bde32budf5qan" path="res://Scripts/clickable.gd" id="4_frcfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_frcfb")
+clock_popup_scene = ExtResource("2_egtdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rj51l")
+
+[node name="Clickable" type="Area2D" parent="."]
+script = ExtResource("4_frcfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+scale = Vector2(2, 4)
+shape = SubResource("RectangleShape2D_cwwtg")
