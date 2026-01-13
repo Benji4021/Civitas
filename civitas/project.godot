@@ -17,10 +17,8 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-
 Sound="*res://Szenen/sound.tscn"
 Globals="*res://Scripts/Global/Globals.gd"
-
 
 [input]
 

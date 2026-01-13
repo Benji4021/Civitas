@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7gaeajity5ts"]
+[gd_scene load_steps=8 format=3 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="7_house"]
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="7_mr1yn"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="8_nutdd"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/MainUI.tscn" id="8_ui"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -15,10 +14,6 @@
 top_level = true
 zoom = Vector2(2, 2)
 script = ExtResource("1_cam")
-
-[node name="MainUi" parent="Camera2D" instance=ExtResource("8_ui")]
-scale = Vector2(0.6, 0.4)
-transform = Transform2D(0.6, 0, 0, 0.4, 0, 0)
 
 [node name="TestHouse" parent="." instance=ExtResource("7_house")]
 position = Vector2(62, 62)
