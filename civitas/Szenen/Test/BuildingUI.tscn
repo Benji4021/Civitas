@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene load_steps=7 format=3 uid="uid://77qt1jvdsb8f"]
 
 [ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_0bom8"]
 [ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_mqhw7"]
 [ext_resource type="Texture2D" uid="uid://dlftglse47jj2" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="3_msvcy"]
+[ext_resource type="Script" uid="uid://dwm86o2vfpgxl" path="res://Scripts/DragBuildingIcon.gd" id="3_t3yf8"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="4_1kenu"]
 [ext_resource type="Texture2D" uid="uid://dhdqdv5drxwjs" path="res://Assets/Buildings/Barn.png" id="4_hgidi"]
 
 [node name="MainUI" type="Control"]
@@ -54,6 +56,8 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.78
 texture = ExtResource("2_mqhw7")
 stretch_mode = 6
+script = ExtResource("3_t3yf8")
+building_scene = ExtResource("4_1kenu")
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
@@ -72,6 +76,8 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("3_msvcy")
 stretch_mode = 6
+script = ExtResource("3_t3yf8")
+building_scene = ExtResource("4_1kenu")
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 layout_mode = 2
@@ -89,6 +95,8 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("4_hgidi")
 stretch_mode = 6
+script = ExtResource("3_t3yf8")
+building_scene = ExtResource("4_1kenu")
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 layout_mode = 2

@@ -3,11 +3,22 @@ extends Node2D
 @export var tree_scenes: Array[PackedScene] = []
 @export var spawn_counts: Array[int] = [5, 5, 5, 5]
 @export var spawn_area_size := Vector2(800, 600)
+# tiles die aktuell blockiert sind
+var blocked_tiles: Dictionary = {}  # Vector2i -> true
 
 func _ready():
 	randomize()
 	spawn_all_trees()
 
+func set_blocked(tile: Vector2i, blocked: bool = true) -> void:
+	if blocked:
+		blocked_tiles[tile] = true
+	else:
+		blocked_tiles.erase(tile)
+
+func is_tile_blocked(tile: Vector2i) -> bool:
+	return blocked_tiles.has(tile)
+	
 func spawn_all_trees():
 	# DEBUG: Zeige was zugewiesen wurde
 	print("=== GENERATOR START ===")
@@ -59,3 +70,5 @@ func spawn_all_trees():
 			print("  - Baum ", total_spawned, " bei: ", tree.position)
 	
 	print("FERTIG! Gesamt: ", total_spawned, " Bäume gespawnt.")
+	
+	
