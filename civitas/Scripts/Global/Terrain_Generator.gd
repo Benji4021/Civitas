@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var tree_scenes: Array[PackedScene] = []
-@export var spawn_counts: Array[int] = [50, 35, 45, 39]
+@export var spawn_counts: Array[int] = [40, 35, 38, 39]
 @export var spawn_area_size := Vector2(800, 600)
 # tiles die aktuell blockiert sind
 var blocked_tiles: Dictionary = {}  # Vector2i -> true
