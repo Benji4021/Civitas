@@ -457,6 +457,7 @@ script = ExtResource("2_h4bth")
 z_index = 1
 script = ExtResource("4_org3e")
 tree_scenes = Array[PackedScene]([ExtResource("4_0ud6b"), ExtResource("5_76ciq"), ExtResource("6_vbxcm"), ExtResource("7_yqufu")])
+spawn_area_size = Vector2(1500, -1000)
 
 [node name="OccupiedLayer" type="TileMapLayer" parent="."]
 z_as_relative = false
