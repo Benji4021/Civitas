@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://pcncyh8fdhq"]
+[gd_scene load_steps=12 format=4 uid="uid://pcncyh8fdhq"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
 [ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/BuildingUI.tscn" id="2_org3e"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="6_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
-[ext_resource type="Script" uid="uid://dwuy1tnwp28dp" path="res://Szenen/BoardController.gd" id="9_76ciq"]
 [ext_resource type="Script" uid="uid://bo8vhguaq31fl" path="res://Szenen/MapDropArea.gd" id="10_vbxcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
@@ -473,12 +472,6 @@ tile_set = SubResource("TileSet_0r0to")
 [node name="Houses" type="Node2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-
-[node name="BoardController" type="Node2D" parent="."]
-script = ExtResource("9_76ciq")
-ground_tilemap_path = NodePath("../TileMapLayer")
-obstacles_tilemap_path = NodePath("../TerrainGenerator")
-houses_parent_path = NodePath("../Houses")
 
 [node name="MapDropArea" type="Control" parent="."]
 layout_mode = 3
