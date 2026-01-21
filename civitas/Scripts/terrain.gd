@@ -2,9 +2,6 @@ extends Area2D
 
 class_name Terrain
 
-signal collect_resources(amount: int, source: Node)
-signal terrain_clicked(terrain: Terrain)
-
 @export var clock_popup_scene: PackedScene
 # ENTFERNE: @export var removal_time := 2  # Nicht mehr exportieren
 
