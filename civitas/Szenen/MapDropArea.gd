@@ -3,6 +3,10 @@ extends Control
 @export var ground_tilemap_path: NodePath = NodePath("../TileMapLayer")
 @export var houses_parent_path: NodePath = NodePath("../Houses")
 @export var obstacle_spawner_path: NodePath = NodePath("../ObstacleSpawner")
+@export var occupied_source_id: int = 0
+@export var occupied_atlas_coord: Vector2i = Vector2i(0, 0)
+@export var occupied_alt: int = 0  # meistens 0
+
 
 @onready var ground = get_node_or_null(ground_tilemap_path)
 @onready var houses_parent: Node2D = get_node_or_null(houses_parent_path)
@@ -10,6 +14,8 @@ extends Control
 
 # Belegung: jedes Tile -> Hausnode
 var occupied: Dictionary = {} # Vector2i -> Node2D
+var original_ground: Dictionary = {} # Vector2i -> {"source":int, "atlas":Vector2i, "alt":int}
+
 
 # Ghost
 var ghost_node: Node2D = null
@@ -29,17 +35,12 @@ func _process(_delta):
 			ghost_node.visible = false
 		return
 
-	var global_pos: Vector2 = get_global_mouse_position()
-	var origin_tile: Vector2i = _global_to_tile(global_pos)
-
-	var fp: Vector2i = dragging_data.get("footprint", Vector2i.ONE)
-	var tiles: Array[Vector2i] = _get_footprint_tiles(origin_tile, fp)
+	var tiles: Array[Vector2i] = _tiles_under_mouse(dragging_data)
 
 	ghost_node.global_position = _footprint_center_global(tiles)
 
 	var can_place: bool = not _is_blocked_tiles(tiles)
-	var col := Color(1,1,1,0.55) if can_place else Color(1,0.25,0.25,0.55)
-	_set_modulate_recursive(ghost_node, col)
+	ghost_node.modulate = Color(1,1,1,0.55) if can_place else Color(1,0.25,0.25,0.55)
 
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		dragging_data.clear()
@@ -97,13 +98,11 @@ func _drop_data(_pos, data):
 	dragging_data.clear()
 	ghost_node.visible = false
 
-	var global_pos: Vector2 = get_global_mouse_position()
-	var origin_tile: Vector2i = _global_to_tile(global_pos)
+	var tiles: Array[Vector2i] = _tiles_under_mouse(payload)
 
-	var fp: Vector2i = payload.get("footprint", Vector2i.ONE)
-	var tiles: Array[Vector2i] = _get_footprint_tiles(origin_tile, fp)
 
 	if _is_blocked_tiles(tiles):
+		print("BLOCKED -> no placement. tiles:", tiles)
 		return
 
 	_place_building(tiles, payload)  # <- payload verwenden!
@@ -141,6 +140,7 @@ func _footprint_center_global(tiles: Array[Vector2i]) -> Vector2:
 func _is_blocked_tiles(tiles: Array[Vector2i]) -> bool:
 	for t in tiles:
 		if occupied.has(t):
+			print("blockiert")
 			return true
 		if obstacle_spawner != null and obstacle_spawner.has_method("is_tile_blocked"):
 			if obstacle_spawner.is_tile_blocked(t):
@@ -168,9 +168,52 @@ func _place_building(tiles: Array[Vector2i], data: Dictionary):
 
 	for t in tiles:
 		occupied[t] = inst
+		_set_ground_occupied(t, true)
 
 func _set_modulate_recursive(node: Node, col: Color) -> void:
 	if node is CanvasItem:
 		(node as CanvasItem).modulate = col
 	for c in node.get_children():
 		_set_modulate_recursive(c, col)
+
+func _origin_from_mouse_center(mouse_tile: Vector2i, footprint: Vector2i) -> Vector2i:
+	# verschiebt origin so, dass footprint um die Maus zentriert wirkt
+	var ox := mouse_tile.x - int((footprint.x - 1) / 2)
+	var oy := mouse_tile.y - int((footprint.y - 1) / 2)
+	return Vector2i(ox, oy)
+	
+func _tiles_under_mouse(data: Dictionary) -> Array[Vector2i]:
+	var global_pos: Vector2 = get_global_mouse_position()
+	var mouse_tile: Vector2i = _global_to_tile(global_pos)
+
+	var fp: Vector2i = data.get("footprint", Vector2i.ONE)
+	var origin_tile: Vector2i = _origin_from_mouse_center(mouse_tile, fp)
+
+	return _get_footprint_tiles(origin_tile, fp)
+
+func _save_ground_if_needed(tile: Vector2i) -> void:
+	if original_ground.has(tile):
+		return
+
+	# TileMapLayer / TileMap: Infos lesen
+	var src: int = ground.get_cell_source_id(tile)
+	var atlas: Vector2i = ground.get_cell_atlas_coords(tile)
+	var alt: int = 0
+	if ground.has_method("get_cell_alternative_tile"):
+		alt = ground.get_cell_alternative_tile(tile)
+
+	original_ground[tile] = {"source": src, "atlas": atlas, "alt": alt}
+
+
+func _set_ground_occupied(tile: Vector2i, on: bool) -> void:
+	if on:
+		_save_ground_if_needed(tile)
+		# Boden ersetzen
+		ground.set_cell(tile, occupied_source_id, occupied_atlas_coord, occupied_alt)
+	else:
+		# Boden zurücksetzen
+		if not original_ground.has(tile):
+			return
+		var info: Dictionary = original_ground[tile]
+		ground.set_cell(tile, int(info["source"]), info["atlas"], int(info["alt"]))
+		original_ground.erase(tile)
