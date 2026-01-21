@@ -474,12 +474,6 @@ tile_set = SubResource("TileSet_0r0to")
 z_index = 1
 y_sort_enabled = true
 
-[node name="BoardController" type="Node2D" parent="."]
-script = ExtResource("9_76ciq")
-ground_tilemap_path = NodePath("../TileMapLayer")
-obstacles_tilemap_path = NodePath("../TerrainGenerator")
-houses_parent_path = NodePath("../Houses")
-
 [node name="MapDropArea" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
