@@ -1,0 +1,464 @@
+[gd_scene load_steps=23 format=3 uid="uid://77qt1jvdsb8f"]
+
+[ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_xwy8f"]
+[ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_nkhq5"]
+[ext_resource type="Script" path="res://Scripts/DragBuildingIcon.gd" id="3_lxnp4"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="4_qpqku"]
+[ext_resource type="Texture2D" uid="uid://dlftglse47jj2" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="5_3isoh"]
+[ext_resource type="Texture2D" uid="uid://dhdqdv5drxwjs" path="res://Assets/Buildings/Barn.png" id="6_2m1ct"]
+[ext_resource type="Texture2D" uid="uid://dhkyokvo3mmc" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Board.png" id="7_j4h48"]
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="8_nkhq5"]
+[ext_resource type="Texture2D" uid="uid://ba2mshuwwnfjb" path="res://Assets/Clock.png" id="9_lxnp4"]
+[ext_resource type="Texture2D" uid="uid://ccw6mo1dj46vr" path="res://Assets/pauseBtn.png" id="10_3isoh"]
+[ext_resource type="Texture2D" uid="uid://bub6gfa8qbxb4" path="res://Assets/pauseBtnPressed.png" id="11_2m1ct"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
+bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4544375, 0.24321279, 0.12652126, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkhq5"]
+bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4544375, 0.24321279, 0.12652126, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnp4"]
+bg_color = Color(0.5623196, 0.30976364, 0.17064321, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.28168488, 0.1410495, 0.06270617, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m1ct"]
+bg_color = Color(0.6289852, 0.35279956, 0.20231354, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.34257132, 0.17642987, 0.08419094, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxnp4"]
+font = ExtResource("8_nkhq5")
+font_size = 33
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpqku"]
+bg_color = Color(0.5457243, 0.29343867, 0.16450435, 0.7647059)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31732187, 0.16127923, 0.07871201, 0.7647059)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3isoh"]
+bg_color = Color(0.7903804, 0.45859563, 0.29210347, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4544375, 0.24321279, 0.12652126, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_2m1ct"]
+font_size = 19
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4h48"]
+font = ExtResource("8_nkhq5")
+font_size = 29
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xlsr"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpqku"]
+font = ExtResource("8_nkhq5")
+font_size = 24
+font_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="SidePanel" type="Control" parent="Ui"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(1, 0)
+size_flags_horizontal = 10
+size_flags_vertical = 3
+script = ExtResource("1_xwy8f")
+panel_width = 208.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Ui/SidePanel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 300.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Ui/SidePanel/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4h48")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.78
+texture = ExtResource("2_nkhq5")
+stretch_mode = 6
+script = ExtResource("3_lxnp4")
+building_scene = ExtResource("4_qpqku")
+
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Gebäude 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("5_3isoh")
+stretch_mode = 6
+script = ExtResource("3_lxnp4")
+building_scene = ExtResource("4_qpqku")
+
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Gebäude 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("6_2m1ct")
+stretch_mode = 6
+script = ExtResource("3_lxnp4")
+building_scene = ExtResource("4_qpqku")
+
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Bauernhof"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToggleButton" type="Button" parent="Ui/SidePanel"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 104.0
+offset_right = -5.0
+offset_bottom = 183.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkhq5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lxnp4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2m1ct")
+text = "< "
+
+[node name="InformationBoard" type="TextureRect" parent="Ui"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_bottom = 199.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("7_j4h48")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/InformationBoard"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 62.0
+offset_right = 193.0
+offset_bottom = 172.0
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer"]
+layout_mode = 2
+text = "Tag 1"
+label_settings = SubResource("LabelSettings_lxnp4")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MoneyPanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 30.0
+
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer/Panel"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 29.0
+text = "$"
+label_settings = SubResource("LabelSettings_2m1ct")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12"
+label_settings = SubResource("LabelSettings_j4h48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PeoplePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 30.0
+
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer/Panel"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 29.0
+text = "𖠋"
+label_settings = SubResource("LabelSettings_2m1ct")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12"
+label_settings = SubResource("LabelSettings_j4h48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TreePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 30.0
+
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer/Panel"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 29.0
+text = "𖠰"
+label_settings = SubResource("LabelSettings_2m1ct")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12"
+label_settings = SubResource("LabelSettings_j4h48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StonePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 30.0
+
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 29.0
+text = "ᨒ "
+label_settings = SubResource("LabelSettings_2m1ct")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12"
+label_settings = SubResource("LabelSettings_j4h48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Ui/InformationBoard"]
+z_index = -1
+layout_mode = 0
+offset_left = -79.0
+offset_top = 47.0
+offset_right = 23.0
+offset_bottom = 195.0
+texture = ExtResource("9_lxnp4")
+expand_mode = 1
+
+[node name="NamePanel" type="Control" parent="Ui"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -139.0
+offset_right = 641.0
+offset_bottom = -57.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel"]
+scale = Vector2(5, 5)
+color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+polygon = PackedVector2Array(117.799995, 0.19999695, 105, 8, 117.799995, 16.199997, -0.40000057, 16.199997, -0.40000057, 0.19999695)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel"]
+position = Vector2(21.840946, 6.1500244)
+scale = Vector2(4.60237, 4.2499995)
+color = Color(0.9882353, 0.69803923, 0.29411766, 1)
+polygon = PackedVector2Array(117.799995, 0.19999695, 105.84961, 7.9647064, 117.799995, 16.199997, -0.40000057, 16.199997, -0.39999962, 0.19999695, 58.527153, 0.19999695)
+
+[node name="Panel" type="Panel" parent="Ui/NamePanel"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -20.0
+offset_right = 83.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2xlsr")
+
+[node name="Label2" type="Label" parent="Ui/NamePanel"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -16.0
+offset_right = 202.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "König Mann aus Königreich Haupt"
+label_settings = SubResource("LabelSettings_qpqku")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Ui"]
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 55.0
+texture_normal = ExtResource("10_3isoh")
+texture_pressed = ExtResource("11_2m1ct")
+texture_hover = ExtResource("11_2m1ct")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Ui/SidePanel/ToggleButton" to="Ui/SidePanel" method="_on_ToggleButton_pressed"]
