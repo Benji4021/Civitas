@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfmarng3okcba"]
+
+[ext_resource type="Script" uid="uid://c1rtt7mpd16pa" path="res://Szenen/UI/pause.gd" id="1_lxac6"]
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="1_ynows"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxac6"]
+font = ExtResource("1_ynows")
+font_size = 100
+
+[node name="Pause" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+script = ExtResource("1_lxac6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -68.0
+offset_right = 81.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Halt"
+label_settings = SubResource("LabelSettings_lxac6")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_ynows")
+theme_override_font_sizes/font_size = 50
+text = "Fortfahren"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
