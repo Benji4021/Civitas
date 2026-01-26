@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_mqhw7"]
 [ext_resource type="Texture2D" uid="uid://dlftglse47jj2" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="3_msvcy"]
 [ext_resource type="Script" uid="uid://dwm86o2vfpgxl" path="res://Scripts/DragBuildingIcon.gd" id="3_t3yf8"]
-[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="4_1kenu"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestResHouse.tscn" id="4_1kenu"]
 [ext_resource type="Texture2D" uid="uid://dhdqdv5drxwjs" path="res://Assets/Buildings/Barn.png" id="4_hgidi"]
 
 [node name="MainUI" type="Control"]

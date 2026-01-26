@@ -4,6 +4,9 @@ var capacity := 5
 
 func _ready():
 	SignalBus.placed_resBuilding.connect(_on_placed)
+	
+func _init() -> void:
+	_on_placed()
 
 
 func _on_placed() -> void:
