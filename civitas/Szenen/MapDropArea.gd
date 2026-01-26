@@ -3,6 +3,9 @@ extends Control
 @export var ground_tilemap_path: NodePath = NodePath("../TileMapLayer")
 @export var houses_parent_path: NodePath = NodePath("../Houses")
 @export var obstacle_spawner_path: NodePath = NodePath("../ObstacleSpawner")
+@export var occupied_source_id: int = 0
+@export var occupied_atlas_coord: Vector2i = Vector2i(5, 0)
+@export var occupied_alt: int = 0
 
 @onready var ground = get_node_or_null(ground_tilemap_path)
 @onready var houses_parent: Node2D = get_node_or_null(houses_parent_path)
@@ -10,6 +13,7 @@ extends Control
 
 # Belegung: jedes Tile -> Hausnode
 var occupied: Dictionary = {} # Vector2i -> Node2D
+var original_ground: Dictionary = {} # Vector2i -> {"source":int, "atlas":Vector2i, "alt":int}
 
 # Ghost
 var ghost_node: Node2D = null
@@ -168,9 +172,37 @@ func _place_building(tiles: Array[Vector2i], data: Dictionary):
 
 	for t in tiles:
 		occupied[t] = inst
+		_set_ground_occupied(t, true)
 
 func _set_modulate_recursive(node: Node, col: Color) -> void:
 	if node is CanvasItem:
 		(node as CanvasItem).modulate = col
 	for c in node.get_children():
 		_set_modulate_recursive(c, col)
+
+func _save_ground_if_needed(tile: Vector2i) -> void:
+	if original_ground.has(tile):
+		return
+
+	# TileMapLayer / TileMap: Infos lesen
+	var src: int = ground.get_cell_source_id(tile)
+	var atlas: Vector2i = ground.get_cell_atlas_coords(tile)
+	var alt: int = 0
+	if ground.has_method("get_cell_alternative_tile"):
+		alt = ground.get_cell_alternative_tile(tile)
+
+	original_ground[tile] = {"source": src, "atlas": atlas, "alt": alt}
+
+
+func _set_ground_occupied(tile: Vector2i, on: bool) -> void:
+	if on:
+		_save_ground_if_needed(tile)
+		# Boden ersetzen
+		ground.set_cell(tile, occupied_source_id, occupied_atlas_coord, occupied_alt)
+	else:
+		# Boden zurücksetzen
+		if not original_ground.has(tile):
+			return
+		var info: Dictionary = original_ground[tile]
+		ground.set_cell(tile, int(info["source"]), info["atlas"], int(info["alt"]))
+		original_ground.erase(tile)
