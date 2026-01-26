@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene load_steps=7 format=3 uid="uid://ch274vq1gjtpm"]
 
 [ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_0bom8"]
 [ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_mqhw7"]

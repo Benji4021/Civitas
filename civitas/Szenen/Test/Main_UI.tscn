@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dfmarng3okcba" path="res://Szenen/UI/pause.tscn" id="2_dck8o"]
 [ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_nkhq5"]
 [ext_resource type="Script" path="res://Scripts/DragBuildingIcon.gd" id="3_lxnp4"]
-[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="4_qpqku"]
+[ext_resource type="PackedScene" uid="uid://bwcrspl1i5dsp" path="res://Szenen/Buildings/TestHouse.tscn" id="4_qpqku"]
 [ext_resource type="Texture2D" uid="uid://dlftglse47jj2" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="5_3isoh"]
 [ext_resource type="Texture2D" uid="uid://dhdqdv5drxwjs" path="res://Assets/Buildings/Barn.png" id="6_2m1ct"]
 [ext_resource type="Texture2D" uid="uid://dhkyokvo3mmc" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Board.png" id="7_j4h48"]
