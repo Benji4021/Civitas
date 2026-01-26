@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://bfv8blssad2ew"]
+[gd_scene load_steps=13 format=4 uid="uid://pcncyh8fdhq"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_p7my4"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/BuildingUI.tscn" id="2_vbxcm"]
+[ext_resource type="PackedScene" uid="uid://d4lquk604nt88" path="res://Szenen/Test/Main_UI.tscn" id="2_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_0ud6b"]
 [ext_resource type="Script" uid="uid://c0nlk0ggqgikl" path="res://Scripts/Global/Terrain_Generator.gd" id="4_org3e"]
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
@@ -452,6 +452,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("2_h4bth")
 
 [node name="MainUI" parent="Camera2D" instance=ExtResource("2_vbxcm")]
+z_index = 5
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
 z_index = 1
@@ -477,9 +478,10 @@ houses_parent_path = NodePath("../Houses")
 [node name="MapDropArea" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 73.0
-offset_top = 14.0
-offset_right = 698.0
-offset_bottom = 368.0
+offset_left = -1362.0
+offset_top = -780.0
+offset_right = 1173.0
+offset_bottom = 798.0
+mouse_filter = 1
 script = ExtResource("10_vbxcm")
 ground_tilemap_path = NodePath("")
