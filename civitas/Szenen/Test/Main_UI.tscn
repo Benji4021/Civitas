@@ -1,6 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene load_steps=25 format=3 uid="uid://77qt1jvdsb8f"]
 
+[ext_resource type="Script" uid="uid://csutwwvuh0kug" path="res://Szenen/Test/main_ui.gd" id="1_2xlsr"]
 [ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_xwy8f"]
+[ext_resource type="PackedScene" uid="uid://dfmarng3okcba" path="res://Szenen/UI/pause.tscn" id="2_dck8o"]
 [ext_resource type="Texture2D" uid="uid://bpr4orm8e6167" path="res://Assets/Buildings/Church.png" id="2_nkhq5"]
 [ext_resource type="Script" path="res://Scripts/DragBuildingIcon.gd" id="3_lxnp4"]
 [ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestHouse.tscn" id="4_qpqku"]
@@ -116,6 +118,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_2xlsr")
+pause_overlay_scene = ExtResource("2_dck8o")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
@@ -450,7 +454,7 @@ label_settings = SubResource("LabelSettings_qpqku")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="Ui"]
+[node name="PauseTextureButton" type="TextureButton" parent="Ui"]
 offset_left = 3.0
 offset_top = 5.0
 offset_right = 55.0
@@ -462,3 +466,4 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [connection signal="pressed" from="Ui/SidePanel/ToggleButton" to="Ui/SidePanel" method="_on_ToggleButton_pressed"]
+[connection signal="pressed" from="Ui/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]
