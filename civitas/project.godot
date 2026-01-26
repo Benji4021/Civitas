@@ -19,6 +19,7 @@ config/icon="res://Assets/icon.svg"
 
 Sound="*res://Szenen/sound.tscn"
 Globals="*res://Scripts/Global/Globals.gd"
+SignalBus="*res://Scripts/Global/SignalBus.gd"
 
 [input]
 

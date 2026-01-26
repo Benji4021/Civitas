@@ -20,3 +20,5 @@ script = ExtResource("4_b47o3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
 scale = Vector2(3.5, 5)
 shape = SubResource("RectangleShape2D_cwwtg")
+
+[connection signal="collect_resources" from="." to="." method="_on_collect_resources"]

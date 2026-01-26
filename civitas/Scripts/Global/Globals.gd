@@ -1,8 +1,29 @@
 extends Node
 
-var Ressources
-var Money
-var People
+var resources := 0
+var money := 0
+var population_capacity := 5
+var population := 5
+
+
+func _ready() -> void:
+	#Terrain
+	SignalBus.collect_resources.connect(_on_collect_resources)
+	
+	#Building
+	SignalBus.resBuilding_added.connect(_on_resBuilding_added)
+
+func _on_collect_resources(amount: int, source: Node) -> void:
+	resources += amount
+	print("Resources:", resources, " (+", amount, " from ", source.name, ")")
+
+func _on_resBuilding_added(amount: int, source: Node) -> void:
+	population_capacity += amount
+	print("Population capacity:", population_capacity, " (+", amount, " from ", source.name, ")")
+
+func _on_resBuilding_removed(amount: int, source: Node) -> void:
+	population_capacity -= amount
+	print("Population capacity:", population_capacity, " (-", amount, " from ", source.name, ")")
 
 # mit der kann man den Wert der Variablen von überall aus ändern
 func modify(var_name: String, amount: float) -> void:
