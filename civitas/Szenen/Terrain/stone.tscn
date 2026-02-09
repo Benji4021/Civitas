@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk2rdkiu3ymdr"]
+[gd_scene format=3 uid="uid://bk2rdkiu3ymdr"]
 
 [ext_resource type="Script" uid="uid://b78kl4jopxfcv" path="res://Scripts/stone.gd" id="1_c0tbk"]
 [ext_resource type="Texture2D" uid="uid://pma38q75x878" path="res://Assets/TopDownFantasy-Forest/Decorations/Rock.png" id="2_ql278"]
@@ -7,16 +7,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" unique_id=593867323]
 script = ExtResource("1_c0tbk")
 clock_popup_scene = ExtResource("2_ynly3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1596551948]
 texture = ExtResource("2_ql278")
 
-[node name="Clickable" type="Area2D" parent="."]
+[node name="Clickable" type="Area2D" parent="." unique_id=691280311]
+collision_layer = 2
 script = ExtResource("4_c0tbk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=888226083]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_cwwtg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rn2cxvngeeb8"]
+[gd_scene format=3 uid="uid://rn2cxvngeeb8"]
 
 [ext_resource type="Script" uid="uid://8sm317ds3nyt" path="res://Scripts/treesmall.gd" id="1_frcfb"]
 [ext_resource type="PackedScene" uid="uid://dp5nofyxxvub8" path="res://Szenen/Test/ClockPopup.tscn" id="2_egtdd"]
@@ -7,18 +7,19 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" unique_id=1172620269]
 z_as_relative = false
 y_sort_enabled = true
+collision_layer = 2
 script = ExtResource("1_frcfb")
 clock_popup_scene = ExtResource("2_egtdd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1949295228]
 texture = ExtResource("2_rj51l")
 
-[node name="Clickable" type="Area2D" parent="."]
+[node name="Clickable" type="Area2D" parent="." unique_id=1558458341]
 script = ExtResource("4_frcfb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=770273006]
 scale = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_cwwtg")

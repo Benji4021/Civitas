@@ -1,17 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://vwllfvx6nkwv"]
+[gd_scene format=3 uid="uid://vwllfvx6nkwv"]
 
 [ext_resource type="Script" uid="uid://dm5huoe867yxn" path="res://Scripts/residentialBuilding.gd" id="1_an2yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16us"]
 size = Vector2(49, 50)
 
-[node name="TestHouse" type="Node2D"]
+[node name="TestHouse" type="Node2D" unique_id=39685666]
 script = ExtResource("1_an2yy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=789869768]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlacementArea" type="Area2D" parent="." unique_id=1520655712]
+collision_layer = 4
+collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(14.5, 15)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea" unique_id=1035011282]
 shape = SubResource("RectangleShape2D_u16us")

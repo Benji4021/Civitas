@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2gjndsdup4kr"]
+[gd_scene format=3 uid="uid://d2gjndsdup4kr"]
 
 [ext_resource type="Script" uid="uid://cysg32kfg6kca" path="res://Scripts/treebig.gd" id="1_b47o3"]
 [ext_resource type="Texture2D" uid="uid://1ym1yi2jlbkc" path="res://Assets/TopDownFantasy-Forest/Decorations/Big_tree_grass.png" id="1_s53wf"]
@@ -7,18 +7,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" unique_id=811634255]
 script = ExtResource("1_b47o3")
 clock_popup_scene = ExtResource("2_r25ew")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095356743]
 texture = ExtResource("1_s53wf")
 
-[node name="Clickable" type="Area2D" parent="."]
+[node name="Clickable" type="Area2D" parent="." unique_id=1202545670]
+collision_layer = 2
 script = ExtResource("4_b47o3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=1096967515]
 scale = Vector2(3.5, 5)
 shape = SubResource("RectangleShape2D_cwwtg")
-
-[connection signal="collect_resources" from="." to="." method="_on_collect_resources"]
