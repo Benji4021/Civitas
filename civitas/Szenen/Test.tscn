@@ -452,6 +452,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("2_h4bth")
 
 [node name="MainUI" parent="Camera2D" instance=ExtResource("2_vbxcm")]
+visible = false
 z_index = 5
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
