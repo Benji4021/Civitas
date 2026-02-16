@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwtg"]
 
 [node name="Tree" type="Area2D"]
+z_index = 1
 script = ExtResource("1_b47o3")
 clock_popup_scene = ExtResource("2_r25ew")
 
