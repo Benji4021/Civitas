@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwxes76jrfp5s"]
+[gd_scene format=3 uid="uid://cwxes76jrfp5s"]
 
+[ext_resource type="Script" uid="uid://oc7g5ttnpm3n" path="res://Szenen/UI/nennen.gd" id="1_b6sj6"]
 [ext_resource type="Texture2D" uid="uid://c6es6fu2cpaa4" path="res://Assets/Banner.png" id="1_swpei"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_b6sj6"]
 
@@ -11,15 +12,55 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swpei"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Benennung" type="Control"]
+[sub_resource type="FontVariation" id="FontVariation_b6sj6"]
+base_font = ExtResource("2_b6sj6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrdxe"]
+bg_color = Color(0.96862745, 0.90588236, 0.8039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3xxv"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uwdy"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_voapw"]
+
+[node name="Benennung" type="Control" unique_id=764531355]
+visibility_layer = 524288
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b6sj6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1252595787]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1939377147]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_swpei")
 
-[node name="Label" type="Label" parent="Panel/TextureRect"]
+[node name="Label" type="Label" parent="Panel/TextureRect" unique_id=1963533108]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,12 +94,12 @@ offset_right = 330.0
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Praxis text lalalallalaalalalalalalallalalala Praxis text lalalallalala Praxi"
+text = "Praxis Text"
 label_settings = SubResource("LabelSettings_nrdxe")
 horizontal_alignment = 1
 autowrap_mode = 1
 
-[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect"]
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect" unique_id=964520654]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,9 +122,35 @@ placeholder_text = "Name eingeben"
 alignment = 1
 max_length = 20
 
-[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/LineEdit"]
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/LineEdit" unique_id=1771528060]
 layout_mode = 0
 offset_top = 57.0
 offset_right = 334.0
 offset_bottom = 61.0
 color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=459342717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = 176.0
+offset_right = 103.5
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_b6sj6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrdxe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3xxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6uwdy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_voapw")
+text = "Speichern"
