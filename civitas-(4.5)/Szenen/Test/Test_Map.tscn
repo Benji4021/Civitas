@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dovh0uawxtad8"]
+
+[ext_resource type="Texture2D" uid="uid://bolahm2gd76y3" path="res://Assets/Grass.png" id="1_5km3n"]
+[ext_resource type="PackedScene" uid="uid://hyyfqjmdkrqb" path="res://Szenen/Test/Test_Sidebar.tscn" id="2_nqax0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5km3n"]
+texture = ExtResource("1_5km3n")
+
+[sub_resource type="TileSet" id="TileSet_nqax0"]
+sources/0 = SubResource("TileSetAtlasSource_5km3n")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_nqax0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_nqax0")]

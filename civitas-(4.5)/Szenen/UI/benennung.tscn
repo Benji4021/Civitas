@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwxes76jrfp5s"]
+
+[ext_resource type="Texture2D" uid="uid://c6es6fu2cpaa4" path="res://Assets/Banner.png" id="1_swpei"]
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_b6sj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrdxe"]
+font = ExtResource("2_b6sj6")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swpei"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Benennung" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -49.0
+offset_right = 4.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_swpei")
+
+[node name="Label" type="Label" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -132.5
+offset_right = 330.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Praxis text lalalallalaalalalalalalallalalala Praxis text lalalallalala Praxi"
+label_settings = SubResource("LabelSettings_nrdxe")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -15.5
+offset_right = 148.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b6sj6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_swpei")
+placeholder_text = "Name eingeben"
+alignment = 1
+max_length = 20
+
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/LineEdit"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 334.0
+offset_bottom = 61.0
+color = Color(0, 0, 0, 1)
