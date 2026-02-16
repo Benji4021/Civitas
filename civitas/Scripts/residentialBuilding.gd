@@ -1,12 +1,12 @@
 extends Node
 
-@export var capacity: int = 5
+var capacity := 5
 
-func on_placed() -> void:
-	SignalBus.resBuilding_added.emit(capacity, self)
-
-func on_removed() -> void:
-	SignalBus.resBuilding_removed.emit(capacity, self)
+func _ready():
+	SignalBus.placed_resBuilding.connect(_on_placed)
+	
+func _init() -> void:
+	_on_placed()
 
 
 func _on_placed() -> void:
