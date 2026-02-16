@@ -38,12 +38,10 @@ func _on_pause_texture_button_pressed():
 	if pause_overlay_instance != null:
 		return
 
-	# CanvasLayer erstellen
 	pause_layer = CanvasLayer.new()
-	pause_layer.layer = 100  # hoch genug → über ALLEM
+	pause_layer.layer = 10
 
 	add_child(pause_layer)
-	# Pause Overlay instanziieren
 	pause_overlay_instance = pause_overlay_scene.instantiate()
 	pause_layer.add_child(pause_overlay_instance)
 

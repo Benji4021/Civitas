@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr43ht7nofsh4"
-path="res://.godot/imported/MediavelFree - Board.png-4135f8116dac67f1abe27533b2b55baa.ctex"
+uid="uid://bomlrsssq7jmd"
+path="res://.godot/imported/MediavelFree - Info.png-4d253721de2e08eec33e72226805eee9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Board.png"
-dest_files=["res://.godot/imported/MediavelFree - Board.png-4135f8116dac67f1abe27533b2b55baa.ctex"]
+source_file="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Info.png"
+dest_files=["res://.godot/imported/MediavelFree - Info.png-4d253721de2e08eec33e72226805eee9.ctex"]
 
 [params]
 

@@ -1,5 +1,10 @@
 extends Node
 
+var ruler_name: String = ""
+var kingdom_name: String = ""
+
+var input_locked := false
+
 var lumber := 0
 var stone := 0
 var money := 0
