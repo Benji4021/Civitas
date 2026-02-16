@@ -1,12 +1,17 @@
 extends Area2D
 class_name Terrain
 
+var rng = RandomNumberGenerator.new()
+
 @export var clock_popup_scene: PackedScene
 @export var resource_type: String = "lumber"
 
 var removal_time := 2.0
 var clicked := false
-var drop_amount := 5
+
+var drop_amount_min := 5
+var drop_amount_max := 10
+var drop_amount
 
 
 func _ready():
@@ -24,6 +29,7 @@ func _on_bus_terrain_clicked(t: Node) -> void:
 
 
 func _handle_click():
+	drop_amount = rng.randf_range(drop_amount_min, drop_amount_max)
 	print("Collected:", drop_amount, resource_type)
 
 	if clock_popup_scene:
