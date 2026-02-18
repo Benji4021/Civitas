@@ -2,207 +2,268 @@ extends Control
 
 @export var ground_tilemap_path: NodePath = NodePath("../TileMapLayer")
 @export var houses_parent_path: NodePath = NodePath("../Houses")
-@export var obstacle_spawner_path: NodePath = NodePath("../ObstacleSpawner")
+
+# Boden ersetzen
 @export var occupied_source_id: int = 0
 @export var occupied_atlas_coord: Vector2i = Vector2i(5, 0)
 @export var occupied_alt: int = 0
 
-@onready var ground = get_node_or_null(ground_tilemap_path)
+# Collision Mask: Obstacles=Layer2, Buildings=Layer3
+@export var placement_block_mask: int = (1 << 0) | (1 << 1)
+
+@onready var ground: TileMapLayer = get_node_or_null(ground_tilemap_path)
 @onready var houses_parent: Node2D = get_node_or_null(houses_parent_path)
-@onready var obstacle_spawner = get_node_or_null(obstacle_spawner_path)
 
-# Belegung: jedes Tile -> Hausnode
-var occupied: Dictionary = {} # Vector2i -> Node2D
-var original_ground: Dictionary = {} # Vector2i -> {"source":int, "atlas":Vector2i, "alt":int}
-
-# Ghost
-var ghost_node: Node2D = null
 var dragging_data: Dictionary = {}
 
-func _ready():
+# Ghost Instanz (vom gleichen PackedScene wie das Building)
+var ghost: Node2D = null
+var ghost_area: Area2D = null
+var ghost_shape: Shape2D = null
+var ghost_cs: CollisionShape2D = null
+var ghost_scene_path: String = ""
+
+# Tile-Status (nur für Textur)
+var occupied_tiles: Dictionary = {}
+var original_ground: Dictionary = {}
+
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+
 	if ground == null:
-		push_error("MapDropArea: ground_tilemap_path falsch (z.B. ../TileMapLayer)")
-		return
+		push_error("MapDropArea: ground_tilemap_path falsch / TileMapLayer nicht gefunden.")
 	if houses_parent == null:
-		push_error("MapDropArea: houses_parent_path falsch (z.B. ../Houses)")
+		push_error("MapDropArea: houses_parent_path falsch / Houses nicht gefunden.")
+
+func _process(_delta: float) -> void:
+	if ground == null or houses_parent == null:
+		return
+	if ghost == null or dragging_data.is_empty():
 		return
 
-func _process(_delta):
-	if dragging_data.is_empty() or ghost_node == null or ground == null:
-		if ghost_node != null:
-			ghost_node.visible = false
-		return
+	# Ghost snappen
+	var origin := _origin_under_mouse(dragging_data)
+	ghost.global_position = _tile_to_global(origin)
 
-	var global_pos: Vector2 = get_global_mouse_position()
-	var origin_tile: Vector2i = _global_to_tile(global_pos)
+	# Ghost Kollision -> rot/grün
+	var blocked := _ghost_collides()
+	_set_modulate_recursive(ghost, Color(1, 0.25, 0.25, 0.55) if blocked else Color(1, 1, 1, 0.55))
 
-	var fp: Vector2i = dragging_data.get("footprint", Vector2i.ONE)
-	var tiles: Array[Vector2i] = _get_footprint_tiles(origin_tile, fp)
-
-	ghost_node.global_position = _footprint_center_global(tiles)
-
-	var can_place: bool = not _is_blocked_tiles(tiles)
-	var col := Color(1,1,1,0.55) if can_place else Color(1,0.25,0.25,0.55)
-	_set_modulate_recursive(ghost_node, col)
-
+	# Drag abgebrochen
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		dragging_data.clear()
-		ghost_node.visible = false
+		_clear_drag()
 
-func _can_drop_data(_pos, data):
+# -------------------------
+# Drag & Drop
+# -------------------------
+func _can_drop_data(_pos: Vector2, data) -> bool:
 	var ok: bool = typeof(data) == TYPE_DICTIONARY \
 		and data.get("type") == "building" \
-		and data.get("scene") is PackedScene
+		and (data.get("scene") is PackedScene)
 
-	if ok:
-		dragging_data = data.duplicate(true)
+	if not ok:
+		return false
 
-		# Ghost erstellen / ersetzen wenn anderes Gebäude
-		var scene: PackedScene = dragging_data["scene"] as PackedScene
+	dragging_data = (data as Dictionary).duplicate(true)
+	_make_or_update_ghost(dragging_data)
+	return true
 
-		if ghost_node == null or ghost_node.get_meta("scene_id") != scene.resource_path:
-			if ghost_node != null:
-				ghost_node.queue_free()
+func _drop_data(_pos: Vector2, data) -> void:
+	if ghost == null:
+		return
+	if _ghost_collides():
+		print("LOCKED BY COLLISION -> no placement")
+		return
 
-			ghost_node = scene.instantiate()
-			ghost_node.set_meta("scene_id", scene.resource_path)
-			houses_parent.add_child(ghost_node)
-			ghost_node.z_as_relative = false
-			ghost_node.z_index = 9999
+	var payload := (data as Dictionary).duplicate(true)
 
-		# gleiche Daten wie beim echten Haus anwenden
-		if ghost_node.has_method("apply_data"):
-			ghost_node.apply_data(dragging_data)
-		elif ghost_node.has_node("Sprite2D") and dragging_data.has("world_texture"):
-			var spr: Sprite2D = ghost_node.get_node("Sprite2D")
-			spr.texture = dragging_data["world_texture"]
+	var origin := _origin_under_mouse(payload)
+	var tiles := _get_tiles(origin, payload)
 
-		_set_modulate_recursive(ghost_node, Color(1,1,1,0.55))
-		ghost_node.visible = true
+	_place_building(origin, tiles, payload)
+	_clear_drag()
 
-	return ok
-
-func _drop_data(_pos, data):
+func _clear_drag() -> void:
 	dragging_data.clear()
-	if ghost_node != null:
-		ghost_node.visible = false
+	if ghost != null:
+		ghost.visible = false
 
-	if typeof(data) != TYPE_DICTIONARY:
+# -------------------------
+# Ghost creation (ohne ensure_ghost_for name)
+# -------------------------
+func _make_or_update_ghost(data: Dictionary) -> void:
+	var scene: PackedScene = data.get("scene")
+	if scene == null:
 		return
 
-	var payload: Dictionary = data.duplicate(true)  # <- COPY
+	var path := scene.resource_path
+	var need_new := (ghost == null) or (ghost_scene_path != path)
 
-	print("DROP keys:", payload.keys())
+	if need_new:
+		if ghost != null:
+			ghost.queue_free()
 
-	if not payload.has("scene") or not (payload["scene"] is PackedScene):
-		push_error("DROP: scene fehlt/ist falsch. Keys: " + str(payload.keys()))
-		return
+		ghost = scene.instantiate() as Node2D
+		ghost_scene_path = path
+		houses_parent.add_child(ghost)
 
-	dragging_data.clear()
-	ghost_node.visible = false
+		ghost.z_as_relative = false
+		ghost.z_index = 200
+		ghost.visible = true
 
-	var global_pos: Vector2 = get_global_mouse_position()
-	var origin_tile: Vector2i = _global_to_tile(global_pos)
+		ghost_area = ghost.get_node_or_null("PlacementArea") as Area2D
+		if ghost_area == null:
+			push_error("Building Scene braucht PlacementArea (Area2D) als Child!")
+			ghost.visible = false
+			return
 
-	var fp: Vector2i = payload.get("footprint", Vector2i.ONE)
-	var tiles: Array[Vector2i] = _get_footprint_tiles(origin_tile, fp)
+		ghost_cs = ghost_area.get_node_or_null("CollisionShape2D") as CollisionShape2D
+		if ghost_cs == null or ghost_cs.shape == null:
+			push_error("PlacementArea braucht CollisionShape2D mit Shape!")
+			ghost.visible = false
+			return
 
-	if _is_blocked_tiles(tiles):
-		return
+		ghost_shape = ghost_cs.shape
 
-	_place_building(tiles, payload)  # <- payload verwenden!
+		# Ghost soll alles blockierende sehen
+		ghost_area.monitoring = true
+		ghost_area.monitorable = true
+
+	# Visuals anwenden (Texture etc.)
+	_apply_visuals(ghost, data)
+	ghost.visible = true # <-- WICHTIG
+	_set_modulate_recursive(ghost, Color(1, 1, 1, 0.55))
 
 
-# -----------------------
-# Tile / Iso Helpers
-# -----------------------
+# -------------------------
+# Collision check (SOFORT korrekt)
+# -------------------------
+func _ghost_collides() -> bool:
+	if ghost == null or ghost_area == null or ghost_cs == null or ghost_shape == null:
+		return true
 
-func _global_to_tile(global_pos: Vector2) -> Vector2i:
-	var local_in_ground: Vector2 = ground.to_local(global_pos)
-	return ground.local_to_map(local_in_ground)
+	var params := PhysicsShapeQueryParameters2D.new()
+	params.shape = ghost_shape
+	params.transform = ghost_cs.global_transform
+	params.collide_with_areas = true
+	params.collide_with_bodies = true
+	params.collision_mask = placement_block_mask
 
-func _tile_to_global(tile: Vector2i) -> Vector2:
-	var local: Vector2 = ground.map_to_local(tile)
-	return ground.to_global(local)
+	# Ghost selbst ignorieren (Area RID reicht hier)
+	params.exclude = [ghost_area.get_rid()]
 
-# -----------------------
-# Footprint Helpers
-# -----------------------
+	var hits: Array[Dictionary] = get_world_2d().direct_space_state.intersect_shape(params, 32)
 
-func _get_footprint_tiles(origin: Vector2i, footprint: Vector2i) -> Array[Vector2i]:
-	var tiles: Array[Vector2i] = []
-	for y in range(footprint.y):
-		for x in range(footprint.x):
-			tiles.append(origin + Vector2i(x, y))
-	return tiles
+	for hit: Dictionary in hits:
+		var v = hit.get("collider") # Variant
+		if v == null:
+			continue
 
-func _footprint_center_global(tiles: Array[Vector2i]) -> Vector2:
-	var sum: Vector2 = Vector2.ZERO
-	for t in tiles:
-		sum += _tile_to_global(t)
-	return sum / max(1, tiles.size())
+		# Collider kann Area2D oder PhysicsBody2D sein
+		if v is CollisionObject2D:
+			var co: CollisionObject2D = v as CollisionObject2D
 
-func _is_blocked_tiles(tiles: Array[Vector2i]) -> bool:
-	for t in tiles:
-		if occupied.has(t):
-			return true
-		if obstacle_spawner != null and obstacle_spawner.has_method("is_tile_blocked"):
-			if obstacle_spawner.is_tile_blocked(t):
+			# 1) Gruppen am Collider selbst
+			if co.is_in_group("obstacle") or co.is_in_group("building"):
 				return true
+
+			# 2) Gruppen am Parent (häufiger Fall!)
+			var p := co.get_parent()
+			if p != null and (p.is_in_group("obstacle") or p.is_in_group("building")):
+				return true
+
+			# 3) Optional: alles was auf blockierender Maske ist, blockt sowieso
+			# (Wenn du Gruppen nicht 100% sauber pflegen willst, kannst du hier direkt true machen)
+			return true
+
 	return false
 
-# -----------------------
+
+# -------------------------
 # Placement
-# -----------------------
+# -------------------------
+func _place_building(origin: Vector2i, tiles: Array[Vector2i], data: Dictionary) -> void:
+	var scene: PackedScene = data.get("scene")
+	if scene == null:
+		return
 
-func _place_building(tiles: Array[Vector2i], data: Dictionary):
-	var scene: PackedScene = data["scene"] as PackedScene
-	var inst: Node2D = scene.instantiate()
-
-	inst.global_position = _footprint_center_global(tiles)
+	var inst := scene.instantiate() as Node2D
+	inst.global_position = _tile_to_global(origin)
 	inst.z_index = 100
-
-	if inst.has_method("apply_data"):
-		inst.apply_data(data)
-	elif inst.has_node("Sprite2D") and data.has("world_texture"):
-		var spr: Sprite2D = inst.get_node("Sprite2D")
-		spr.texture = data["world_texture"]
-
 	houses_parent.add_child(inst)
 
+	_apply_visuals(inst, data)
+
+	# optional: nur beim echten Haus Event
+	if inst.has_method("on_placed"):
+		inst.call("on_placed")
+
 	for t in tiles:
-		occupied[t] = inst
 		_set_ground_occupied(t, true)
+
+# -------------------------
+# Iso Grid Helpers
+# -------------------------
+func _global_to_tile(pos: Vector2) -> Vector2i:
+	if ground == null:
+		return Vector2i.ZERO
+	return ground.local_to_map(ground.to_local(pos))
+
+func _tile_to_global(tile: Vector2i) -> Vector2:
+	if ground == null:
+		return Vector2.ZERO
+	return ground.to_global(ground.map_to_local(tile))
+
+func _origin_under_mouse(data: Dictionary) -> Vector2i:
+	var mouse_tile := _global_to_tile(get_global_mouse_position())
+	var fp: Vector2i = data.get("footprint", Vector2i.ONE)
+	return Vector2i(
+		mouse_tile.x - int((fp.x - 1) / 2),
+		mouse_tile.y - int((fp.y - 1) / 2)
+	)
+
+func _get_tiles(origin: Vector2i, data: Dictionary) -> Array[Vector2i]:
+	var fp: Vector2i = data.get("footprint", Vector2i.ONE)
+	var arr: Array[Vector2i] = []
+	for y in range(fp.y):
+		for x in range(fp.x):
+			arr.append(origin + Vector2i(x, y))
+	return arr
+
+# -------------------------
+# Tile replace
+# -------------------------
+func _set_ground_occupied(tile: Vector2i, on: bool) -> void:
+	if on:
+		if not original_ground.has(tile):
+			original_ground[tile] = {
+				"source": ground.get_cell_source_id(tile),
+				"atlas": ground.get_cell_atlas_coords(tile),
+				"alt": ground.get_cell_alternative_tile(tile)
+			}
+		ground.set_cell(tile, occupied_source_id, occupied_atlas_coord, occupied_alt)
+		occupied_tiles[tile] = true
+	else:
+		if not original_ground.has(tile):
+			return
+		var info = original_ground[tile]
+		ground.set_cell(tile, info["source"], info["atlas"], info["alt"])
+		original_ground.erase(tile)
+		occupied_tiles.erase(tile)
+
+# -------------------------
+# Visual Helpers
+# -------------------------
+func _apply_visuals(inst: Node2D, data: Dictionary) -> void:
+	if inst.has_method("apply_data"):
+		inst.call("apply_data", data)
+	elif inst.has_node("Sprite2D") and data.has("world_texture"):
+		var spr := inst.get_node("Sprite2D")
+		if spr is Sprite2D:
+			(spr as Sprite2D).texture = data["world_texture"]
 
 func _set_modulate_recursive(node: Node, col: Color) -> void:
 	if node is CanvasItem:
 		(node as CanvasItem).modulate = col
 	for c in node.get_children():
 		_set_modulate_recursive(c, col)
-
-func _save_ground_if_needed(tile: Vector2i) -> void:
-	if original_ground.has(tile):
-		return
-
-	# TileMapLayer / TileMap: Infos lesen
-	var src: int = ground.get_cell_source_id(tile)
-	var atlas: Vector2i = ground.get_cell_atlas_coords(tile)
-	var alt: int = 0
-	if ground.has_method("get_cell_alternative_tile"):
-		alt = ground.get_cell_alternative_tile(tile)
-
-	original_ground[tile] = {"source": src, "atlas": atlas, "alt": alt}
-
-
-func _set_ground_occupied(tile: Vector2i, on: bool) -> void:
-	if on:
-		_save_ground_if_needed(tile)
-		# Boden ersetzen
-		ground.set_cell(tile, occupied_source_id, occupied_atlas_coord, occupied_alt)
-	else:
-		# Boden zurücksetzen
-		if not original_ground.has(tile):
-			return
-		var info: Dictionary = original_ground[tile]
-		ground.set_cell(tile, int(info["source"]), info["atlas"], int(info["alt"]))
-		original_ground.erase(tile)
