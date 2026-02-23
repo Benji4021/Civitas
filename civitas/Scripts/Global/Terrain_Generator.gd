@@ -4,15 +4,15 @@ extends Node2D
 @export var spawn_counts: Array[int] = [600, 600, 400, 450]
 
 # Gesamtfläche wo gespawnt werden darf
-@export var spawn_area_size := Vector2(800, 590)
+@export var spawn_area_size := Vector2(2200, 1500) #800,590
 
 # Bereich in der Mitte wo NICHT gespawnt wird (Startscreen)
 @export var startscreen_size := Vector2(300, 200)
 
 # Spawn-Einstellungen für Animation
-@export var spawn_duration: float = 3.0  # Wie lange der gesamte Spawn-Vorgang dauert
-@export var max_spawns_per_frame: int = 5  # Max. Bäume pro Frame für Performance
-@export var spawn_delay_per_row: float = 0.01  # Verzögerung zwischen Y-Reihen
+@export var spawn_duration: float = 0.5  # Wie lange der gesamte Spawn-Vorgang dauert
+@export var max_spawns_per_frame: int = 20  # Max. Bäume pro Frame für Performance
+@export var spawn_delay_per_row: float = 0.001  # Verzögerung zwischen Y-Reihen
 
 # Tiles die aktuell blockiert sind
 var blocked_tiles: Dictionary = {}
