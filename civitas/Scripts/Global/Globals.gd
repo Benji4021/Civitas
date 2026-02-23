@@ -5,9 +5,9 @@ var kingdom_name: String = ""
 
 var input_locked := false
 
-var lumber := 0
-var stone := 0
-var money := 0
+var lumber := 50
+var stone := 50
+var money := 50
 
 var population_capacity := 5
 var population := 5
