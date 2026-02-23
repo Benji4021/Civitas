@@ -9,6 +9,8 @@ var pause_layer: CanvasLayer = null
 @onready var stone_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Label
 @onready var population_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer/Label
 @onready var money_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer/Label
+@onready var king_label: Label = $Ui/NamePanel/Label2
+
 
 func _ready():
 	SignalBus.resource_changed.connect(_on_resource_changed)
@@ -17,7 +19,10 @@ func _ready():
 	_update_resource("stone", Globals.stone)
 	_update_resource("population", Globals.population)
 	_update_resource("money", Globals.money)
-
+	
+func _process(delta):
+	if Globals.ruler_name != "" && Globals.kingdom_name != "":
+		king_label.text = "Herrscher " + Globals.ruler_name + " aus Königreich " + Globals.kingdom_name
 
 func _on_resource_changed(resource_type: String, new_value: int) -> void:
 	_update_resource(resource_type, new_value)
@@ -52,3 +57,7 @@ func _on_resume():
 	pause_layer.queue_free()
 	pause_layer = null
 	pause_overlay_instance = null
+
+
+func _on_ben_rater_btn_pressed():
+	get_tree().change_scene_to_file("res://Szenen/UI/book.tscn")

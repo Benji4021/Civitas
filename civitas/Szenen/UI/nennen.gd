@@ -6,6 +6,9 @@ extends Control
 
 var phase := "ruler"
 
+func _ready():
+	name_input.max_length = 20
+
 func start_ruler_naming():
 	Globals.input_locked = true
 	phase = "ruler"
@@ -22,8 +25,7 @@ func start_kingdom_naming():
 	visible = true
 	name_input.grab_focus()
 
-
-func _on_ConfirmButton_pressed():
+func _on_button_pressed():
 	var entered_name : String = name_input.text.strip_edges()
 	if entered_name == "":
 		return

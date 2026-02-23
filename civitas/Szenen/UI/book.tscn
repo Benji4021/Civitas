@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://d1qj1lwrtcq1q"]
+
+[ext_resource type="Script" uid="uid://rgeel6icth73" path="res://Szenen/UI/book.gd" id="1_cu8fe"]
+[ext_resource type="Texture2D" uid="uid://dhmaeofd3d0ds" path="res://Assets/Oben Book.png" id="1_vqtwo"]
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_nbvwd"]
+[ext_resource type="Texture2D" uid="uid://8p6d3fnblrsn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close.png" id="3_f2kok"]
+[ext_resource type="Texture2D" uid="uid://dxffr5ujtqcm7" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close - pressed.png" id="4_ipspw"]
+[ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="5_k3urr"]
+[ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="6_cu8fe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2kok"]
+font = ExtResource("2_nbvwd")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3urr"]
+font = ExtResource("2_nbvwd")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
+[node name="Book" type="Control" unique_id=468490110]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cu8fe")
+
+[node name="Panel" type="Panel" parent="." unique_id=1702653645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=943030756]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -638.0
+offset_top = -371.0
+offset_right = 617.0
+offset_bottom = 346.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vqtwo")
+expand_mode = 1
+
+[node name="Statistiken" type="CanvasLayer" parent="Panel/TextureRect" unique_id=289243393]
+
+[node name="Label" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1764859155]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -223.0
+offset_right = -25.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Statistiken"
+label_settings = SubResource("LabelSettings_f2kok")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1243658828]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = -157.0
+offset_right = -45.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Häuser-Anzahl:
+	Wohnhaus: 1
+Holzhackerei:  2
+Steinhackerei: 3
+Fabrik: 4
+Bank: 5
+"
+label_settings = SubResource("LabelSettings_k3urr")
+horizontal_alignment = 3
+autowrap_mode = 1
+
+[node name="Label3" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=800039223]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -173.0
+offset_right = 403.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Abbauzeiten: 
+Stein: 5s
+Holz: 10s
+
+Ressourcen:
+Holz: 100
+Stein: 500
+Geld: 160
+Bevölkerung: 11"
+label_settings = SubResource("LabelSettings_k3urr")
+horizontal_alignment = 3
+autowrap_mode = 1
+
+[node name="CloseBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=465595761]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98100007
+anchor_right = 1.0
+anchor_bottom = 0.024
+offset_left = -177.15503
+offset_top = 96.0
+offset_right = -185.25
+offset_bottom = 95.042
+grow_horizontal = 0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_f2kok")
+texture_pressed = ExtResource("4_ipspw")
+texture_hover = ExtResource("3_f2kok")
+texture_disabled = ExtResource("3_f2kok")
+stretch_mode = 3
+
+[node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.827
+anchor_top = 0.813
+anchor_right = 0.827
+anchor_bottom = 0.813
+offset_left = -30.88501
+offset_top = -26.92102
+offset_right = -10.551758
+offset_bottom = -8.9210205
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_k3urr")
+texture_pressed = ExtResource("6_cu8fe")
+texture_hover = ExtResource("5_k3urr")
+texture_disabled = ExtResource("5_k3urr")
+stretch_mode = 3
+
+[node name="PreviousBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=767241354]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 556.0
+offset_right = 293.33325
+offset_bottom = 574.0
+scale = Vector2(-3, 3)
+texture_normal = ExtResource("5_k3urr")
+texture_pressed = ExtResource("6_cu8fe")
+texture_hover = ExtResource("5_k3urr")
+texture_disabled = ExtResource("5_k3urr")
+stretch_mode = 3
+
+[connection signal="pressed" from="Panel/TextureRect/CloseBtn" to="." method="_on_close_btn_pressed"]
