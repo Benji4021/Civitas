@@ -2,13 +2,12 @@ extends Node2D
 
 @onready var benennung = $CanvasLayer/Benennung
 
-var ruler_named := false
-var kingdom_named := false
-
 func _ready():
-	if not ruler_named and not kingdom_named:
+	benennung.visible = false
+	if Globals.ruler_name == "" and Globals.kingdom_name == "":
 		benennung.visible = true
 		benennung.start_ruler_naming()
 		Globals.input_locked = true
 	else:
+		benennung.visible = false
 		Globals.input_locked = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwxes76jrfp5s"]
 
 [ext_resource type="Script" uid="uid://oc7g5ttnpm3n" path="res://Szenen/UI/nennen.gd" id="1_b6sj6"]
-[ext_resource type="Texture2D" uid="uid://c6es6fu2cpaa4" path="res://Assets/Banner.png" id="1_swpei"]
+[ext_resource type="Texture2D" uid="uid://dwwwkcknqmrrp" path="res://Assets/Banner.png" id="1_swpei"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_b6sj6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nrdxe"]
@@ -50,7 +50,7 @@ shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_voapw"]
 
-[node name="Benennung" type="Control" unique_id=764531355]
+[node name="Benennung" type="Control" unique_id=764531355 groups=["benennung_ui"]]
 visibility_layer = 524288
 layout_mode = 3
 anchors_preset = 15
@@ -70,13 +70,15 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1939377147]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -49.0
-offset_right = 4.0
-offset_bottom = 122.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -196.0
+offset_right = 443.0
+offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_swpei")
@@ -89,9 +91,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -336.0
-offset_top = -132.5
+offset_top = -99.5
 offset_right = 330.0
-offset_bottom = 38.5
+offset_bottom = 66.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Praxis Text"
@@ -107,9 +109,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = -15.5
+offset_top = -22.5
 offset_right = 148.0
-offset_bottom = 15.5
+offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -139,7 +141,7 @@ anchor_bottom = 0.5
 offset_left = -103.5
 offset_top = 176.0
 offset_right = 103.5
-offset_bottom = 227.0
+offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -154,3 +156,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_x3xxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6uwdy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_voapw")
 text = "Speichern"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,7 +4,7 @@ extends Node2D
 @export var spawn_counts: Array[int] = [600, 600, 400, 450]
 
 # Gesamtfläche wo gespawnt werden darf
-@export var spawn_area_size := Vector2(800, 590)
+@export var spawn_area_size := Vector2(2200, 1500)
 
 # Bereich in der Mitte wo NICHT gespawnt wird (Startscreen)
 @export var startscreen_size := Vector2(300, 200)
