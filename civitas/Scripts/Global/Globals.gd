@@ -5,12 +5,13 @@ var kingdom_name: String = ""
 
 var input_locked := false
 
-var lumber := 0
-var stone := 0
-var money := 0
+var lumber := 50
+var stone := 50
+var money := 50
 
-var population_capacity := 5
 var population := 5
+
+var currently_farming_wood := 0
 
 
 func _ready() -> void:
@@ -32,13 +33,13 @@ func _on_collect_resources(resource_type: String, amount: int, source: Node) -> 
 
 
 func _on_resBuilding_added(amount: int, source: Node) -> void:
-	population_capacity += amount
-	print("Population capacity:", population_capacity, "(+", amount, " from ", source.name, ")")
+	population += amount
+	print("Population:", population, "(+", amount, " from ", source.name, ")")
 
 
 func _on_resBuilding_removed(amount: int, source: Node) -> void:
-	population_capacity -= amount
-	print("Population capacity:", population_capacity, "(-", amount, " from ", source.name, ")")
+	population -= amount
+	print("Population:", population, "(-", amount, " from ", source.name, ")")
 
 func modify(var_name: String, amount: float) -> void:
 	if not has_variable(var_name):
