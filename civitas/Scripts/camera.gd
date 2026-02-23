@@ -28,6 +28,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if Globals.input_locked:
+		return
+
 	# WASD / Pfeiltasten Bewegung (Input-Actions siehe weiter unten)
 	var input_dir = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),

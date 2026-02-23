@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ba2mshuwwnfjb" path="res://Assets/Clock.png" id="9_lxnp4"]
 [ext_resource type="Texture2D" uid="uid://ccw6mo1dj46vr" path="res://Assets/pauseBtn.png" id="10_3isoh"]
 [ext_resource type="Texture2D" uid="uid://bub6gfa8qbxb4" path="res://Assets/pauseBtnPressed.png" id="11_2m1ct"]
+[ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
 bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
@@ -111,10 +112,32 @@ corner_radius_bottom_left = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_qpqku"]
 font = ExtResource("8_nkhq5")
-font_size = 24
+font_size = 26
 font_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
 
-[node name="MainUI" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc0ff"]
+bg_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuj0j"]
+bg_color = Color(0.36143318, 0.008147682, 0.008116962, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v21p0"]
+bg_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MainUI" type="Control" unique_id=1230526405]
+
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -488,17 +511,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -202.0
+offset_left = -192.5
 offset_top = -16.0
 offset_right = 202.0
-offset_bottom = 16.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "König Mann aus Königreich Haupt"
 label_settings = SubResource("LabelSettings_qpqku")
-horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BenRaterBtn" type="Button" parent="Ui/NamePanel" unique_id=894053767]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 20.0
+offset_right = 613.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oc0ff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vuj0j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v21p0")
+
+[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/BenRaterBtn" unique_id=335335671]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_dck8o")
 
 [node name="PauseTextureButton" type="TextureButton" parent="Ui"]
 offset_left = 3.0
@@ -512,4 +550,5 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [connection signal="pressed" from="Ui/SidePanel/ToggleButton" to="Ui/SidePanel" method="_on_ToggleButton_pressed"]
+[connection signal="pressed" from="Ui/NamePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
 [connection signal="pressed" from="Ui/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]

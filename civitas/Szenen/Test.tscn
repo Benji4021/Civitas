@@ -446,7 +446,7 @@ tile_shape = 1
 tile_size = Vector2i(32, 16)
 sources/0 = SubResource("TileSetAtlasSource_org3e")
 
-[node name="Node2D" type="Node2D" unique_id=1287160251]
+[node name="Main" type="Node2D" unique_id=1287160251]
 script = ExtResource("1_vbxcm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1586642328]
@@ -486,7 +486,7 @@ script = ExtResource("10_vbxcm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=745349803]
 
-[node name="Benennung" parent="CanvasLayer" unique_id=764531355 instance=ExtResource("11_yqufu")]
+[node name="Benennung" parent="CanvasLayer" unique_id=764531355 groups=["bennenung_ui"] instance=ExtResource("11_yqufu")]
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer" unique_id=507241756]
