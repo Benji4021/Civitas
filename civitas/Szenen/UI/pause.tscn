@@ -1,11 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfmarng3okcba"]
+[gd_scene load_steps=10 format=3 uid="uid://dfmarng3okcba"]
 
 [ext_resource type="Script" uid="uid://c1rtt7mpd16pa" path="res://Szenen/UI/pause.gd" id="1_lxac6"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="1_ynows"]
+[ext_resource type="Texture2D" uid="uid://e55ipjgmgy2r" path="res://Szenen/mute.png" id="3_1dx0x"]
+[ext_resource type="Texture2D" uid="uid://ifgc5ohshvy" path="res://Szenen/volume.png" id="3_kc3uy"]
+[ext_resource type="Script" uid="uid://jyvlow0ptig4" path="res://Szenen/UI/mute.gd" id="4_cw6ov"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lxac6"]
 font = ExtResource("1_ynows")
 font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1epq2"]
+bg_color = Color(0.96862745, 0.90588236, 0.8039216, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnoim"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p6iv"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
 
 [node name="Pause" type="Control"]
 z_index = 10
@@ -34,25 +67,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -68.0
-offset_right = 81.0
-offset_bottom = 68.0
+offset_left = -106.5
+offset_top = -109.5
+offset_right = 106.5
+offset_bottom = 59.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "Halt"
 label_settings = SubResource("LabelSettings_lxac6")
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+[node name="ToggleSound" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("3_kc3uy")
+texture_pressed = ExtResource("3_1dx0x")
+script = ExtResource("4_cw6ov")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0069444445
+anchor_top = 0.0061728396
+anchor_right = -0.0069444445
+anchor_bottom = 0.0061728396
+offset_left = 468.5
+offset_top = 396.0
+offset_right = 718.5
+offset_bottom = 456.0
+size_flags_horizontal = 4
 mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ynows")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_1epq2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pnoim")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3p6iv")
 text = "Fortfahren"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ToggleSound" to="." method="_on_toggle_sound_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ToggleSound" to="Panel/VBoxContainer/ToggleSound" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

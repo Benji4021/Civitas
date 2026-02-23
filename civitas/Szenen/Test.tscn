@@ -449,20 +449,20 @@ sources/0 = SubResource("TileSetAtlasSource_org3e")
 [node name="Main" type="Node2D" unique_id=1287160251]
 script = ExtResource("1_vbxcm")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1610940223]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1586642328]
 zoom = Vector2(2, 2)
 script = ExtResource("2_h4bth")
 
-[node name="MainUI" parent="Camera2D" unique_id=1109747340 instance=ExtResource("2_vbxcm")]
+[node name="MainUI" parent="Camera2D" unique_id=287370209 instance=ExtResource("2_vbxcm")]
 visible = false
 z_index = 5
 
-[node name="TerrainGenerator" type="Node2D" parent="." unique_id=708917477]
+[node name="TerrainGenerator" type="Node2D" parent="." unique_id=1193819373]
 z_index = 1
 script = ExtResource("4_org3e")
 tree_scenes = Array[PackedScene]([ExtResource("4_0ud6b"), ExtResource("5_76ciq"), ExtResource("6_vbxcm"), ExtResource("7_yqufu")])
 
-[node name="OccupiedLayer" type="TileMapLayer" parent="." unique_id=1387877391]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=625682745]
 z_index = -15
 z_as_relative = false
 y_sort_enabled = true
@@ -483,7 +483,6 @@ offset_right = 1173.0
 offset_bottom = 798.0
 mouse_filter = 1
 script = ExtResource("10_vbxcm")
-obstacle_spawner_path = NodePath("../TerrainGenerator")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=745349803]
 
