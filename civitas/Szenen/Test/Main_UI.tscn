@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene format=3 uid="uid://77qt1jvdsb8f"]
 
 [ext_resource type="Script" uid="uid://csutwwvuh0kug" path="res://Szenen/Test/main_ui.gd" id="1_2xlsr"]
 [ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_xwy8f"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ccw6mo1dj46vr" path="res://Assets/pauseBtn.png" id="10_3isoh"]
 [ext_resource type="Texture2D" uid="uid://bub6gfa8qbxb4" path="res://Assets/pauseBtnPressed.png" id="11_2m1ct"]
 [ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
+[ext_resource type="Texture2D" uid="uid://dqgtcs0onydff" path="res://Assets/Arrow.png" id="13_oc0ff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
 bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
@@ -137,7 +138,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="MainUI" type="Control" unique_id=1230526405]
-
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -145,9 +145,9 @@ offset_bottom = 40.0
 script = ExtResource("1_2xlsr")
 pause_overlay_scene = ExtResource("2_dck8o")
 
-[node name="Ui" type="CanvasLayer" parent="."]
+[node name="Ui" type="CanvasLayer" parent="." unique_id=1670843116]
 
-[node name="SidePanel" type="Control" parent="Ui"]
+[node name="SidePanel" type="Control" parent="Ui" unique_id=824509994]
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -162,32 +162,32 @@ size_flags_vertical = 3
 script = ExtResource("1_xwy8f")
 panel_width = 208.0
 
-[node name="PanelContainer" type="TextureRect" parent="Ui/SidePanel"]
+[node name="PanelContainer" type="TextureRect" parent="Ui/SidePanel" unique_id=740425795]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 300.0
 texture = ExtResource("7_j4h48")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Ui/SidePanel/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Ui/SidePanel/PanelContainer" unique_id=1452492559]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j4h48")
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer" unique_id=1498209677]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=302517149]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer" unique_id=272069311]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -198,20 +198,20 @@ stretch_mode = 6
 script = ExtResource("3_lxnp4")
 building_scene = ExtResource("6_2xlsr")
 
-[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer" unique_id=1525953691]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Gebäude 1"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=1573863077]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2" unique_id=861489762]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("5_3isoh")
@@ -219,18 +219,18 @@ stretch_mode = 6
 script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
 
-[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2" unique_id=982862945]
 layout_mode = 2
 text = "Gebäude 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=1577223968]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3" unique_id=189088827]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("6_2m1ct")
@@ -239,18 +239,18 @@ script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
 footprint = Vector2i(3, 3)
 
-[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3" unique_id=257820404]
 layout_mode = 2
 text = "Bauernhof"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=1894900650]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer4" unique_id=1165415055]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("6_2m1ct")
@@ -259,18 +259,18 @@ script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
 footprint = Vector2i(3, 3)
 
-[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer4" unique_id=2112141558]
 layout_mode = 2
 text = "Bauernhof"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=64083457]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer5"]
+[node name="TextureRect3" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer5" unique_id=313992677]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("6_2m1ct")
@@ -279,13 +279,13 @@ script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
 footprint = Vector2i(3, 3)
 
-[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer5"]
+[node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer5" unique_id=775055635]
 layout_mode = 2
 text = "Bauernhof"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ToggleButton" type="Button" parent="Ui/SidePanel"]
+[node name="ToggleButton" type="Button" parent="Ui/SidePanel" unique_id=1879604516]
 layout_mode = 0
 offset_left = -60.0
 offset_top = 104.0
@@ -296,7 +296,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lxnp4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2m1ct")
 text = "< "
 
-[node name="InformationBoard" type="TextureRect" parent="Ui"]
+[node name="InformationBoard" type="TextureRect" parent="Ui" unique_id=1434326825]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -308,39 +308,39 @@ size_flags_vertical = 0
 texture = ExtResource("7_j4h48")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Ui/InformationBoard"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/InformationBoard" unique_id=1756880305]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 62.0
 offset_right = 193.0
 offset_bottom = 172.0
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer"]
+[node name="DayLabel" type="Label" parent="Ui/InformationBoard/VBoxContainer" unique_id=1325516127]
 layout_mode = 2
 text = "Tag 1"
 label_settings = SubResource("LabelSettings_lxnp4")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer" unique_id=157565659]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="MoneyPanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer"]
+[node name="MoneyPanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer" unique_id=816516394]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel" unique_id=1348737276]
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 30.0
 
-[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer" unique_id=1636987513]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer/Panel" unique_id=795286772]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 30.0
@@ -349,7 +349,7 @@ text = "$"
 label_settings = SubResource("LabelSettings_2m1ct")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer" unique_id=1645940181]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -358,22 +358,22 @@ label_settings = SubResource("LabelSettings_j4h48")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PeoplePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer"]
+[node name="PeoplePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer" unique_id=1651904773]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel" unique_id=918478287]
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 30.0
 
-[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer" unique_id=959571069]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer/Panel" unique_id=121553051]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 30.0
@@ -382,7 +382,7 @@ text = "𖠋"
 label_settings = SubResource("LabelSettings_2m1ct")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer" unique_id=945066799]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -391,26 +391,26 @@ label_settings = SubResource("LabelSettings_j4h48")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer" unique_id=1843137026]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="TreePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2"]
+[node name="TreePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2" unique_id=269581626]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel" unique_id=440907575]
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 30.0
 
-[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer" unique_id=937275634]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer/Panel" unique_id=1351457979]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 30.0
@@ -419,7 +419,7 @@ text = "𖠰"
 label_settings = SubResource("LabelSettings_2m1ct")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer" unique_id=2111156924]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -428,22 +428,22 @@ label_settings = SubResource("LabelSettings_j4h48")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StonePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2"]
+[node name="StonePanel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2" unique_id=351996996]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qpqku")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel" unique_id=1243527978]
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 30.0
 
-[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer" unique_id=775910814]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3isoh")
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Panel" unique_id=678838862]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 1.0
@@ -453,7 +453,7 @@ text = "ᨒ "
 label_settings = SubResource("LabelSettings_2m1ct")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer"]
+[node name="Label" type="Label" parent="Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer" unique_id=2057162488]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -462,7 +462,7 @@ label_settings = SubResource("LabelSettings_j4h48")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Ui/InformationBoard"]
+[node name="Clock" type="TextureRect" parent="Ui/InformationBoard" unique_id=1891618809]
 z_index = -1
 layout_mode = 0
 offset_left = -79.0
@@ -472,7 +472,24 @@ offset_bottom = 195.0
 texture = ExtResource("9_lxnp4")
 expand_mode = 1
 
-[node name="NamePanel" type="Control" parent="Ui"]
+[node name="PointerPivot" type="Node2D" parent="Ui/InformationBoard/Clock" unique_id=895291555]
+position = Vector2(85, 73)
+
+[node name="Pointer" type="TextureRect" parent="Ui/InformationBoard/Clock/PointerPivot" unique_id=1021226743]
+anchors_preset = -1
+anchor_left = 0.80200005
+anchor_top = 0.5
+anchor_right = 0.80200005
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 68.0
+offset_right = 55.719498
+offset_bottom = 92.68207
+rotation = -1.5707964
+texture = ExtResource("13_oc0ff")
+expand_mode = 1
+
+[node name="NamePanel" type="Control" parent="Ui" unique_id=2028196062]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -484,18 +501,18 @@ offset_bottom = -57.0
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel"]
+[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel" unique_id=2106762465]
 scale = Vector2(5, 5)
 color = Color(0.49411765, 0.015686275, 0.015686275, 1)
 polygon = PackedVector2Array(117.799995, 0.19999695, 105, 8, 117.799995, 16.199997, -0.40000057, 16.199997, -0.40000057, 0.19999695)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel"]
+[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel" unique_id=2071972465]
 position = Vector2(21.840946, 6.1500244)
 scale = Vector2(4.60237, 4.2499995)
 color = Color(0.9882353, 0.69803923, 0.29411766, 1)
 polygon = PackedVector2Array(117.799995, 0.19999695, 105.84961, 7.9647064, 117.799995, 16.199997, -0.40000057, 16.199997, -0.39999962, 0.19999695, 58.527153, 0.19999695)
 
-[node name="Panel" type="Panel" parent="Ui/NamePanel"]
+[node name="Panel" type="Panel" parent="Ui/NamePanel" unique_id=680503456]
 layout_mode = 0
 offset_left = -37.0
 offset_top = -20.0
@@ -503,7 +520,7 @@ offset_right = 83.0
 offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2xlsr")
 
-[node name="Label2" type="Label" parent="Ui/NamePanel"]
+[node name="Label2" type="Label" parent="Ui/NamePanel" unique_id=1369493437]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -538,7 +555,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("13_dck8o")
 
-[node name="PauseTextureButton" type="TextureButton" parent="Ui"]
+[node name="PauseTextureButton" type="TextureButton" parent="Ui" unique_id=671163082]
 offset_left = 3.0
 offset_top = 5.0
 offset_right = 55.0
