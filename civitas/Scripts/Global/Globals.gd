@@ -19,16 +19,16 @@ var start_capacity = 1
 func _ready() -> void:
 	# Terrain
 	SignalBus.collect_resources.connect(_on_collect_resources)
-	SignalBus.check_capacity.connect(_on_check_capacity)
-	SignalBus.finish_farming.connect(_on_finish_farming)
+	#SignalBus.check_capacity.connect(_on_check_capacity)
+	#SignalBus.finish_farming.connect(_on_finish_farming)
 
 	# Building
 	SignalBus.resBuilding_added.connect(_on_resBuilding_added)
 	SignalBus.resBuilding_removed.connect(_on_resBuilding_removed)
-	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
-	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
-	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
-	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
+	#SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
+	#SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
+	#SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
+	#SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	
 	
 
