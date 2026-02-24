@@ -92,34 +92,56 @@ func has_variable(var_name: String) -> bool:
 			return true
 	return false
 	
-func _on_check_capacity(resource_type: String) -> bool:
+func _on_check_capacity(resource_type: String, requester: Node) -> void:
+	print("test")
+	print($"ckeck: {requester}")
 	if resource_type == "lumber":
-		# normal, wenn gesetzt
 		if lumber_capacity != null:
 			if lumber_capacity > 0:
 				lumber_capacity -= 1
-				return true
-			return false
+				SignalBus.break_terrain.emit(requester)
+			return
 
-		# fallback, wenn nicht gesetzt
 		if start_capacity > 0:
 			start_capacity -= 1
-			return true
-		return false
+			SignalBus.break_terrain.emit(requester)
+		return
 
 	if resource_type == "stone":
 		if stone_capacity != null:
 			if stone_capacity > 0:
 				stone_capacity -= 1
-				return true
-			return false
+				SignalBus.break_terrain.emit(requester)
+			return
 
 		if start_capacity > 0:
 			start_capacity -= 1
-			return true
-		return false
+			SignalBus.break_terrain.emit(requester)
+		return
+	if resource_type == "lumber":
+		if lumber_capacity != null:
+			if lumber_capacity > 0:
+				lumber_capacity -= 1
+				SignalBus.break_terrain.emit(requester)
+			return
 
-	return false
+		if start_capacity > 0:
+			start_capacity -= 1
+			SignalBus.break_terrain.emit(requester)
+		return
+
+	if resource_type == "stone":
+		if stone_capacity != null:
+			if stone_capacity > 0:
+				stone_capacity -= 1
+				SignalBus.break_terrain.emit(requester)
+			return
+
+		if start_capacity > 0:
+			start_capacity -= 1
+			SignalBus.break_terrain.emit(requester)
+		return
+	
 	
 func _on_finish_farming(resource_type: String) -> void:
 	# Wenn noch kein spezielles Gebäude gesetzt ist: start_capacity wieder freigeben
