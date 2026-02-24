@@ -16,3 +16,4 @@ func _ready():
 func _process(delta):
 	var progress = TimeManager.get_day_progress()
 	time_color.color = Color(0.978, 0.826, 0.697, 1.0).lerp(Color(0.27, 0.271, 0.519, 1.0), abs(sin(progress * PI)))
+

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxffr5ujtqcm7" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close - pressed.png" id="4_ipspw"]
 [ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="5_k3urr"]
 [ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="6_cu8fe"]
-[ext_resource type="Texture2D" uid="uid://dfh578coqd18c" path="res://Assets/ben rater.png" id="8_ephbh"]
+[ext_resource type="Texture2D" uid="uid://2bsoo5uqgstp" path="res://Assets/ben magic.png" id="8_ephbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f2kok"]
 font = ExtResource("2_nbvwd")
@@ -19,10 +19,10 @@ font = ExtResource("2_nbvwd")
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ephbh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu8fe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxumt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ephbh"]
 bg_color = Color(0.96862745, 0.90588236, 0.8039216, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -32,7 +32,7 @@ shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olbvf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxumt"]
 bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -42,7 +42,7 @@ shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdqyc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olbvf"]
 bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -202,128 +202,158 @@ label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 3
 autowrap_mode = 1
 
-[node name="ProfilSetting" type="CanvasLayer" parent="Panel/TextureRect" unique_id=1261327916]
+[node name="ProfilSetting" type="CanvasLayer" parent="Panel/TextureRect" unique_id=799651395]
 
-[node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=601949464]
-offset_left = 158.0
-offset_top = 98.0
-offset_right = 549.0
-offset_bottom = 149.0
+[node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=2072165634]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -223.0
+offset_right = -25.0
+offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Profil-Einstellungen"
 label_settings = SubResource("LabelSettings_f2kok")
 horizontal_alignment = 1
 autowrap_mode = 1
-paragraph_separator = "\\"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect/ProfilSetting" unique_id=1998113970]
-offset_left = 158.0
-offset_top = 159.0
-offset_right = 549.0
-offset_bottom = 490.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect/ProfilSetting" unique_id=259399281]
+offset_left = 156.0
+offset_top = 150.0
+offset_right = 556.0
+offset_bottom = 361.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 100
+alignment = 1
 
-[node name="HerrscherLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=1797149498]
+[node name="LeaderLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=567659672]
 layout_mode = 2
-text = "Herrscher: "
+theme_override_font_sizes/font_size = 20
+text = "Herrscher"
 label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 1
-paragraph_separator = "/n"
 
-[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/HerrscherLabel" unique_id=1725511521]
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/LeaderLabel" unique_id=659839434]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -107.5
-offset_top = 35.0
-offset_right = 107.5
-offset_bottom = 98.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 26.0
+offset_right = 142.0
+offset_bottom = 89.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
 theme_override_fonts/font = ExtResource("2_nbvwd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_ephbh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu8fe")
 placeholder_text = "Name"
 alignment = 1
 max_length = 20
 
-[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/HerrscherLabel/LineEdit" unique_id=1843119583]
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/LeaderLabel/LineEdit" unique_id=1002088392]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -99.5
-offset_top = 51.0
-offset_right = 101.5
-offset_bottom = 55.0
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 20.5
+offset_right = 102.0
+offset_bottom = 23.0
 grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="KingdomLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=4706569]
+[node name="KingdomLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=921524782]
 layout_mode = 2
-text = "Königreich: "
+theme_override_font_sizes/font_size = 20
+text = "Herrscher"
 label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel" unique_id=899371574]
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel" unique_id=1138120399]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -107.5
-offset_top = 35.0
-offset_right = 107.5
-offset_bottom = 98.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 26.0
+offset_right = 142.0
+offset_bottom = 89.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
 theme_override_fonts/font = ExtResource("2_nbvwd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_ephbh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu8fe")
 placeholder_text = "Name"
 alignment = 1
 max_length = 20
 
-[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel/LineEdit" unique_id=155310229]
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel/LineEdit" unique_id=1273304831]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -99.5
-offset_top = 51.0
-offset_right = 101.5
-offset_bottom = 55.0
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 20.5
+offset_right = 102.0
+offset_bottom = 23.0
 grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SaveButton" type="Button" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=2021051324]
-layout_mode = 2
+[node name="SaveButton" type="Button" parent="Panel/TextureRect/ProfilSetting" unique_id=1279118035]
+anchors_preset = -1
+offset_left = 291.0
+offset_top = 445.0
+offset_right = 421.0
+offset_bottom = 481.0
 size_flags_horizontal = 4
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_nbvwd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_lxumt")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_olbvf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tdqyc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ephbh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lxumt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_olbvf")
 text = "Speichern"
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/TextureRect/ProfilSetting" unique_id=437110858]
-offset_left = 674.0
-offset_top = 141.0
-offset_right = 1174.0
-offset_bottom = 941.0
-scale = Vector2(0.5, 0.5)
+[node name="TextureRect" type="TextureRect" parent="Panel/TextureRect/ProfilSetting" unique_id=1381034368]
+anchors_preset = -1
+anchor_right = 0.07700001
+anchor_bottom = 0.11100001
+offset_left = 618.0
+offset_top = 118.0
+offset_right = 903.296
+offset_bottom = 481.072
 texture = ExtResource("8_ephbh")
+expand_mode = 1
 
 [connection signal="pressed" from="Panel/TextureRect/CloseBtn" to="." method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Panel/TextureRect/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="Panel/TextureRect/PreviousBtn" to="." method="_on_previous_btn_pressed"]
-[connection signal="pressed" from="Panel/TextureRect/ProfilSetting/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/ProfilSetting/SaveButton" to="." method="_on_save_button_pressed"]

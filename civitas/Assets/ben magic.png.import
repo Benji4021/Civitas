@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfh578coqd18c"
-
-path="res://.godot/imported/ben rater.png-5518484bd7390ef2d76d1c18345f154c.ctex"
+uid="uid://2bsoo5uqgstp"
+path="res://.godot/imported/ben magic.png-49db69854d7bd61d4f36ff64731d343f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ben rater.png"
-dest_files=["res://.godot/imported/ben rater.png-5518484bd7390ef2d76d1c18345f154c.ctex"]
+source_file="res://Assets/ben magic.png"
+dest_files=["res://.godot/imported/ben magic.png-49db69854d7bd61d4f36ff64731d343f.ctex"]
 
 [params]
 

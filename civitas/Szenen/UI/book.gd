@@ -6,7 +6,6 @@ extends Control
 @onready var statistics = $Panel/TextureRect/Statistiken
 @onready var profile = $Panel/TextureRect/ProfilSetting
 
-
 func _ready():
 	safe_btn.visible = false
 	ruler_edit.text = Globals.ruler_name
@@ -27,7 +26,6 @@ func _on_save_button_pressed():
 	Globals.ruler_name = ruler_edit.text
 	Globals.kingdom_name = kingdom_edit.text
 	safe_btn.visible = false
-
 
 func _on_continue_btn_pressed():
 	statistics.visible = false

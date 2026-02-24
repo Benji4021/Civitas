@@ -36,23 +36,20 @@ func start_kingdom_naming():
 	name_input.grab_focus()
 
 func _on_button_pressed():
-	if phase == "story":
-		start_ruler_naming()
-	else:
-		var entered_name : String = name_input.text.strip_edges()
-		if entered_name == "":
-			return
+	match phase:
+		"story":
+			start_ruler_naming()
 
-		if phase == "ruler":
-			Globals.input_locked = true
-			Globals.ruler_name = entered_name
-			print("König heißt jetzt:", Globals.ruler_name)
-
+		"ruler":
+			if name_input.text.strip_edges() == "":
+				return
+			Globals.ruler_name = name_input.text.strip_edges()
 			start_kingdom_naming()
 
-		elif phase == "kingdom":
-			Globals.kingdom_name = entered_name
-			print("Königreich heißt jetzt:", Globals.kingdom_name)
-
-			visible = false
+		"kingdom":
+			if name_input.text.strip_edges() == "":
+				return
+			Globals.kingdom_name = name_input.text.strip_edges()
+			
 			Globals.input_locked = false
+			visible = false

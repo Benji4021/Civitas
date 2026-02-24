@@ -93,9 +93,9 @@ script = ExtResource("4_cw6ov")
 [node name="Button" type="Button" parent="Panel" unique_id=1337585484]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0069444445
+anchor_left = -0.011284722
 anchor_top = 0.0061728396
-anchor_right = -0.0069444445
+anchor_right = -0.011284722
 anchor_bottom = 0.0061728396
 offset_left = 468.5
 offset_top = 396.0
