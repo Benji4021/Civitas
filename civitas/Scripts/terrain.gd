@@ -26,7 +26,6 @@ func _on_bus_terrain_clicked(t: Node) -> void:
 	if clicked:
 		return
 
-	print(self)
 	SignalBus.check_capacity.emit(resource_type ,self)
 
 func _on_break_terrain(requester: Node) -> void:

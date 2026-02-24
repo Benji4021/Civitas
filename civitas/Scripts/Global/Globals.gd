@@ -93,8 +93,6 @@ func has_variable(var_name: String) -> bool:
 	return false
 	
 func _on_check_capacity(resource_type: String, requester: Node) -> void:
-	print("test")
-	print($"ckeck: {requester}")
 	if resource_type == "lumber":
 		if lumber_capacity != null:
 			if lumber_capacity > 0:
