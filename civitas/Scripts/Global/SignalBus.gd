@@ -4,12 +4,23 @@ extends Node
 signal terrain_clicked(terrain: Node)
 signal collect_resources(resource_type: String, amount: int, source: Node)
 
-# Building
+# Capacity / Farming
+signal check_capacity(resource_type: String)
+signal finish_farming(resource_type: String)
+
+# Building (generic)
 signal resBuilding_added(amount: int, source: Node)
 signal resBuilding_removed(amount: int, source: Node)
 
 signal placed_resBuilding()
 signal removed_resBuilding()
+
+# Mine / LumberMill
+signal mineBuilding_placed(amount: int, source: Node)
+signal mineBuilding_removed(amount: int, source: Node)
+
+signal lumberMillBuilding_placed(amount: int, source: Node)
+signal lumberMillBuilding_removed(amount: int, source: Node)
 
 # UI
 signal resource_changed(resource_type: String, new_value: int)
