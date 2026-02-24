@@ -497,9 +497,9 @@ y_sort_enabled = true
 [node name="MapDropArea" type="Control" parent="." unique_id=1487428922]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -1362.0
+offset_left = -1360.0
 offset_top = -780.0
-offset_right = 1173.0
+offset_right = 1175.0
 offset_bottom = 798.0
 mouse_filter = 1
 script = ExtResource("10_vbxcm")
