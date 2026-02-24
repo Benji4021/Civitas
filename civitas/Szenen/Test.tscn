@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="6_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
+[ext_resource type="PackedScene" uid="uid://bxe2kgcbyfved" path="res://Szenen/Buildings/StartHouse.tscn" id="11_dg5df"]
 [ext_resource type="PackedScene" uid="uid://cwxes76jrfp5s" path="res://Szenen/UI/benennung.tscn" id="11_yqufu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
@@ -483,3 +484,6 @@ zoom = Vector2(2, 2)
 script = ExtResource("2_h4bth")
 
 [node name="Ui" parent="CanvasLayer/Camera2D" unique_id=776633243 instance=ExtResource("2_vbxcm")]
+
+[node name="StartHouse" parent="." unique_id=801317323 instance=ExtResource("11_dg5df")]
+position = Vector2(1, -6)
