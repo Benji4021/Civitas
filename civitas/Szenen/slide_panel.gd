@@ -1,6 +1,6 @@
 extends Control
 
-@export var panel_width: float = 300
+@export var panel_width: float = 350
 @export var slide_time: float = 0.3
 
 var is_open: bool = false
