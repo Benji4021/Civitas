@@ -137,7 +137,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="MainUI" type="Control" unique_id=1230526405]
-
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -160,7 +159,6 @@ pivot_offset = Vector2(1, 0)
 size_flags_horizontal = 10
 size_flags_vertical = 3
 script = ExtResource("1_xwy8f")
-panel_width = 208.0
 
 [node name="PanelContainer" type="TextureRect" parent="Ui/SidePanel" unique_id=1117209660]
 layout_mode = 0
