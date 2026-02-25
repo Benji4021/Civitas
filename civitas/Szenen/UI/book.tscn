@@ -104,6 +104,7 @@ texture_disabled = ExtResource("3_f2kok")
 stretch_mode = 3
 
 [node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.827
@@ -122,6 +123,7 @@ texture_disabled = ExtResource("5_k3urr")
 stretch_mode = 3
 
 [node name="PreviousBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=767241354]
+texture_filter = 1
 layout_mode = 0
 offset_left = 273.0
 offset_top = 556.0
@@ -326,7 +328,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="SaveButton" type="Button" parent="Panel/TextureRect/ProfilSetting" unique_id=1279118035]
-anchors_preset = -1
 offset_left = 291.0
 offset_top = 445.0
 offset_right = 421.0
