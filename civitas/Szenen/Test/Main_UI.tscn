@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ba2mshuwwnfjb" path="res://Assets/Clock.png" id="9_lxnp4"]
 [ext_resource type="Texture2D" uid="uid://ccw6mo1dj46vr" path="res://Assets/pauseBtn.png" id="10_3isoh"]
 [ext_resource type="Texture2D" uid="uid://bub6gfa8qbxb4" path="res://Assets/pauseBtnPressed.png" id="11_2m1ct"]
+[ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="11_v21p0"]
+[ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="12_hh5s0"]
 [ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
 [ext_resource type="Texture2D" uid="uid://dqgtcs0onydff" path="res://Assets/Arrow.png" id="13_oc0ff"]
 
@@ -24,42 +26,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.4544375, 0.24321279, 0.12652126, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkhq5"]
-bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.4544375, 0.24321279, 0.12652126, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnp4"]
-bg_color = Color(0.5623196, 0.30976364, 0.17064321, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.28168488, 0.1410495, 0.06270617, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m1ct"]
-bg_color = Color(0.6289852, 0.35279956, 0.20231354, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.34257132, 0.17642987, 0.08419094, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -296,16 +262,19 @@ text = "Bauernhof"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ToggleButton" type="Button" parent="Ui/SidePanel" unique_id=441374612]
+[node name="ToggleButton2" type="TextureButton" parent="Ui/SidePanel" unique_id=334772182]
+texture_filter = 1
 layout_mode = 0
 offset_left = -60.0
-offset_top = 104.0
-offset_right = -5.0
-offset_bottom = 183.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_nkhq5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lxnp4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2m1ct")
-text = "< "
+offset_top = 116.0
+offset_right = -6.0
+offset_bottom = 170.0
+toggle_mode = true
+texture_normal = ExtResource("11_v21p0")
+texture_pressed = ExtResource("12_hh5s0")
+texture_hover = ExtResource("12_hh5s0")
+texture_focused = ExtResource("11_v21p0")
+stretch_mode = 0
 
 [node name="InformationBoard" type="TextureRect" parent="Ui" unique_id=106855909]
 texture_filter = 1
@@ -575,6 +544,6 @@ texture_hover = ExtResource("11_2m1ct")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="Ui/SidePanel/ToggleButton" to="Ui/SidePanel" method="_on_ToggleButton_pressed"]
+[connection signal="toggled" from="Ui/SidePanel/ToggleButton2" to="Ui/SidePanel" method="_on_toggle_button_2_toggled"]
 [connection signal="pressed" from="Ui/NamePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
 [connection signal="pressed" from="Ui/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]
