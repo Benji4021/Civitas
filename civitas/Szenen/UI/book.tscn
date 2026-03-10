@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d1qj1lwrtcq1q"]
+[gd_scene load_steps=0 format=3 uid="uid://d1qj1lwrtcq1q"]
 
 [ext_resource type="Script" uid="uid://rgeel6icth73" path="res://Szenen/UI/book.gd" id="1_cu8fe"]
 [ext_resource type="Texture2D" uid="uid://dhmaeofd3d0ds" path="res://Assets/Oben Book.png" id="1_vqtwo"]
