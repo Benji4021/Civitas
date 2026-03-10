@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Civitas"
 run/main_scene="uid://bkwk6yrhm3awv"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
@@ -24,6 +24,7 @@ config/icon="res://Assets/icon.svg"
 Sound="*res://Szenen/sound.tscn"
 Globals="*res://Scripts/Global/Globals.gd"
 SignalBus="*res://Scripts/Global/SignalBus.gd"
+TimeManager="*uid://ci1ommnpx7pgc"
 
 [global_group]
 
