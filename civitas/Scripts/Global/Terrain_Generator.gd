@@ -145,7 +145,8 @@ func spawn_single_tree(type_index: int, position: Vector2):
 	
 	# Fortschritt anzeigen
 	if trees_spawned % 100 == 0:
-		print("Fortschritt: ", trees_spawned, "/", total_trees_to_spawn)
+		#print("Fortschritt: ", trees_spawned, "/", total_trees_to_spawn)
+		pass
 
 
 # Alternative: Spawn mit sichtbarem "Scan-Line" Effekt

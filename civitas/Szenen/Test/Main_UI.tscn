@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="11_v21p0"]
 [ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="12_hh5s0"]
 [ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
-[ext_resource type="Texture2D" uid="uid://dqgtcs0onydff" path="res://Assets/Arrow.png" id="13_oc0ff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
 bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
@@ -134,6 +133,7 @@ offset_bottom = 300.0
 texture = ExtResource("7_j4h48")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Ui/SidePanel/PanelContainer" unique_id=914764245]
+
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 300.0
@@ -141,10 +141,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j4h48")
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer" unique_id=786344507]
+
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 columns = 2
+
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer" unique_id=1640685289]
 custom_minimum_size = Vector2(0, 120)
@@ -177,7 +179,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2" unique_id=1178362059]
+[node name="TextureRect2" type="TextureRect" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2" unique_id=1535241395]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
