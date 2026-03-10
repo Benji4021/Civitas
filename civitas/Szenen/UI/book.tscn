@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1qj1lwrtcq1q"]
 
 [ext_resource type="Script" uid="uid://rgeel6icth73" path="res://Szenen/UI/book.gd" id="1_cu8fe"]
-[ext_resource type="Texture2D" uid="uid://dhmaeofd3d0ds" path="res://Assets/Oben Book.png" id="1_vqtwo"]
+[ext_resource type="Texture2D" uid="uid://cq3e3frf45ga" path="res://Assets/book.png" id="2_ephbh"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_nbvwd"]
 [ext_resource type="Texture2D" uid="uid://8p6d3fnblrsn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close.png" id="3_f2kok"]
 [ext_resource type="Texture2D" uid="uid://dxffr5ujtqcm7" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close - pressed.png" id="4_ipspw"]
@@ -17,6 +17,41 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("2_nbvwd")
 font_size = 35
 font_color = Color(0, 0, 0, 1)
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu8fe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ephbh"]
+bg_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxumt"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olbvf"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
 
 [node name="Book" type="Control" unique_id=468490110]
 layout_mode = 3
@@ -42,14 +77,68 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -638.0
-offset_top = -371.0
-offset_right = 617.0
-offset_bottom = 346.0
+offset_left = -639.0
+offset_top = -396.0
+offset_right = 616.0
+offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_vqtwo")
+texture = ExtResource("2_ephbh")
 expand_mode = 1
+
+
+[node name="CloseBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=465595761]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98100007
+anchor_right = 1.0
+anchor_bottom = 0.024
+offset_left = -177.15503
+offset_top = 96.0
+offset_right = -185.25
+offset_bottom = 95.042
+grow_horizontal = 0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_f2kok")
+texture_pressed = ExtResource("4_ipspw")
+texture_hover = ExtResource("3_f2kok")
+texture_disabled = ExtResource("3_f2kok")
+stretch_mode = 3
+
+[node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.827
+anchor_top = 0.813
+anchor_right = 0.827
+anchor_bottom = 0.813
+offset_left = -30.88501
+offset_top = -26.92102
+offset_right = -10.551758
+offset_bottom = -8.9210205
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_k3urr")
+texture_pressed = ExtResource("6_cu8fe")
+texture_hover = ExtResource("5_k3urr")
+texture_disabled = ExtResource("5_k3urr")
+stretch_mode = 3
+
+[node name="PreviousBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=767241354]
+texture_filter = 1
+layout_mode = 0
+offset_left = 273.0
+offset_top = 556.0
+offset_right = 293.33325
+offset_bottom = 574.0
+scale = Vector2(-3, 3)
+texture_normal = ExtResource("5_k3urr")
+texture_pressed = ExtResource("6_cu8fe")
+texture_hover = ExtResource("5_k3urr")
+texture_disabled = ExtResource("5_k3urr")
+stretch_mode = 3
+
 
 [node name="Statistiken" type="CanvasLayer" parent="Panel/TextureRect" unique_id=289243393]
 
@@ -118,53 +207,81 @@ label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 3
 autowrap_mode = 1
 
-[node name="CloseBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=465595761]
+
+[node name="ProfilSetting" type="CanvasLayer" parent="Panel/TextureRect" unique_id=799651395]
+
+[node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=2072165634]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -248.0
+offset_right = -26.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Profil-Einstellungen"
+label_settings = SubResource("LabelSettings_f2kok")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect/ProfilSetting" unique_id=259399281]
+offset_left = 155.0
+offset_top = 125.0
+offset_right = 555.0
+offset_bottom = 336.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="LeaderLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=567659672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Herrscher"
+label_settings = SubResource("LabelSettings_k3urr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/LeaderLabel" unique_id=659839434]
+
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.98100007
-anchor_right = 1.0
-anchor_bottom = 0.024
-offset_left = -177.15503
-offset_top = 96.0
-offset_right = -185.25
-offset_bottom = 95.042
-grow_horizontal = 0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("3_f2kok")
-texture_pressed = ExtResource("4_ipspw")
-texture_hover = ExtResource("3_f2kok")
-texture_disabled = ExtResource("3_f2kok")
-stretch_mode = 3
+
+anchor_right = 0.008680556
+offset_left = 283.0
+offset_top = 420.0
+offset_right = 413.0
+offset_bottom = 456.0
+size_flags_horizontal = 4
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.90588236, 0.8352941, 0.7019608, 1)
+theme_override_colors/font_pressed_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+theme_override_colors/font_hover_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("2_nbvwd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ephbh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lxumt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_olbvf")
+text = "Speichern"
+metadata/_edit_use_anchors_ = true
+
 
 [node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.827
-anchor_top = 0.813
-anchor_right = 0.827
-anchor_bottom = 0.813
-offset_left = -30.88501
-offset_top = -26.92102
-offset_right = -10.551758
-offset_bottom = -8.9210205
-scale = Vector2(3, 3)
-texture_normal = ExtResource("5_k3urr")
-texture_pressed = ExtResource("6_cu8fe")
-texture_hover = ExtResource("5_k3urr")
-texture_disabled = ExtResource("5_k3urr")
-stretch_mode = 3
 
-[node name="PreviousBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=767241354]
-layout_mode = 0
-offset_left = 273.0
-offset_top = 556.0
-offset_right = 293.33325
-offset_bottom = 574.0
-scale = Vector2(-3, 3)
-texture_normal = ExtResource("5_k3urr")
-texture_pressed = ExtResource("6_cu8fe")
-texture_hover = ExtResource("5_k3urr")
-texture_disabled = ExtResource("5_k3urr")
-stretch_mode = 3
+anchor_right = 0.07700001
+anchor_bottom = 0.11100001
+offset_left = 617.0
+offset_top = 93.0
+offset_right = 902.296
+offset_bottom = 456.072
+texture = ExtResource("8_ephbh")
+expand_mode = 1
 
 [connection signal="pressed" from="Panel/TextureRect/CloseBtn" to="." method="_on_close_btn_pressed"]
