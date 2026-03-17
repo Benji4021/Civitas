@@ -28,6 +28,7 @@ var occupied_tiles: Dictionary = {}
 var original_ground: Dictionary = {}
 
 func _ready() -> void:
+
 	if ground == null:
 		push_error("MapDropArea: ground_tilemap_path falsch / TileMapLayer nicht gefunden.")
 	if houses_parent == null:
