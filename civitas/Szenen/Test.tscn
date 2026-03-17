@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://pcncyh8fdhq"]
 
-[ext_resource type="Script" uid="uid://dti17c3m35ip2" path="res://Szenen/benennung.gd" id="1_vbxcm"]
+[ext_resource type="Script" path="res://Szenen/benennung.gd" id="1_vbxcm"]
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_p7my4"]
 [ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/Main_UI.tscn" id="2_vbxcm"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="6_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
-[ext_resource type="Script" uid="uid://bo8vhguaq31fl" path="res://Szenen/MapDropArea.gd" id="10_vbxcm"]
 [ext_resource type="Texture2D" uid="uid://d3xrgy1834qoq" path="res://Assets/boat2.png" id="11_dg5df"]
 [ext_resource type="PackedScene" uid="uid://cwxes76jrfp5s" path="res://Szenen/UI/benennung.tscn" id="11_yqufu"]
 
