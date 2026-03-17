@@ -19,7 +19,7 @@ var start_capacity = 1
 func _ready() -> void:
 	# Terrain
 	SignalBus.collect_resources.connect(_on_collect_resources)
-  #	SignalBus.check_capacity.connect(_on_check_capacity)
+	#SignalBus.check_capacity.connect(_on_check_capacity)
 	#SignalBus.finish_farming.connect(_on_finish_farming)
 
 	# Building
