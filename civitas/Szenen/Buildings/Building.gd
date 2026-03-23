@@ -1,4 +1,5 @@
 extends Node
+class_name Building
 
 var cost_wood : int
 var cost_stone : int
@@ -19,15 +20,15 @@ enum Buildings
 }
 
 func _ready():
-	SignalBus.placed_resBuilding.connect(_on_placed)
+	SignalBus.placed_building.connect(_on_placed)
 	
 func _init() -> void:
 	_on_placed()
 
 
 func _on_placed() -> void:
-	SignalBus.resBuilding_added.emit(5, self)
+	SignalBus.building_added.emit(costs, self)
 	
 func _on_removed() -> void:
-	SignalBus.resBuilding_removed.emit(5, self)
+	SignalBus.building_removed.emit(costs, self)
 	
