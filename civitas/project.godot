@@ -26,7 +26,6 @@ Globals="*res://Scripts/Global/Globals.gd"
 SignalBus="*res://Scripts/Global/SignalBus.gd"
 TimeManager="*uid://de3yatw7e5huq"
 
-
 [global_group]
 
 benennung_ui=""

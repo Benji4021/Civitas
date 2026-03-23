@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7gaeajity5ts"]
+[gd_scene format=3 uid="uid://c7gaeajity5ts"]
 
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="1_cam"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="3_big"]
@@ -8,17 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="7_mr1yn"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="8_nutdd"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=197194257]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=875677334]
 top_level = true
 zoom = Vector2(2, 2)
 script = ExtResource("1_cam")
 
-[node name="TestHouse" parent="." instance=ExtResource("7_house")]
+[node name="TestHouse" parent="." unique_id=485781441 instance=ExtResource("7_house")]
 position = Vector2(62, 62)
 
-[node name="Generator" type="Node2D" parent="."]
+[node name="Generator" type="Node2D" parent="." unique_id=560777496]
 position = Vector2(-29, 4)
 script = ExtResource("5_64mrx")
 tree_scenes = Array[PackedScene]([ExtResource("6_5h1gi"), ExtResource("3_big"), ExtResource("7_mr1yn"), ExtResource("8_nutdd")])

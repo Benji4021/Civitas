@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d1qj1lwrtcq1q"]
+[gd_scene format=3 uid="uid://cgg2m4cdxywgc"]
 
 [ext_resource type="Script" uid="uid://rgeel6icth73" path="res://Szenen/UI/book.gd" id="1_cu8fe"]
 [ext_resource type="Texture2D" uid="uid://cq3e3frf45ga" path="res://Assets/book.png" id="2_ephbh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxffr5ujtqcm7" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close - pressed.png" id="4_ipspw"]
 [ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="5_k3urr"]
 [ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="6_cu8fe"]
+[ext_resource type="Texture2D" uid="uid://bdvf7dqqdi6cc" path="res://Assets/ben_magic.png" id="8_ephbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f2kok"]
 font = ExtResource("2_nbvwd")
@@ -17,7 +18,6 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("2_nbvwd")
 font_size = 35
 font_color = Color(0, 0, 0, 1)
-
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu8fe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,7 +52,6 @@ shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
-
 [node name="Book" type="Control" unique_id=468490110]
 layout_mode = 3
 anchors_preset = 15
@@ -85,7 +84,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ephbh")
 expand_mode = 1
-
 
 [node name="CloseBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=465595761]
 texture_filter = 1
@@ -139,10 +137,10 @@ texture_hover = ExtResource("5_k3urr")
 texture_disabled = ExtResource("5_k3urr")
 stretch_mode = 3
 
-
 [node name="Statistiken" type="CanvasLayer" parent="Panel/TextureRect" unique_id=289243393]
+visible = false
 
-[node name="Label" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1764859155]
+[node name="PageLabel" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1764859155]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -207,7 +205,6 @@ label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 3
 autowrap_mode = 1
 
-
 [node name="ProfilSetting" type="CanvasLayer" parent="Panel/TextureRect" unique_id=799651395]
 
 [node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=2072165634]
@@ -247,10 +244,92 @@ vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/LeaderLabel" unique_id=659839434]
-
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 26.0
+offset_right = 142.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("2_nbvwd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu8fe")
+placeholder_text = "Name"
+alignment = 1
+max_length = 20
 
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/LeaderLabel/LineEdit" unique_id=1002088392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 20.5
+offset_right = 102.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="KingdomLabel" type="Label" parent="Panel/TextureRect/ProfilSetting/VBoxContainer" unique_id=921524782]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Herrscher"
+label_settings = SubResource("LabelSettings_k3urr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel" unique_id=1138120399]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 26.0
+offset_right = 142.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("2_nbvwd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu8fe")
+placeholder_text = "Name"
+alignment = 1
+max_length = 20
+
+[node name="ColorRect" type="ColorRect" parent="Panel/TextureRect/ProfilSetting/VBoxContainer/KingdomLabel/LineEdit" unique_id=1273304831]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 20.5
+offset_right = 102.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SaveButton" type="Button" parent="Panel/TextureRect/ProfilSetting" unique_id=1279118035]
+anchors_preset = -1
 anchor_right = 0.008680556
 offset_left = 283.0
 offset_top = 420.0
@@ -270,11 +349,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_olbvf")
 text = "Speichern"
 metadata/_edit_use_anchors_ = true
 
-
-[node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
-layout_mode = 1
+[node name="TextureRect" type="TextureRect" parent="Panel/TextureRect/ProfilSetting" unique_id=1381034368]
 anchors_preset = -1
-
 anchor_right = 0.07700001
 anchor_bottom = 0.11100001
 offset_left = 617.0
@@ -285,3 +361,6 @@ texture = ExtResource("8_ephbh")
 expand_mode = 1
 
 [connection signal="pressed" from="Panel/TextureRect/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/PreviousBtn" to="." method="_on_previous_btn_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/ProfilSetting/SaveButton" to="." method="_on_save_button_pressed"]

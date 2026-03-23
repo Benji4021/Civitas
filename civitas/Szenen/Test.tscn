@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://pcncyh8fdhq"]
 
-[ext_resource type="Script" path="res://Szenen/benennung.gd" id="1_vbxcm"]
+[ext_resource type="Script" uid="uid://dti17c3m35ip2" path="res://Szenen/benennung.gd" id="1_vbxcm"]
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_p7my4"]
 [ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/Main_UI.tscn" id="2_vbxcm"]
