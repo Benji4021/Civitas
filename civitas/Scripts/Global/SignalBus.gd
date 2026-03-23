@@ -14,6 +14,9 @@ signal resBuilding_removed(amount: int, source: Node)
 signal placed_resBuilding()
 signal removed_resBuilding()
 
+signal building_added(costs: Array, source: Node)
+signal building_removed(costs: Array, source: Node)
+
 # Mine / LumberMill
 signal mineBuilding_placed(amount: int, source: Node)
 signal mineBuilding_removed(amount: int, source: Node)

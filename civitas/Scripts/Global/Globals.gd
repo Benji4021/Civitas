@@ -30,6 +30,9 @@ func _ready() -> void:
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	
+	Singalbus.building_added.connect(_on_building_added)
+	SignalBus.building_removed.connect(_on_building_removed)
+	
 	
 
 
@@ -41,6 +44,15 @@ func _on_collect_resources(resource_type: String, amount: int, source: Node) -> 
 		"(+", amount, " from ", source.name, ")"
 	)
 
+func _on_building_added()
+{
+	
+}
+
+func _on_building_removed()
+{
+	
+}
 
 func _on_resBuilding_added(amount: int, source: Node) -> void:
 	population += amount
