@@ -3,6 +3,8 @@ extends Control
 
 var pause_overlay_instance: Control = null
 var pause_layer: CanvasLayer = null
+var book_overlay_instance: Control = null
+var book_layer: CanvasLayer = null
 @onready var day_label: Label = $Ui/InformationBoard/VBoxContainer/DayLabel
 @onready var wood_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer2/TreePanel/HBoxContainer/Label
 @onready var stone_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Label
@@ -23,7 +25,7 @@ func _ready():
 		
 func _process(delta):
 	if Globals.ruler_name != "" && Globals.kingdom_name != "":
-		king_label.text = "Herrscher " + Globals.ruler_name + " aus Königreich " + Globals.kingdom_name
+		king_label.text = "Herrscher " + Globals.ruler_name + " aus KÃ¶nigreich " + Globals.kingdom_name
 	var progress = TimeManager.get_day_progress()
 	var start_angle = deg_to_rad(-90)
 	var end_angle = deg_to_rad(270)
@@ -65,6 +67,18 @@ func _on_resume():
 	pause_layer = null
 	pause_overlay_instance = null
 	
-	
 func _on_ben_rater_btn_pressed():
-	get_tree().change_scene_to_file("res://Szenen/UI/book.tscn")
+	if book_overlay_instance != null:
+		return # Already open
+
+	book_layer = CanvasLayer.new()
+	book_layer.layer = 11 # higher than pause_layer
+
+	add_child(book_layer)
+
+	book_overlay_instance = load("res://Szenen/UI/book.tscn").instantiate()
+	book_layer.add_child(book_overlay_instance)
+
+	# Optional: connect signals from the overlay (e.g., close button)
+	if book_overlay_instance.has_signal("close_pressed"):
+		book_overlay_instance.connect("close_pressed", Callable(self, "_on_book_close_pressed"))

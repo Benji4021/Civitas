@@ -13,6 +13,7 @@ func _process(delta):
 		seconds_passed = 0
 		current_day += 1
 		emit_signal("day_changed", current_day)
+		print("New Day:", current_day)
 
 func get_day_progress() -> float:
 	return seconds_passed / (minutes_per_day * 60.0)

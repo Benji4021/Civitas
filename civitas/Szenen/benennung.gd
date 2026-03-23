@@ -2,13 +2,13 @@ extends Node2D
 
 @onready var benennung = $CanvasLayer/Benennung
 @onready var time_color: CanvasModulate = $TimeColor
+
 var time_colors = [
 	{ "time": 0.75,  "color": Color(0.9, 0.5, 0.3) },     # sunrise
 	{ "time": 0.35, "color": Color(1.0, 0.9, 0.6) },     # morning
 	{ "time": 0.0,  "color": Color(1.0, 0.8, 0.7) },     # afternoon
 	{ "time": 1.0,  "color": Color(0.179, 0.18, 0.42, 1.0) }    # back to night
 ]
-
 
 func _ready():
 	benennung.visible = false
@@ -22,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	var progress = TimeManager.get_day_progress()
-	time_color.color = get_time_color(progress)
+	time_color.color = Color(0.978, 0.826, 0.697, 1.0).lerp(Color(0.27, 0.271, 0.519, 1.0), abs(sin(progress * PI)))
 
 func get_time_color(progress: float) -> Color:
 	for i in range(time_colors.size() - 1):
