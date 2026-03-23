@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://br0edudtu1m68"]
+
+[ext_resource type="Script" uid="uid://bpantdn7vhue7" path="res://Szenen/UI/overlay_dayend.gd" id="1_m5vu0"]
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_pjhxl"]
+
+[node name="OverlayDayend" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5vu0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 652.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_pjhxl")
+theme_override_font_sizes/font_size = 100
+text = "Tag 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_pjhxl")
+theme_override_font_sizes/font_size = 100
+text = "Tag 2"
+horizontal_alignment = 1
+vertical_alignment = 1
