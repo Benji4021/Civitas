@@ -5,34 +5,24 @@ extends Control
 
 var is_open: bool = false
 
-@onready var toggle_btn = $ToggleButton
-
+@onready var toggle_btn = $ToggleButton2
 
 func _ready():
 	# Panel initial rechts außerhalb
 	position.x = get_viewport_rect().size.x
-	toggle_btn.text = "<"
 
-
-func _on_ToggleButton_pressed():
-	is_open = !is_open
-
+func _on_toggle_button_2_toggled(toggled_on):
+	is_open = toggled_on
+	
 	var viewport_width = get_viewport_rect().size.x
 	var target_x: float
-
+	
 	if is_open:
-		# reinfahren
-		target_x = viewport_width - panel_width
-		toggle_btn.text = ">"
+		target_x = viewport_width - panel_width 
+		toggle_btn.scale.x = -1   # flip horizontally
 	else:
-		# rausfahren
-		target_x = viewport_width
-		toggle_btn.text = "<"
-
-	# Animation
+		target_x = viewport_width 
+		toggle_btn.scale.x = 1    # normal
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position:x", target_x, slide_time)
-
-
-func _on_toggle_button_pressed() -> void:
-	pass # Replace with function body.

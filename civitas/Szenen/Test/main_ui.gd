@@ -1,5 +1,4 @@
 extends Control
-# oder Node / Node2D – egal
 @export var pause_overlay_scene: PackedScene
 
 var pause_overlay_instance: Control = null

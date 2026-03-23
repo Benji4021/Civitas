@@ -3,9 +3,8 @@ extends Node
 # Terrain
 signal terrain_clicked(terrain: Node)
 signal collect_resources(resource_type: String, amount: int, source: Node)
-
-# Capacity / Farming
-signal check_capacity(resource_type: String)
+signal break_terrain(requester: Node)
+signal check_capacity(resource_type: String, requester: Node)
 signal finish_farming(resource_type: String)
 
 # Building (generic)

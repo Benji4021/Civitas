@@ -50,6 +50,6 @@ func _on_button_pressed():
 			if name_input.text.strip_edges() == "":
 				return
 			Globals.kingdom_name = name_input.text.strip_edges()
-			
+
 			Globals.input_locked = false
 			visible = false

@@ -30,7 +30,7 @@ func _on_save_button_pressed():
 func _on_continue_btn_pressed():
 	statistics.visible = false
 	profile.visible = true
-	
+
 func _on_previous_btn_pressed():
 	profile.visible = false
 	statistics.visible = true

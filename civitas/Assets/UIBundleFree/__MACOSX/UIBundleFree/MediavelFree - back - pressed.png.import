@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2bsoo5uqgstp"
-path="res://.godot/imported/ben magic.png-49db69854d7bd61d4f36ff64731d343f.ctex"
+uid="uid://cfx2ssyywtnq"
+path="res://.godot/imported/MediavelFree - back - pressed.png-1466211237b615872fe03a5da1195029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ben magic.png"
-dest_files=["res://.godot/imported/ben magic.png-49db69854d7bd61d4f36ff64731d343f.ctex"]
+source_file="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back - pressed.png"
+dest_files=["res://.godot/imported/MediavelFree - back - pressed.png-1466211237b615872fe03a5da1195029.ctex"]
 
 [params]
 

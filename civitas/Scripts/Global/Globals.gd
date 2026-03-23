@@ -19,21 +19,18 @@ var start_capacity = 1
 func _ready() -> void:
 	# Terrain
 	SignalBus.collect_resources.connect(_on_collect_resources)
+	SignalBus.check_capacity.connect(_on_check_capacity)
+	SignalBus.finish_farming.connect(_on_finish_farming)
 
-#	SignalBus.check_capacity.connect(_on_check_capacity)
-#	SignalBus.finish_farming.connect(_on_finish_farming)
 
 	# Building
 	SignalBus.resBuilding_added.connect(_on_resBuilding_added)
 	SignalBus.resBuilding_removed.connect(_on_resBuilding_removed)
 
-#	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
-#	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
-#	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
-#	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
-
-	
-	
+	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
+	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
+	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
+	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 
 
 func _on_collect_resources(resource_type: String, amount: int, source: Node) -> void:
@@ -95,34 +92,54 @@ func has_variable(var_name: String) -> bool:
 			return true
 	return false
 	
-func _on_check_capacity(resource_type: String) -> bool:
+func _on_check_capacity(resource_type: String, requester: Node) -> void:
 	if resource_type == "lumber":
-		# normal, wenn gesetzt
 		if lumber_capacity != null:
 			if lumber_capacity > 0:
 				lumber_capacity -= 1
-				return true
-			return false
+				SignalBus.break_terrain.emit(requester)
+			return
 
-		# fallback, wenn nicht gesetzt
 		if start_capacity > 0:
 			start_capacity -= 1
-			return true
-		return false
+			SignalBus.break_terrain.emit(requester)
+		return
 
 	if resource_type == "stone":
 		if stone_capacity != null:
 			if stone_capacity > 0:
 				stone_capacity -= 1
-				return true
-			return false
+				SignalBus.break_terrain.emit(requester)
+			return
 
 		if start_capacity > 0:
 			start_capacity -= 1
-			return true
-		return false
+			SignalBus.break_terrain.emit(requester)
+		return
+	if resource_type == "lumber":
+		if lumber_capacity != null:
+			if lumber_capacity > 0:
+				lumber_capacity -= 1
+				SignalBus.break_terrain.emit(requester)
+			return
 
-	return false
+		if start_capacity > 0:
+			start_capacity -= 1
+			SignalBus.break_terrain.emit(requester)
+		return
+
+	if resource_type == "stone":
+		if stone_capacity != null:
+			if stone_capacity > 0:
+				stone_capacity -= 1
+				SignalBus.break_terrain.emit(requester)
+			return
+
+		if start_capacity > 0:
+			start_capacity -= 1
+			SignalBus.break_terrain.emit(requester)
+		return
+	
 	
 func _on_finish_farming(resource_type: String) -> void:
 	# Wenn noch kein spezielles Gebäude gesetzt ist: start_capacity wieder freigeben
