@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dfhue8t2pnrps"]
+
+[ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="1_iyjys"]
+[ext_resource type="Texture2D" uid="uid://spyw5q2ojano" path="res://Assets/opencrate.png" id="2_nntk8"]
+[ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="3_s3rd2"]
+[ext_resource type="Texture2D" uid="uid://y6xtdnrk5rqp" path="res://Assets/transfer-data.png" id="4_awoxq"]
+[ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="5_a5l1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxqgg"]
+font = ExtResource("1_iyjys")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_enbuc"]
+font = ExtResource("1_iyjys")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_aaiww"]
+font = ExtResource("1_iyjys")
+font_size = 50
+
+[node name="Shop" type="Control" unique_id=1735008473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1411891202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1163449081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1054020274]
+layout_mode = 2
+text = "Tauschkasten"
+label_settings = SubResource("LabelSettings_mxqgg")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=594229248]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=107450854]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=227955511]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=992699006]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1725953596]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1777729076]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1012805563]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1212313993]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1041467990]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1347726540]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=347026709]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1788220989]
+layout_mode = 2
+text = "Wechselkurs"
+label_settings = SubResource("LabelSettings_enbuc")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=557199650]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1588130085]
+layout_mode = 2
+text = "1x"
+label_settings = SubResource("LabelSettings_aaiww")
+
+[node name="FirstTradeImg" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=464939219]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+texture = ExtResource("3_s3rd2")
+expand_mode = 1
+
+[node name="Label2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=2025334936]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_awoxq")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1082949041]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2113344925]
+layout_mode = 2
+text = "1x"
+label_settings = SubResource("LabelSettings_aaiww")
+
+[node name="SecondTradeImg2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1485890385]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+texture = ExtResource("5_a5l1g")
+expand_mode = 1
