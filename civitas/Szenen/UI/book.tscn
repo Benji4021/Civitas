@@ -59,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_cu8fe")
 
 [node name="Panel" type="Panel" parent="." unique_id=1702653645]
@@ -86,6 +87,8 @@ texture = ExtResource("2_ephbh")
 expand_mode = 1
 
 [node name="CloseBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=465595761]
+process_mode = 3
+z_index = 3
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -98,6 +101,7 @@ offset_right = -185.25
 offset_bottom = 95.042
 grow_horizontal = 0
 scale = Vector2(4, 4)
+mouse_filter = 1
 texture_normal = ExtResource("3_f2kok")
 texture_pressed = ExtResource("4_ipspw")
 texture_hover = ExtResource("3_f2kok")
@@ -105,6 +109,7 @@ texture_disabled = ExtResource("3_f2kok")
 stretch_mode = 3
 
 [node name="ContinueBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=1549500247]
+process_mode = 3
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -117,6 +122,7 @@ offset_top = -26.92102
 offset_right = -10.551758
 offset_bottom = -8.9210205
 scale = Vector2(3, 3)
+mouse_filter = 1
 texture_normal = ExtResource("5_k3urr")
 texture_pressed = ExtResource("6_cu8fe")
 texture_hover = ExtResource("5_k3urr")
@@ -124,6 +130,7 @@ texture_disabled = ExtResource("5_k3urr")
 stretch_mode = 3
 
 [node name="PreviousBtn" type="TextureButton" parent="Panel/TextureRect" unique_id=767241354]
+process_mode = 3
 texture_filter = 1
 layout_mode = 0
 offset_left = 273.0
@@ -131,16 +138,24 @@ offset_top = 556.0
 offset_right = 293.33325
 offset_bottom = 574.0
 scale = Vector2(-3, 3)
+mouse_filter = 1
 texture_normal = ExtResource("5_k3urr")
 texture_pressed = ExtResource("6_cu8fe")
 texture_hover = ExtResource("5_k3urr")
 texture_disabled = ExtResource("5_k3urr")
 stretch_mode = 3
 
-[node name="Statistiken" type="CanvasLayer" parent="Panel/TextureRect" unique_id=289243393]
+[node name="Statistiken" type="Control" parent="Panel/TextureRect" unique_id=110161750]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PageLabel" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1764859155]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -158,6 +173,7 @@ horizontal_alignment = 1
 autowrap_mode = 1
 
 [node name="Label2" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1243658828]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -181,6 +197,7 @@ horizontal_alignment = 3
 autowrap_mode = 1
 
 [node name="Label3" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=800039223]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -205,9 +222,19 @@ label_settings = SubResource("LabelSettings_k3urr")
 horizontal_alignment = 3
 autowrap_mode = 1
 
-[node name="ProfilSetting" type="CanvasLayer" parent="Panel/TextureRect" unique_id=799651395]
+[node name="ProfilSetting" type="Control" parent="Panel/TextureRect" unique_id=998232058]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = 75.0
+offset_right = -43.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=2072165634]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -225,6 +252,7 @@ horizontal_alignment = 1
 autowrap_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect/ProfilSetting" unique_id=259399281]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 125.0
 offset_right = 555.0
@@ -329,6 +357,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="SaveButton" type="Button" parent="Panel/TextureRect/ProfilSetting" unique_id=1279118035]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.008680556
 offset_left = 283.0
@@ -350,6 +379,7 @@ text = "Speichern"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/TextureRect/ProfilSetting" unique_id=1381034368]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.07700001
 anchor_bottom = 0.11100001

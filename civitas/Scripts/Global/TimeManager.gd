@@ -9,7 +9,7 @@ signal day_changed(new_day)
 func _process(delta):
 	seconds_passed += delta
 	
-	if seconds_passed >= minutes_per_day * 10:
+	if seconds_passed >= minutes_per_day * 30:
 		seconds_passed = 0
 		current_day += 1
 		emit_signal("day_changed", current_day)

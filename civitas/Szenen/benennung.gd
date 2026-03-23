@@ -34,4 +34,3 @@ func get_time_color(progress: float) -> Color:
 			return current.color.lerp(next.color, local_t)
 
 	return time_colors[-1].color
-
