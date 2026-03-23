@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfmarng3okcba"]
+[gd_scene format=3 uid="uid://dfmarng3okcba"]
 
 [ext_resource type="Script" uid="uid://c1rtt7mpd16pa" path="res://Szenen/UI/pause.gd" id="1_lxac6"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="1_ynows"]
-[ext_resource type="Texture2D" uid="uid://e55ipjgmgy2r" path="res://Szenen/mute.png" id="3_1dx0x"]
-[ext_resource type="Texture2D" uid="uid://ifgc5ohshvy" path="res://Szenen/volume.png" id="3_kc3uy"]
-[ext_resource type="Script" uid="uid://jyvlow0ptig4" path="res://Szenen/UI/mute.gd" id="4_cw6ov"]
+[ext_resource type="Texture2D" uid="uid://bg506pxmhu8al" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Sound - On.png" id="3_kc3uy"]
+[ext_resource type="Texture2D" uid="uid://dnotkkxrf2odn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Sound - Off.png" id="4_1epq2"]
+[ext_resource type="Script" path="res://Szenen/UI/mute.gd" id="4_cw6ov"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lxac6"]
 font = ExtResource("1_ynows")
@@ -40,7 +40,7 @@ shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
-[node name="Pause" type="Control"]
+[node name="Pause" type="Control" unique_id=587130842]
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -52,7 +52,7 @@ size_flags_horizontal = 4
 mouse_filter = 1
 script = ExtResource("1_lxac6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=2038971233]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,7 +62,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1742872890]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,22 +77,25 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1451740549]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Halt"
 label_settings = SubResource("LabelSettings_lxac6")
 
-[node name="ToggleSound" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="ToggleSound" type="TextureButton" parent="Panel/VBoxContainer" unique_id=695349306]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 toggle_mode = true
 texture_normal = ExtResource("3_kc3uy")
-texture_pressed = ExtResource("3_1dx0x")
+texture_pressed = ExtResource("4_1epq2")
+stretch_mode = 0
 script = ExtResource("4_cw6ov")
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Button" type="Button" parent="Panel" unique_id=1310003494]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.011284722
