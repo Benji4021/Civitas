@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
 [ext_resource type="Texture2D" uid="uid://d3xrgy1834qoq" path="res://Assets/boat2.png" id="11_dg5df"]
 [ext_resource type="PackedScene" uid="uid://cwxes76jrfp5s" path="res://Szenen/UI/benennung.tscn" id="11_yqufu"]
+[ext_resource type="Texture2D" uid="uid://c2k3kb5hhvoup" path="res://Assets/shop cart.png" id="12_dg5df"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_p7my4")
@@ -490,3 +491,19 @@ script = ExtResource("2_h4bth")
 [node name="Boat2" type="Sprite2D" parent="." unique_id=714788851]
 position = Vector2(-349, -960)
 texture = ExtResource("11_dg5df")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1409903929]
+z_index = 20
+texture_filter = 1
+layout_direction = 4
+offset_left = -64.0
+offset_top = 742.0
+offset_right = 76.0
+offset_bottom = 868.0
+texture_normal = ExtResource("12_dg5df")
+texture_pressed = ExtResource("12_dg5df")
+texture_hover = ExtResource("12_dg5df")
+texture_focused = ExtResource("12_dg5df")
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

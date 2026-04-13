@@ -1,22 +1,35 @@
-[gd_scene format=3 uid="uid://dfhue8t2pnrps"]
+[gd_scene format=3 uid="uid://5tpdcbb4e44l"]
 
+[ext_resource type="Script" uid="uid://ulsu5jrajn4q" path="res://Szenen/UI/shop.gd" id="1_awoxq"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="1_iyjys"]
+[ext_resource type="Texture2D" uid="uid://8p6d3fnblrsn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close.png" id="1_s3rd2"]
+[ext_resource type="Texture2D" uid="uid://dxffr5ujtqcm7" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close - pressed.png" id="2_awoxq"]
 [ext_resource type="Texture2D" uid="uid://spyw5q2ojano" path="res://Assets/opencrate.png" id="2_nntk8"]
 [ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="3_s3rd2"]
 [ext_resource type="Texture2D" uid="uid://y6xtdnrk5rqp" path="res://Assets/transfer-data.png" id="4_awoxq"]
 [ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="5_a5l1g"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjys"]
+bg_color = Color(0.99999994, 0.98714846, 0.8966639, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="LabelSettings" id="LabelSettings_mxqgg"]
 font = ExtResource("1_iyjys")
-font_size = 100
-
-[sub_resource type="LabelSettings" id="LabelSettings_enbuc"]
-font = ExtResource("1_iyjys")
-font_size = 40
+font_size = 80
+font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aaiww"]
 font = ExtResource("1_iyjys")
 font_size = 50
+font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
 
 [node name="Shop" type="Control" unique_id=1735008473]
 layout_mode = 3
@@ -25,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_awoxq")
 
 [node name="Panel" type="Panel" parent="." unique_id=1411891202]
 layout_mode = 1
@@ -34,13 +48,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1163449081]
+[node name="Panel2" type="Panel" parent="." unique_id=1390448448]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 30.0
+offset_right = 60.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_iyjys")
+
+[node name="CloseBtn" type="TextureButton" parent="." unique_id=1661816135]
+process_mode = 3
+z_index = 3
+texture_filter = 1
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 11.0
+offset_right = 1119.0
+offset_bottom = 69.0
+mouse_filter = 1
+texture_normal = ExtResource("1_s3rd2")
+texture_pressed = ExtResource("2_awoxq")
+texture_hover = ExtResource("1_s3rd2")
+texture_disabled = ExtResource("1_s3rd2")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1163449081]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.5
+offset_top = -279.5
+offset_right = 473.5
+offset_bottom = 279.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -30
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1054020274]
@@ -51,16 +102,18 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=594229248]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=107450854]
 layout_mode = 2
+theme_override_constants/separation = -20
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=227955511]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
+theme_override_constants/separation = -20
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=992699006]
@@ -84,6 +137,7 @@ expand_mode = 1
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1012805563]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
+theme_override_constants/separation = -20
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1212313993]
@@ -108,12 +162,6 @@ expand_mode = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1788220989]
-layout_mode = 2
-text = "Wechselkurs"
-label_settings = SubResource("LabelSettings_enbuc")
-horizontal_alignment = 1
-
 [node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=557199650]
 layout_mode = 2
 alignment = 1
@@ -130,6 +178,7 @@ texture = ExtResource("3_s3rd2")
 expand_mode = 1
 
 [node name="Label2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=2025334936]
+modulate = Color(0.43529412, 0.21176471, 0.07450981, 1)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -150,3 +199,5 @@ custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 texture = ExtResource("5_a5l1g")
 expand_mode = 1
+
+[connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]

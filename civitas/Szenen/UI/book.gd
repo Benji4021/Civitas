@@ -19,7 +19,6 @@ func _ready():
 	print(profile)
 	print(safe_btn)
 
-
 func _physics_process(delta):
 	if ruler_edit.text != Globals.ruler_name || kingdom_edit.text != Globals.kingdom_name:
 		safe_btn.visible = true

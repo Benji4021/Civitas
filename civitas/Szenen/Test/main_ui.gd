@@ -83,6 +83,6 @@ func _on_ben_rater_btn_pressed():
 	if book_overlay_instance.has_signal("close_pressed"):
 		book_overlay_instance.connect("close_pressed", Callable(self, "_on_book_close_pressed"))
 
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		print("Clicked on:", get_viewport().gui_get_hovered_control())
+#func _input(event):
+#	if event is InputEventMouseButton and event.pressed:
+#		print("Clicked on:", get_viewport().gui_get_hovered_control())

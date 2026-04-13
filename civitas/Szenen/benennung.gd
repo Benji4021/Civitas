@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var benennung = $CanvasLayer/Benennung
 @onready var time_color: CanvasModulate = $TimeColor
+var shop_overlay_instance: Control = null
+var shop_layer: CanvasLayer = null
 
 var time_colors = [
 	{ "time": 0.75,  "color": Color(0.9, 0.5, 0.3) },     # sunrise
@@ -34,3 +36,16 @@ func get_time_color(progress: float) -> Color:
 			return current.color.lerp(next.color, local_t)
 
 	return time_colors[-1].color
+
+
+func _on_texture_button_pressed():
+	if shop_overlay_instance != null:
+		return # Already open
+
+	shop_layer = CanvasLayer.new()
+	shop_layer.layer = 11 # higher than pause_layer
+
+	add_child(shop_layer)
+
+	shop_overlay_instance = load("res://Szenen/UI/shop.tscn").instantiate()
+	shop_layer.add_child(shop_overlay_instance)
