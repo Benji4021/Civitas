@@ -53,13 +53,15 @@ shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
 [node name="Book" type="Control" unique_id=468490110]
+visibility_layer = 2
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_cu8fe")
 
 [node name="Panel" type="Panel" parent="." unique_id=1702653645]
@@ -69,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=943030756]
 layout_mode = 1
@@ -83,6 +86,7 @@ offset_right = 616.0
 offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_ephbh")
 expand_mode = 1
 
@@ -153,6 +157,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PageLabel" type="Label" parent="Panel/TextureRect/Statistiken" unique_id=1764859155]
 layout_mode = 1
@@ -232,6 +237,7 @@ offset_top = 75.0
 offset_right = -43.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PageLabel" type="Label" parent="Panel/TextureRect/ProfilSetting" unique_id=2072165634]
 layout_mode = 1

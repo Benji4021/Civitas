@@ -9,7 +9,7 @@ signal resume_pressed
 @onready var profile = $Panel/TextureRect/ProfilSetting
 
 func _ready():
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	safe_btn.visible = false
 	ruler_edit.text = Globals.ruler_name
 	kingdom_edit.text = Globals.kingdom_name
@@ -25,10 +25,6 @@ func _physics_process(delta):
 		safe_btn.visible = true
 	else:
 		safe_btn.visible = false
-
-func _on_book_close_pressed():
-	emit_signal("resume_pressed")
-	queue_free()
 	
 func _on_save_button_pressed():
 	Globals.ruler_name = ruler_edit.text
@@ -42,3 +38,7 @@ func _on_continue_btn_pressed():
 func _on_previous_btn_pressed():
 	profile.visible = false
 	statistics.visible = true
+
+func _on_close_btn_pressed():
+	emit_signal("resume_pressed")
+	queue_free()
