@@ -1,11 +1,13 @@
-extends Node
-
-var capacity := 5
+extends Building
 
 func _ready():
 	SignalBus.placed_resBuilding.connect(_on_placed)
 	
 func _init() -> void:
+	type = BuildingType.ResidentialBuilding
+	cost_wood  = 20
+	cost_stone = 5
+	cost_money = 50
 	_on_placed()
 
 
