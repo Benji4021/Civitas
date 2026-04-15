@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://77qt1jvdsb8f"]
+[gd_scene load_steps=33 format=3 uid="uid://77qt1jvdsb8f"]
 
 [ext_resource type="Script" uid="uid://csutwwvuh0kug" path="res://Szenen/Test/main_ui.gd" id="1_2xlsr"]
 [ext_resource type="Script" uid="uid://cksqqtx6asaah" path="res://Szenen/slide_panel.gd" id="1_xwy8f"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="12_hh5s0"]
 [ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
 [ext_resource type="Texture2D" uid="uid://dqgtcs0onydff" path="res://Assets/Arrow.png" id="13_oc0ff"]
+[ext_resource type="Script" uid="uid://bundwclb62oe1" path="res://Szenen/Test/Panel_einaus.gd" id="16_40knm"]
 [ext_resource type="Texture2D" uid="uid://cfbi6k1uv80t5" path="res://Assets/pferd.png" id="17_40knm"]
+[ext_resource type="Script" uid="uid://bnrrqplwa8250" path="res://Szenen/Test/button_panel_pressed.gd" id="18_hqnv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
 bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
@@ -67,17 +69,6 @@ font_size = 19
 font = ExtResource("8_nkhq5")
 font_size = 29
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xlsr"]
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
 [sub_resource type="LabelSettings" id="LabelSettings_qpqku"]
 font = ExtResource("8_nkhq5")
 font_size = 26
@@ -103,6 +94,17 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xlsr"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -480,27 +482,100 @@ offset_right = 641.0
 offset_bottom = -57.0
 grow_vertical = 0
 size_flags_vertical = 8
+script = ExtResource("16_40knm")
 
-[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel"]
+[node name="SlidePanel" type="Control" parent="Ui/NamePanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel/SlidePanel"]
 scale = Vector2(5, 5)
 color = Color(0.49411765, 0.015686275, 0.015686275, 1)
 polygon = PackedVector2Array(117.799995, 0.19999695, 105, 8, 117.799995, 16.199997, -0.40000057, 16.199997, -0.40000057, 0.19999695)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel"]
-position = Vector2(21.840946, 6.1500244)
+[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel/SlidePanel"]
+position = Vector2(21.840942, 6.1500244)
 scale = Vector2(4.60237, 4.2499995)
 color = Color(0.9882353, 0.69803923, 0.29411766, 1)
 polygon = PackedVector2Array(117.799995, 0.19999695, 105.84961, 7.9647064, 117.799995, 16.199997, -0.40000057, 16.199997, -0.39999962, 0.19999695, 58.527153, 0.19999695)
 
-[node name="Panel" type="Panel" parent="Ui/NamePanel"]
+[node name="Label2" type="Label" parent="Ui/NamePanel/SlidePanel"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = 5.0
+offset_right = 480.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_qpqku")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BenRaterBtn" type="Button" parent="Ui/NamePanel/SlidePanel"]
 layout_mode = 0
-offset_left = -37.0
-offset_top = -20.0
-offset_right = 83.0
-offset_bottom = 100.0
+offset_left = 574.0
+offset_top = 20.0
+offset_right = 613.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oc0ff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vuj0j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v21p0")
+
+[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/SlidePanel/BenRaterBtn"]
+texture_filter = 1
+layout_mode = 0
+offset_top = -3.0
+offset_right = 43.0
+offset_bottom = 42.0
+texture = ExtResource("13_dck8o")
+
+[node name="Panel2" type="Panel" parent="Ui/NamePanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 489.0
+offset_right = 145.0
+offset_bottom = 609.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2xlsr")
 
-[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/Panel"]
+[node name="TextureButton" type="TextureButton" parent="Ui/NamePanel/Panel2"]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -502.0
+offset_right = 484.0
+offset_bottom = 38.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("17_40knm")
+stretch_mode = 5
+script = ExtResource("18_hqnv2")
+
+[node name="PauseTextureButton" type="TextureButton" parent="Ui"]
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 55.0
+texture_normal = ExtResource("10_3isoh")
+texture_pressed = ExtResource("11_2m1ct")
+texture_hover = ExtResource("11_2m1ct")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel" type="Panel" parent="Ui"]
+offset_left = 25.0
+offset_top = 489.0
+offset_right = 145.0
+offset_bottom = 609.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2xlsr")
+
+[node name="TextureRect" type="TextureRect" parent="Ui/Panel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -514,58 +589,11 @@ offset_right = 53.75
 offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("17_40knm")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="Ui/NamePanel"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.5
-offset_top = -16.0
-offset_right = 202.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-label_settings = SubResource("LabelSettings_qpqku")
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="BenRaterBtn" type="Button" parent="Ui/NamePanel"]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 20.0
-offset_right = 613.0
-offset_bottom = 61.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_oc0ff")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vuj0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v21p0")
-
-[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/BenRaterBtn"]
-texture_filter = 1
-layout_mode = 0
-offset_top = -3.0
-offset_right = 43.0
-offset_bottom = 42.0
-texture = ExtResource("13_dck8o")
-
-[node name="PauseTextureButton" type="TextureButton" parent="Ui"]
-offset_left = 3.0
-offset_top = 5.0
-offset_right = 55.0
-offset_bottom = 55.0
-texture_normal = ExtResource("10_3isoh")
-texture_pressed = ExtResource("11_2m1ct")
-texture_hover = ExtResource("11_2m1ct")
-ignore_texture_size = true
-stretch_mode = 0
-
 [connection signal="toggled" from="Ui/SidePanel/ToggleButton2" to="Ui/SidePanel" method="_on_toggle_button_2_toggled"]
-[connection signal="pressed" from="Ui/NamePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
+[connection signal="pressed" from="Ui/NamePanel/SlidePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
 [connection signal="pressed" from="Ui/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]
