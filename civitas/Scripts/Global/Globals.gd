@@ -30,7 +30,7 @@ func _ready() -> void:
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	
-	Singalbus.building_added.connect(_on_building_added)
+	SignalBus.building_added.connect(_on_building_added)
 	SignalBus.building_removed.connect(_on_building_removed)
 	
 	
