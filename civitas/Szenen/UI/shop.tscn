@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="3_s3rd2"]
 [ext_resource type="Texture2D" uid="uid://y6xtdnrk5rqp" path="res://Assets/transfer-data.png" id="4_awoxq"]
 [ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="5_a5l1g"]
+[ext_resource type="Script" uid="uid://d21vwtlmkptsn" path="res://Szenen/UI/crate.gd" id="6_f3pod"]
 [ext_resource type="Texture2D" uid="uid://koks7nho7uig" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back.png" id="9_aaiww"]
 [ext_resource type="Texture2D" uid="uid://cfx2ssyywtnq" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back - pressed.png" id="10_f3pod"]
 [ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="11_pd0bk"]
@@ -145,6 +146,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="Crate2" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2126683841]
 custom_minimum_size = Vector2(250, 250)
@@ -154,6 +156,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="Crate3" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2100010646]
 custom_minimum_size = Vector2(250, 250)
@@ -163,6 +166,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Crate/HBoxContainer/VBoxContainer" unique_id=1012805563]
 custom_minimum_size = Vector2(50, 100)
@@ -178,6 +182,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="Crate5" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1879024239]
 custom_minimum_size = Vector2(250, 250)
@@ -187,6 +192,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="Crate6" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=279258991]
 custom_minimum_size = Vector2(250, 250)
@@ -196,6 +202,7 @@ texture_pressed = ExtResource("2_nntk8")
 texture_hover = ExtResource("2_nntk8")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_f3pod")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="Crate/HBoxContainer" unique_id=347026709]
 layout_mode = 2
