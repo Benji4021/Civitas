@@ -79,20 +79,20 @@ func _on_resume():
 	
 	
 func _on_ben_rater_btn_pressed():
-    if book_overlay_instance != null:
-        return # Already open
+	if book_overlay_instance != null:
+		return # Already open
 
-    book_layer = CanvasLayer.new()
-    book_layer.layer = 11 # higher than pause_layer
+	book_layer = CanvasLayer.new()
+	book_layer.layer = 11 # higher than pause_layer
 
-    add_child(book_layer)
+	add_child(book_layer)
 
-    book_overlay_instance = load("res://Szenen/UI/book.tscn").instantiate()
-    book_layer.add_child(book_overlay_instance)
+	book_overlay_instance = load("res://Szenen/UI/book.tscn").instantiate()
+	book_layer.add_child(book_overlay_instance)
 
-    # Optional: connect signals from the overlay (e.g., close button)
-    if book_overlay_instance.has_signal("close_pressed"):
-        book_overlay_instance.connect("close_pressed", Callable(self, "_on_book_close_pressed"))
+	# Optional: connect signals from the overlay (e.g., close button)
+	if book_overlay_instance.has_signal("close_pressed"):
+		book_overlay_instance.connect("close_pressed", Callable(self, "_on_book_close_pressed"))
 
 
 func _show_dayend_overlay(old_day: int, new_day: int) -> void:
