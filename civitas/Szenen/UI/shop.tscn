@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="3_s3rd2"]
 [ext_resource type="Texture2D" uid="uid://y6xtdnrk5rqp" path="res://Assets/transfer-data.png" id="4_awoxq"]
 [ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="5_a5l1g"]
+[ext_resource type="Texture2D" uid="uid://koks7nho7uig" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back.png" id="9_aaiww"]
+[ext_resource type="Texture2D" uid="uid://cfx2ssyywtnq" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back - pressed.png" id="10_f3pod"]
+[ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="11_pd0bk"]
+[ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="12_uv1k4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjys"]
 bg_color = Color(0.99999994, 0.98714846, 0.8966639, 1)
@@ -30,6 +34,23 @@ font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
 font = ExtResource("1_iyjys")
 font_size = 50
 font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u768"]
+bg_color = Color(0.37610212, 0.19740632, 0.103365, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6784314, 0.38431373, 0.23137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3tng"]
+font = ExtResource("1_iyjys")
+font_size = 40
+font_color = Color(1, 0.9882353, 0.8980392, 1)
 
 [node name="Shop" type="Control" unique_id=1735008473]
 layout_mode = 3
@@ -78,7 +99,7 @@ texture_hover = ExtResource("1_s3rd2")
 texture_disabled = ExtResource("1_s3rd2")
 stretch_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1163449081]
+[node name="Crate" type="VBoxContainer" parent="." unique_id=1163449081]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,90 +115,108 @@ grow_vertical = 2
 theme_override_constants/separation = -30
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1054020274]
+[node name="Label" type="Label" parent="Crate" unique_id=1054020274]
 layout_mode = 2
 text = "Tauschkasten"
 label_settings = SubResource("LabelSettings_mxqgg")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=594229248]
+[node name="HBoxContainer" type="HBoxContainer" parent="Crate" unique_id=594229248]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=107450854]
+[node name="VBoxContainer" type="VBoxContainer" parent="Crate/HBoxContainer" unique_id=107450854]
 layout_mode = 2
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=227955511]
+[node name="HBoxContainer" type="HBoxContainer" parent="Crate/HBoxContainer/VBoxContainer" unique_id=227955511]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=992699006]
+[node name="Crate1" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1900982591]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1725953596]
+[node name="Crate2" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2126683841]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1777729076]
+[node name="Crate3" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2100010646]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1012805563]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Crate/HBoxContainer/VBoxContainer" unique_id=1012805563]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1212313993]
+[node name="Crate4" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=100194228]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1041467990]
+[node name="Crate5" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1879024239]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1347726540]
+[node name="Crate6" type="TextureButton" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=279258991]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-texture = ExtResource("2_nntk8")
-expand_mode = 1
+texture_normal = ExtResource("2_nntk8")
+texture_pressed = ExtResource("2_nntk8")
+texture_hover = ExtResource("2_nntk8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="HBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=347026709]
+[node name="HBoxContainer2" type="VBoxContainer" parent="Crate/HBoxContainer" unique_id=347026709]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=557199650]
+[node name="VBoxContainer" type="HBoxContainer" parent="Crate/HBoxContainer/HBoxContainer2" unique_id=557199650]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1588130085]
+[node name="StoneLabel" type="Label" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1588130085]
 layout_mode = 2
 text = "1x"
 label_settings = SubResource("LabelSettings_aaiww")
 
-[node name="FirstTradeImg" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=464939219]
+[node name="FirstTradeImg" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=464939219]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 texture = ExtResource("3_s3rd2")
 expand_mode = 1
 
-[node name="Label2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=2025334936]
+[node name="Label2" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer2" unique_id=2025334936]
 modulate = Color(0.43529412, 0.21176471, 0.07450981, 1)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -186,18 +225,125 @@ texture = ExtResource("4_awoxq")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1082949041]
+[node name="VBoxContainer2" type="HBoxContainer" parent="Crate/HBoxContainer/HBoxContainer2" unique_id=1082949041]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2113344925]
+[node name="WoodLabel" type="Label" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2113344925]
 layout_mode = 2
 text = "1x"
 label_settings = SubResource("LabelSettings_aaiww")
 
-[node name="SecondTradeImg2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1485890385]
+[node name="SecondTradeImg2" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1485890385]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 texture = ExtResource("5_a5l1g")
 expand_mode = 1
+
+[node name="Sell" type="VBoxContainer" parent="." unique_id=1392322611]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.5
+offset_top = -290.0
+offset_right = 476.5
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Sell" unique_id=1002121195]
+layout_mode = 2
+text = "Tauschkasten"
+label_settings = SubResource("LabelSettings_mxqgg")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sell" unique_id=2086143727]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Sell/HBoxContainer" unique_id=1531804372]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+texture = ExtResource("2_nntk8")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="Sell/HBoxContainer" unique_id=1764509163]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8u768")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sell/HBoxContainer/Panel" unique_id=778823307]
+layout_mode = 0
+offset_right = 449.5
+offset_bottom = 448.0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=842728372]
+layout_mode = 2
+text = "Verkaufen"
+label_settings = SubResource("LabelSettings_p3tng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=266710828]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=263724108]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("5_a5l1g")
+texture_pressed = ExtResource("5_a5l1g")
+texture_hover = ExtResource("5_a5l1g")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=142694059]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("3_s3rd2")
+texture_pressed = ExtResource("3_s3rd2")
+texture_hover = ExtResource("3_s3rd2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=706056405]
+layout_mode = 2
+text = "Menge: 1"
+label_settings = SubResource("LabelSettings_p3tng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=1935320735]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=890467874]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("9_aaiww")
+texture_pressed = ExtResource("10_f3pod")
+texture_hover = ExtResource("9_aaiww")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=282096712]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("11_pd0bk")
+texture_pressed = ExtResource("12_uv1k4")
+texture_hover = ExtResource("11_pd0bk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=2062212957]
+layout_mode = 2
+alignment = 1
 
 [connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]
