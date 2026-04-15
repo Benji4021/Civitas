@@ -37,7 +37,6 @@ func get_time_color(progress: float) -> Color:
 
 	return time_colors[-1].color
 
-
 func _on_texture_button_pressed():
 	if shop_overlay_instance != null:
 		return # Already open
