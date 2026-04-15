@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://pcncyh8fdhq"]
 
-[ext_resource type="Script" uid="uid://dti17c3m35ip2" path="res://Szenen/benennung.gd" id="1_vbxcm"]
+[ext_resource type="Script" path="res://Szenen/benennung.gd" id="1_vbxcm"]
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
 [ext_resource type="Texture2D" uid="uid://dksx1g0c8lrkk" path="res://Assets/TopDownFantasy-Forest/Tiles/spritesheet.png" id="2_p7my4"]
-[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/Test/Main_UI.tscn" id="2_vbxcm"]
+[ext_resource type="PackedScene" uid="uid://77qt1jvdsb8f" path="res://Szenen/UI/Main_UI.tscn" id="2_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://rn2cxvngeeb8" path="res://Szenen/Terrain/small_Tree.tscn" id="4_0ud6b"]
 [ext_resource type="Script" uid="uid://c0nlk0ggqgikl" path="res://Scripts/Global/Terrain_Generator.gd" id="4_org3e"]
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
 [ext_resource type="Texture2D" uid="uid://d3xrgy1834qoq" path="res://Assets/boat2.png" id="11_dg5df"]
 [ext_resource type="PackedScene" uid="uid://cwxes76jrfp5s" path="res://Szenen/UI/benennung.tscn" id="11_yqufu"]
+[ext_resource type="Script" uid="uid://bo8vhguaq31fl" path="res://Szenen/MapDropArea.gd" id="12_dg5df"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_p7my4")
@@ -490,3 +491,12 @@ script = ExtResource("2_h4bth")
 [node name="Boat2" type="Sprite2D" parent="." unique_id=714788851]
 position = Vector2(-349, -960)
 texture = ExtResource("11_dg5df")
+
+[node name="MapDropArea" type="Control" parent="." unique_id=464592652]
+layout_mode = 3
+offset_left = -1362.0
+offset_top = -780.0
+offset_right = 1173.0
+offset_bottom = 798.0
+mouse_filter = 1
+script = ExtResource("12_dg5df")
