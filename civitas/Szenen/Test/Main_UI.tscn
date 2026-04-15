@@ -69,6 +69,17 @@ font_size = 19
 font = ExtResource("8_nkhq5")
 font_size = 29
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xlsr"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [sub_resource type="LabelSettings" id="LabelSettings_qpqku"]
 font = ExtResource("8_nkhq5")
 font_size = 26
@@ -94,17 +105,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xlsr"]
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.49411765, 0.015686275, 0.015686275, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -484,59 +484,6 @@ grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("16_40knm")
 
-[node name="SlidePanel" type="Control" parent="Ui/NamePanel"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel/SlidePanel"]
-scale = Vector2(5, 5)
-color = Color(0.49411765, 0.015686275, 0.015686275, 1)
-polygon = PackedVector2Array(117.799995, 0.19999695, 105, 8, 117.799995, 16.199997, -0.40000057, 16.199997, -0.40000057, 0.19999695)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel/SlidePanel"]
-position = Vector2(21.840942, 6.1500244)
-scale = Vector2(4.60237, 4.2499995)
-color = Color(0.9882353, 0.69803923, 0.29411766, 1)
-polygon = PackedVector2Array(117.799995, 0.19999695, 105.84961, 7.9647064, 117.799995, 16.199997, -0.40000057, 16.199997, -0.39999962, 0.19999695, 58.527153, 0.19999695)
-
-[node name="Label2" type="Label" parent="Ui/NamePanel/SlidePanel"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 86.0
-offset_top = 5.0
-offset_right = 480.5
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-label_settings = SubResource("LabelSettings_qpqku")
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="BenRaterBtn" type="Button" parent="Ui/NamePanel/SlidePanel"]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 20.0
-offset_right = 613.0
-offset_bottom = 61.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_oc0ff")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vuj0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v21p0")
-
-[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/SlidePanel/BenRaterBtn"]
-texture_filter = 1
-layout_mode = 0
-offset_top = -3.0
-offset_right = 43.0
-offset_bottom = 42.0
-texture = ExtResource("13_dck8o")
-
 [node name="Panel2" type="Panel" parent="Ui/NamePanel"]
 layout_mode = 0
 offset_left = 25.0
@@ -555,6 +502,67 @@ scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("17_40knm")
 stretch_mode = 5
 script = ExtResource("18_hqnv2")
+
+[node name="ClipContainer" type="Control" parent="Ui/NamePanel"]
+clip_contents = true
+anchors_preset = 0
+offset_right = 642.0
+offset_bottom = 88.0
+mouse_filter = 2
+
+[node name="SlidePanel" type="Control" parent="Ui/NamePanel/ClipContainer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ui/NamePanel/ClipContainer/SlidePanel"]
+scale = Vector2(5, 5)
+color = Color(0.49411765, 0.015686275, 0.015686275, 1)
+polygon = PackedVector2Array(117.799995, 0.19999695, 105, 8, 117.799995, 16.199997, -0.40000057, 16.199997, -0.40000057, 0.19999695)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Ui/NamePanel/ClipContainer/SlidePanel"]
+position = Vector2(21.840942, 6.1500244)
+scale = Vector2(4.60237, 4.2499995)
+color = Color(0.9882353, 0.69803923, 0.29411766, 1)
+polygon = PackedVector2Array(117.799995, 0.19999695, 105.84961, 7.9647064, 117.799995, 16.199997, -0.40000057, 16.199997, -0.39999962, 0.19999695, 58.527153, 0.19999695)
+
+[node name="Label2" type="Label" parent="Ui/NamePanel/ClipContainer/SlidePanel"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = 5.0
+offset_right = 480.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_qpqku")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BenRaterBtn" type="Button" parent="Ui/NamePanel/ClipContainer/SlidePanel"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 20.0
+offset_right = 613.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oc0ff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vuj0j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v21p0")
+
+[node name="TextureRect" type="TextureRect" parent="Ui/NamePanel/ClipContainer/SlidePanel/BenRaterBtn"]
+texture_filter = 1
+layout_mode = 0
+offset_top = -3.0
+offset_right = 43.0
+offset_bottom = 42.0
+texture = ExtResource("13_dck8o")
 
 [node name="PauseTextureButton" type="TextureButton" parent="Ui"]
 offset_left = 3.0
@@ -595,5 +603,5 @@ expand_mode = 3
 stretch_mode = 5
 
 [connection signal="toggled" from="Ui/SidePanel/ToggleButton2" to="Ui/SidePanel" method="_on_toggle_button_2_toggled"]
-[connection signal="pressed" from="Ui/NamePanel/SlidePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
+[connection signal="pressed" from="Ui/NamePanel/ClipContainer/SlidePanel/BenRaterBtn" to="." method="_on_ben_rater_btn_pressed"]
 [connection signal="pressed" from="Ui/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var portrait_button = $Panel2/TextureButton
-@onready var slide_panel = $SlidePanel
+@onready var slide_panel = $ClipContainer/SlidePanel
 
 var tween: Tween
 var is_open := false
