@@ -36,6 +36,11 @@ font = ExtResource("1_iyjys")
 font_size = 50
 font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_f3pod"]
+font = ExtResource("1_iyjys")
+font_size = 30
+font_color = Color(0.43529412, 0.21176471, 0.07450981, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u768"]
 bg_color = Color(0.37610212, 0.19740632, 0.103365, 1)
 border_width_left = 5
@@ -52,6 +57,41 @@ corner_radius_bottom_left = 5
 font = ExtResource("1_iyjys")
 font_size = 40
 font_color = Color(1, 0.9882353, 0.8980392, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_f3pod"]
+base_font = ExtResource("1_iyjys")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd0bk"]
+bg_color = Color(0.96862745, 0.90588236, 0.8039216, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv1k4"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3tng"]
+bg_color = Color(0.827451, 0.6901961, 0.5803922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.41981313, 0.41981313, 0.4198131, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krdxt"]
 
 [node name="Shop" type="Control" unique_id=1735008473]
 layout_mode = 3
@@ -101,6 +141,7 @@ texture_disabled = ExtResource("1_s3rd2")
 stretch_mode = 0
 
 [node name="Crate" type="VBoxContainer" parent="." unique_id=1163449081]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -247,7 +288,6 @@ texture = ExtResource("5_a5l1g")
 expand_mode = 1
 
 [node name="Sell" type="VBoxContainer" parent="." unique_id=1392322611]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -269,12 +309,18 @@ text = "Tauschkasten"
 label_settings = SubResource("LabelSettings_mxqgg")
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="Sell" unique_id=646170552]
+layout_mode = 2
+text = "Holz: 1 Stein: 1"
+label_settings = SubResource("LabelSettings_f3pod")
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Sell" unique_id=2086143727]
 layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Sell/HBoxContainer" unique_id=1531804372]
-custom_minimum_size = Vector2(450, 450)
+custom_minimum_size = Vector2(450, 420)
 layout_mode = 2
 texture = ExtResource("2_nntk8")
 expand_mode = 1
@@ -287,7 +333,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8u768")
 [node name="VBoxContainer" type="VBoxContainer" parent="Sell/HBoxContainer/Panel" unique_id=778823307]
 layout_mode = 0
 offset_right = 449.5
-offset_bottom = 448.0
+offset_bottom = 412.0
 theme_override_constants/separation = 5
 alignment = 1
 
@@ -303,7 +349,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=263724108]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture_normal = ExtResource("5_a5l1g")
 texture_pressed = ExtResource("5_a5l1g")
@@ -312,7 +358,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton2" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=142694059]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture_normal = ExtResource("3_s3rd2")
 texture_pressed = ExtResource("3_s3rd2")
@@ -320,9 +366,20 @@ texture_hover = ExtResource("3_s3rd2")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label2" type="Label" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=706056405]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=1568762873]
 layout_mode = 2
-text = "Menge: 1"
+alignment = 1
+
+[node name="Menge" type="Label" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer4" unique_id=706056405]
+layout_mode = 2
+text = "Menge:  "
+label_settings = SubResource("LabelSettings_p3tng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mengezahl" type="Label" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer4" unique_id=1233677939]
+layout_mode = 2
+text = "1"
 label_settings = SubResource("LabelSettings_p3tng")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -332,7 +389,8 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=890467874]
-custom_minimum_size = Vector2(100, 100)
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("9_aaiww")
 texture_pressed = ExtResource("10_f3pod")
@@ -341,7 +399,8 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton2" type="TextureButton" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=282096712]
-custom_minimum_size = Vector2(100, 100)
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("11_pd0bk")
 texture_pressed = ExtResource("12_uv1k4")
@@ -351,6 +410,41 @@ stretch_mode = 0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Sell/HBoxContainer/Panel/VBoxContainer" unique_id=2062212957]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
+[node name="Button" type="Button" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer3" unique_id=606728614]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.19607843, 0.101960786, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_f3pod")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pd0bk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uv1k4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p3tng")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krdxt")
+text = "Ja"
+
+[node name="Button2" type="Button" parent="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer3" unique_id=224596934]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.19607843, 0.101960786, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_f3pod")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pd0bk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uv1k4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p3tng")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krdxt")
+text = "Nein"
+
 [connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton2" to="." method="_on_texture_button_2_pressed"]
