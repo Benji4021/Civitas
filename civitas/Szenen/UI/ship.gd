@@ -7,11 +7,14 @@ extends Control
 @onready var crate4 = $Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate1
 @onready var crate5 = $Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate2
 @onready var crate6 = $Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate3
-
+@onready var resource_label = $Crate/Label2
 @export var stone_texture: Texture2D
 @export var lumber_texture: Texture2D
 
 func _ready() -> void:
+	update_resource_label()
+	SignalBus.resource_changed.connect(_on_resource_changed)
+
 	var time_manager = get_node("/root/TimeManager")
 	time_manager.day_changed.connect(_on_day_changed)
 
@@ -33,6 +36,15 @@ func _on_day_changed(day: int) -> void:
 func get_all_crates() -> Array:
 	return [crate1, crate2, crate3, crate4, crate5, crate6]
 
+func update_resource_label() -> void:
+	resource_label.text = "Holz: " + str(Globals.lumber) + \
+	"  Stein: " + str(Globals.stone) + \
+	"  Geld: " + str(Globals.money)
+
+func _on_resource_changed(resource_type: String, new_value: int) -> void:
+	update_resource_label()
+	
+
 func generate_new_trades() -> void:
 	var possible_items = ["stone", "lumber"]
 	var crates = get_all_crates()
@@ -42,7 +54,11 @@ func generate_new_trades() -> void:
 	for i in range(crates.size()):
 		var item_name = possible_items.pick_random()
 		var amount = randi_range(1, 5)
-		var reward = amount * 3
+		var reward = 0
+		if item_name == "stone":
+			reward = amount * 2
+		elif item_name == "lumber":
+			reward = amount * 4
 
 		Globals.ship_trades.append({
 			"item": item_name,
