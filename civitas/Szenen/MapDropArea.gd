@@ -28,6 +28,8 @@ var occupied_tiles: Dictionary = {}
 var original_ground: Dictionary = {}
 
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+
 	if ground == null:
 		push_error("MapDropArea: ground_tilemap_path falsch / TileMapLayer nicht gefunden.")
 	if houses_parent == null:
@@ -69,28 +71,15 @@ func _can_drop_data(_pos: Vector2, data) -> bool:
 func _drop_data(_pos: Vector2, data) -> void:
 	if ghost == null:
 		return
+	if _ghost_collides():
+		print("LOCKED BY COLLISION -> no placement")
+		return
 
 	var payload := (data as Dictionary).duplicate(true)
+
 	var origin := _origin_under_mouse(payload)
 	var tiles := _get_tiles(origin, payload)
 
-	if _ghost_collides() or _tiles_are_occupied(tiles):
-		print("LOCKED BY COLLISION / OCCUPIED TILE -> no placement")
-		_clear_drag()
-		return
-
-	var costs := BuildingDB.get_costs(String(payload.get("id", "")))
-	var wood_cost: int = int(costs.get("wood", 0))
-	var stone_cost: int = int(costs.get("stone", 0))
-	var money_cost: int = int(costs.get("gold", 0))
-
-	if not Globals.can_afford(wood_cost, stone_cost, money_cost):
-		var missing := Globals.missing(wood_cost, stone_cost, money_cost)
-		SignalBus.missing_resources_requested.emit(missing)
-		_clear_drag()
-		return
-
-	Globals.spend(wood_cost, stone_cost, money_cost)
 	_place_building(origin, tiles, payload)
 	_clear_drag()
 
@@ -98,12 +87,6 @@ func _clear_drag() -> void:
 	dragging_data.clear()
 	if ghost != null:
 		ghost.visible = false
-		ghost.queue_free()
-		ghost = null
-		ghost_area = null
-		ghost_shape = null
-		ghost_cs = null
-		ghost_scene_path = ""
 
 # -------------------------
 # Ghost creation (ohne ensure_ghost_for name)
@@ -210,7 +193,10 @@ func _place_building(origin: Vector2i, tiles: Array[Vector2i], data: Dictionary)
 	houses_parent.add_child(inst)
 
 	_apply_visuals(inst, data)
-	BuildingPlacement.handle_placed(inst)
+
+	# optional: nur beim echten Haus Event
+	if inst.has_method("on_placed"):
+		inst.call("on_placed")
 
 	for t in tiles:
 		_set_ground_occupied(t, true)
@@ -243,12 +229,6 @@ func _get_tiles(origin: Vector2i, data: Dictionary) -> Array[Vector2i]:
 		for x in range(fp.x):
 			arr.append(origin + Vector2i(x, y))
 	return arr
-
-func _tiles_are_occupied(tiles: Array[Vector2i]) -> bool:
-	for tile in tiles:
-		if occupied_tiles.has(tile):
-			return true
-	return false
 
 # -------------------------
 # Tile replace
