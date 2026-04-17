@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://pcncyh8fdhq"]
+[gd_scene load_steps=15 format=4 uid="uid://pcncyh8fdhq"]
 
 [ext_resource type="Script" uid="uid://dti17c3m35ip2" path="res://Szenen/benennung.gd" id="1_vbxcm"]
 [ext_resource type="Script" uid="uid://bl2ylwabts7xs" path="res://Scripts/camera.gd" id="2_h4bth"]
@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bk2rdkiu3ymdr" path="res://Szenen/Terrain/stone.tscn" id="5_76ciq"]
 [ext_resource type="PackedScene" uid="uid://d2gjndsdup4kr" path="res://Szenen/Terrain/big_Tree.tscn" id="6_vbxcm"]
 [ext_resource type="PackedScene" uid="uid://c75r3ex3jft7i" path="res://Szenen/Terrain/trunk.tscn" id="7_yqufu"]
-[ext_resource type="Texture2D" uid="uid://cylvnohpcmt14" path="res://Szenen/boot.png" id="11_dg5df"]
 [ext_resource type="PackedScene" uid="uid://cwxes76jrfp5s" path="res://Szenen/UI/benennung.tscn" id="11_yqufu"]
 [ext_resource type="Texture2D" uid="uid://c2k3kb5hhvoup" path="res://Assets/shop cart.png" id="12_dg5df"]
+[ext_resource type="Texture2D" uid="uid://6rr1m24l3kb8" path="res://Assets/boot.png" id="12_dyu3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_org3e"]
 texture = ExtResource("2_p7my4")
@@ -488,13 +488,7 @@ script = ExtResource("2_h4bth")
 
 [node name="TimeColor" type="CanvasModulate" parent="."]
 
-[node name="Boot2" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-359, -951)
-scale = Vector2(2.75, 2.75)
-texture = ExtResource("11_dg5df")
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1409903929]
+[node name="TextureButton" type="TextureButton" parent="."]
 z_index = 20
 texture_filter = 1
 layout_direction = 4
@@ -508,4 +502,16 @@ texture_hover = ExtResource("12_dg5df")
 texture_focused = ExtResource("12_dg5df")
 stretch_mode = 0
 
+[node name="TextureButton2" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = -476.0
+offset_top = -1054.0
+offset_right = -391.35715
+offset_bottom = -970.0
+scale = Vector2(2.8, 2.8)
+texture_normal = ExtResource("12_dyu3i")
+texture_pressed = ExtResource("12_dyu3i")
+texture_hover = ExtResource("12_dyu3i")
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
