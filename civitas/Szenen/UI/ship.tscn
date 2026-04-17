@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chhe8ysct08e2"]
+[gd_scene load_steps=16 format=3 uid="uid://chhe8ysct08e2"]
 
 [ext_resource type="Script" uid="uid://b0ielm6s8d2vs" path="res://Szenen/UI/ship.gd" id="1_hmgn2"]
 [ext_resource type="Texture2D" uid="uid://8p6d3fnblrsn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close.png" id="2_ejtga"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvqd4e826xsbn" path="res://Assets/box_closed.png" id="7_l3qua"]
 [ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="7_vx4dw"]
 [ext_resource type="Texture2D" uid="uid://dt4k7ka0hvtmp" path="res://Szenen/arrow-right (1).png" id="8_ejtga"]
+[ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="9_ghix1"]
 [ext_resource type="Texture2D" uid="uid://db1i4s0yi3sl5" path="res://Szenen/coins.png" id="9_hmgn2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjys"]
@@ -28,6 +29,11 @@ font = ExtResource("4_avwc7")
 font_size = 80
 font_color = Color(0.7137255, 0.4509804, 0.15686275, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bv6wh"]
+font = ExtResource("4_avwc7")
+font_size = 40
+font_color = Color(0.7137255, 0.4509804, 0.15686275, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_aaiww"]
 font = ExtResource("4_avwc7")
 font_size = 50
@@ -41,6 +47,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hmgn2")
+stone_texture = ExtResource("7_vx4dw")
+lumber_texture = ExtResource("9_ghix1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -81,25 +89,28 @@ texture_disabled = ExtResource("2_ejtga")
 stretch_mode = 0
 
 [node name="Crate" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -473.5
-offset_top = -279.5
-offset_right = 473.5
-offset_bottom = 279.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 95.999985
+offset_top = 78.99999
+offset_right = 1297.0
+offset_bottom = 687.0
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = -30
 alignment = 1
 
 [node name="Label" type="Label" parent="Crate"]
+custom_minimum_size = Vector2(150, 110)
 layout_mode = 2
 text = "Schiffsaufgaben"
 label_settings = SubResource("LabelSettings_mxqgg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Crate"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Holz: 1 Stein: 1 Geld: 1"
+label_settings = SubResource("LabelSettings_bv6wh")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Crate"]
@@ -130,6 +141,8 @@ script = ExtResource("6_7kmng")
 closed_texture = ExtResource("7_l3qua")
 
 [node name="FirstTradeImg" type="TextureRect" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer/Crate1"]
+z_index = 10
+z_as_relative = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_left = 81.5
@@ -317,7 +330,9 @@ text = "1x"
 label_settings = SubResource("LabelSettings_aaiww")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="Crate/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+size_flags_horizontal = 0
 alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Crate/HBoxContainer/HBoxContainer2"]
@@ -349,10 +364,53 @@ layout_mode = 2
 
 [node name="WoodLabel" type="Label" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-text = "1x"
+text = "2x"
 label_settings = SubResource("LabelSettings_aaiww")
 
 [node name="SecondTradeImg2" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+texture = ExtResource("9_hmgn2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="Crate/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Crate/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="StoneLabel" type="Label" parent="Crate/HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "1x"
+label_settings = SubResource("LabelSettings_aaiww")
+
+[node name="FirstTradeImg" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+texture = ExtResource("9_ghix1")
+expand_mode = 1
+
+[node name="Label2" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer3"]
+modulate = Color(0.7137255, 0.4509804, 0.15686275, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_ejtga")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="Crate/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="WoodLabel" type="Label" parent="Crate/HBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "4x"
+label_settings = SubResource("LabelSettings_aaiww")
+
+[node name="SecondTradeImg2" type="TextureRect" parent="Crate/HBoxContainer/HBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 texture = ExtResource("9_hmgn2")
