@@ -1,22 +1,23 @@
 extends Control
 
-@onready var cratearea = $Crate
-@onready var sellarea = $Sell
-@onready var woodTradeLabel = $Crate/HBoxContainer/HBoxContainer2/VBoxContainer2/WoodLabel
-@onready var stoneTradeLabel = $Crate/HBoxContainer/HBoxContainer2/VBoxContainer/StoneLabel
+@onready var cratearea = $Both/Crate
+@onready var sellarea = $Both/Sell
+@onready var woodTradeLabel = $Both/Crate/HBoxContainer2/VBoxContainer2/WoodLabel
+@onready var stoneTradeLabel = $Both/Crate/HBoxContainer2/VBoxContainer/StoneLabel
+@onready var RessourcenLabel = $Both/Label2
 
 @onready var crates = [
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer/Crate1,
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer/Crate2,
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer/Crate3,
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate4,
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate5,
-	$Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate6
+	$Both/Crate/VBoxContainer/HBoxContainer/Crate1,
+	$Both/Crate/VBoxContainer/HBoxContainer/Crate2,
+	$Both/Crate/VBoxContainer/HBoxContainer/Crate3,
+	$Both/Crate/VBoxContainer/HBoxContainer2/Crate4,
+	$Both/Crate/VBoxContainer/HBoxContainer2/Crate5,
+	$Both/Crate/VBoxContainer/HBoxContainer2/Crate6
 ]
 
-@onready var amount = $Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer4/Mengezahl
-@onready var more = $Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton2
-@onready var less = $Sell/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton
+@onready var amount = $Both/Sell/Panel/VBoxContainer/HBoxContainer4/Mengezahl
+@onready var more = $Both/Sell/Panel/VBoxContainer/HBoxContainer2/TextureButton2
+@onready var less = $Both/Sell/Panel/VBoxContainer/HBoxContainer2/TextureButton
 
 var selected_crate_id: int = -1
 var current_amount: int = 0
