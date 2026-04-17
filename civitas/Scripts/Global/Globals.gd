@@ -15,7 +15,6 @@ var lumber_capacity = null
 var stone_capacity = null
 var start_capacity = 1
 var ship_trades: Array = []
-var ship_trades_day: int = -1
 
 
 func _ready() -> void:
@@ -33,7 +32,16 @@ func _ready() -> void:
 	SignalBus.mineBuilding_removed.connect(_on_mineBuilding_removed)
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
 	SignalBus.lumberMillBuilding_removed.connect(_on_lumberMillBuilding_removed)
+	
+	SignalBus.building_added.connect(_on_building_added)
+	SignalBus.building_removed.connect(_on_building_removed)
+	
+	
+func _on_building_added(source: Node) -> void:
+	print("Gebäude platziert: ", source.name)
 
+func _on_building_removed(source: Node) -> void:
+	print("Gebäude entfernt: ", source.name)
 
 func _on_collect_resources(resource_type: String, amount: int, source: Node) -> void:
 	modify(resource_type, amount)
@@ -43,6 +51,23 @@ func _on_collect_resources(resource_type: String, amount: int, source: Node) -> 
 		"(+", amount, " from ", source.name, ")"
 	)
 
+func can_afford(wood: int, stone: int, money: int) -> bool:
+	return lumber >= wood and self.stone >= stone and self.money >= money
+
+func missing(wood: int, stone: int, money: int) -> Dictionary:
+	var m := {}
+	if lumber < wood:       m["wood"]  = wood  - lumber
+	if self.stone < stone:  m["stone"] = stone - self.stone
+	if self.money < money:  m["money"] = money - self.money
+	return m
+
+func spend(wood: int, stone: int, money: int) -> void:
+	lumber      -= wood
+	self.stone  -= stone
+	self.money  -= money
+	SignalBus.resource_changed.emit("lumber", lumber)
+	SignalBus.resource_changed.emit("stone",  self.stone)
+	SignalBus.resource_changed.emit("money",  self.money)
 
 func _on_resBuilding_added(amount: int, source: Node) -> void:
 	population += amount
