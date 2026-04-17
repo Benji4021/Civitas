@@ -16,6 +16,9 @@ var stone_capacity = null
 var start_capacity = 1
 var ship_trades: Array = []
 var ship_trades_day: int = -1
+var crate_storage = {}
+var daily_customers = []
+var customers_day = -1
 
 
 func _ready() -> void:
