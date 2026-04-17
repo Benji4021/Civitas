@@ -16,7 +16,7 @@ var book_layer: CanvasLayer = null
 @onready var stone_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer2/StonePanel/HBoxContainer/Label
 @onready var population_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer/PeoplePanel/HBoxContainer/Label
 @onready var money_label: Label = $Ui/InformationBoard/VBoxContainer/HBoxContainer/MoneyPanel/HBoxContainer/Label
-@onready var king_label: Label = $Ui/NamePanel/ClipContainer/SlidePanel/Label2
+@onready var king_label: Label = $Ui/NamePanel/Label2
 @onready var pointer_pivot = $Ui/InformationBoard/Clock/PointerPivot
 	
 func _ready():

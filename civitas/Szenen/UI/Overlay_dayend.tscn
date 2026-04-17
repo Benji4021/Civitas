@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br0edudtu1m68"]
+[gd_scene load_steps=3 format=3 uid="uid://br0edudtu1m68"]
 
 [ext_resource type="Script" uid="uid://bpantdn7vhue7" path="res://Szenen/UI/overlay_dayend.gd" id="1_m5vu0"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="2_pjhxl"]
