@@ -4,10 +4,6 @@ extends TextureRect
 @export var building_id: String = "house_basic"
 @export var footprint: Vector2i = Vector2i.ONE
 
-func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
-
-
 func _get_drag_data(_pos):
 	if building_scene == null:
 		push_warning("building_scene ist nicht gesetzt!")

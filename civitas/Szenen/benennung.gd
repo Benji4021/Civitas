@@ -5,6 +5,9 @@ extends Node2D
 var shop_overlay_instance: Control = null
 var shop_layer: CanvasLayer = null
 
+var ship_overlay_instance: Control = null
+var ship_layer: CanvasLayer = null
+
 var time_colors = [
 	{ "time": 0.75,  "color": Color(0.9, 0.5, 0.3) },     # sunrise
 	{ "time": 0.35, "color": Color(1.0, 0.9, 0.6) },     # morning
@@ -37,7 +40,6 @@ func get_time_color(progress: float) -> Color:
 
 	return time_colors[-1].color
 
-
 func _on_texture_button_pressed():
 	if shop_overlay_instance != null:
 		return # Already open
@@ -49,3 +51,16 @@ func _on_texture_button_pressed():
 
 	shop_overlay_instance = load("res://Szenen/UI/shop.tscn").instantiate()
 	shop_layer.add_child(shop_overlay_instance)
+
+
+func _on_texture_button_2_pressed() -> void:
+	if ship_overlay_instance != null:
+		return
+
+	ship_layer = CanvasLayer.new()
+	ship_layer.layer = 11
+
+	add_child(ship_layer)
+
+	ship_overlay_instance = load("res://Szenen/UI/ship.tscn").instantiate()
+	ship_layer.add_child(ship_overlay_instance)
