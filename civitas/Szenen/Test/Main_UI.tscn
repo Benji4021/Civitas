@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwcrspl1i5dsp" path="res://Szenen/Buildings/TestHouse.tscn" id="4_qpqku"]
 [ext_resource type="Texture2D" uid="uid://dlftglse47jj2" path="res://Assets/Buildings/output-onlinepngtools (1).png" id="5_3isoh"]
 [ext_resource type="Texture2D" uid="uid://dhdqdv5drxwjs" path="res://Assets/Buildings/Barn.png" id="6_2m1ct"]
-[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/TestResHouse.tscn" id="6_2xlsr"]
+[ext_resource type="PackedScene" uid="uid://vwllfvx6nkwv" path="res://Szenen/Buildings/ResidentalBuilding.tscn" id="6_2xlsr"]
 [ext_resource type="Texture2D" uid="uid://dr43ht7nofsh4" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - Board.png" id="7_j4h48"]
 [ext_resource type="FontFile" uid="uid://ce0j4sfqfsrqt" path="res://Assets/Jacquard12-Regular.ttf" id="8_nkhq5"]
 [ext_resource type="Texture2D" uid="uid://ba2mshuwwnfjb" path="res://Assets/Clock.png" id="9_lxnp4"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" uid="uid://bundwclb62oe1" path="res://Szenen/Test/Panel_einaus.gd" id="16_40knm"]
 [ext_resource type="Texture2D" uid="uid://cfbi6k1uv80t5" path="res://Assets/pferd.png" id="17_40knm"]
 [ext_resource type="Script" uid="uid://bnrrqplwa8250" path="res://Szenen/Test/button_panel_pressed.gd" id="18_hqnv2"]
+
+[ext_resource type="Script" path="res://Szenen/UI/MissingResourcesUI.gd" id="19_missing"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
 bg_color = Color(0.70329875, 0.3991605, 0.23340806, 1)
@@ -161,17 +163,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.78
-mouse_filter = 2
+mouse_filter = 0
 texture = ExtResource("2_nkhq5")
 stretch_mode = 6
 script = ExtResource("3_lxnp4")
 building_scene = ExtResource("6_2xlsr")
+building_id = "Basic_House"
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Gebäude 1
-💰50 / 🪵100 / 🪨50"
+text = "Basic House
+💰20 / 🪵10 / 🪨30"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -186,16 +189,17 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
+mouse_filter = 0
 texture = ExtResource("5_3isoh")
 stretch_mode = 6
 script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
+building_id = "Muehle"
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Gebäude 2
-💰50 / 🪵100 / 🪨50"
+text = "Mühle
+💰40 / 🪵40 / 🪨10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -209,17 +213,18 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
+mouse_filter = 0
 texture = ExtResource("6_2m1ct")
 stretch_mode = 6
 script = ExtResource("3_lxnp4")
 building_scene = ExtResource("4_qpqku")
+building_id = "Muehle"
 footprint = Vector2i(3, 3)
 
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Bauernhof
-💰50 / 🪵100 / 🪨50"
+text = "Mühle
+💰40 / 🪵40 / 🪨10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
