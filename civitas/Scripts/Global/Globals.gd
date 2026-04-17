@@ -14,6 +14,8 @@ var population := 5
 var lumber_capacity = null
 var stone_capacity = null
 var start_capacity = 1
+var ship_trades: Array = []
+var ship_trades_day: int = -1
 
 
 func _ready() -> void:

@@ -9,67 +9,123 @@ extends Control
 @onready var crate6 = $Crate/HBoxContainer/VBoxContainer/HBoxContainer2/Crate3
 
 @export var stone_texture: Texture2D
-@export var wood_texture: Texture2D
-
-var crate_data = {}
+@export var lumber_texture: Texture2D
 
 func _ready() -> void:
-	randomize()
-
 	var time_manager = get_node("/root/TimeManager")
-	time_manager.connect("day_changed", Callable(self, "_on_day_changed"))
+	time_manager.day_changed.connect(_on_day_changed)
 
-	generate_new_trades()
+	for crate in get_all_crates():
+		crate.pressed.connect(func(): _on_crate_pressed(crate))
+
+	if Globals.ship_trades.is_empty() or Globals.ship_trades_day != TimeManager.current_day:
+		generate_new_trades()
+
+	load_existing_trades()
 
 func _on_close_btn_pressed() -> void:
 	queue_free()
 
-func _on_day_changed(day) -> void:
+func _on_day_changed(day: int) -> void:
 	generate_new_trades()
+	load_existing_trades()
 
 func get_all_crates() -> Array:
 	return [crate1, crate2, crate3, crate4, crate5, crate6]
 
 func generate_new_trades() -> void:
-	var possible_items = ["stein", "holz"]
+	var possible_items = ["stone", "lumber"]
+	var crates = get_all_crates()
 
-	for crate in get_all_crates():
+	Globals.ship_trades.clear()
+
+	for i in range(crates.size()):
 		var item_name = possible_items.pick_random()
 		var amount = randi_range(1, 5)
 		var reward = amount * 3
 
-		setup_crate(crate, item_name, amount, reward)
+		Globals.ship_trades.append({
+			"item": item_name,
+			"amount": amount,
+			"reward": reward,
+			"done": false
+		})
 
-func setup_crate(crate: Node, item_name: String, amount: int, reward: int) -> void:
-	var amount_label = crate.get_node_or_null("StoneLabel")
-	var item_sprite = crate.get_node_or_null("FirstTradeImg")
+	Globals.ship_trades_day = TimeManager.current_day
 
-	if amount_label == null:
-		print("StoneLabel nicht gefunden in: ", crate.name)
+func load_existing_trades() -> void:
+	var crates = get_all_crates()
+
+	for i in range(crates.size()):
+		if i < Globals.ship_trades.size():
+			apply_trade_to_crate(crates[i], Globals.ship_trades[i])
+
+func apply_trade_to_crate(crate: TextureButton, data: Dictionary) -> void:
+	var item_texture = get_item_texture(data["item"])
+	var amount_text = str(data["amount"]) + "x"
+
+	if data["done"]:
+		crate.show_closed_state(item_texture, amount_text)
+	else:
+		crate.show_open_state(amount_text, item_texture)
+
+func get_item_texture(item_name: String) -> Texture2D:
+	if item_name == "stone":
+		return stone_texture
+	elif item_name == "lumber":
+		return lumber_texture
+	return null
+
+func _on_crate_pressed(crate: TextureButton) -> void:
+	try_fill_crate(crate)
+
+func try_fill_crate(crate: TextureButton) -> void:
+	var index = get_all_crates().find(crate)
+	if index == -1:
 		return
 
-	if item_sprite == null:
-		print("FirstTradeImg nicht gefunden in: ", crate.name)
+	if index >= Globals.ship_trades.size():
 		return
 
-	amount_label.text = str(amount) + "x"
+	var data = Globals.ship_trades[index]
 
-	if item_name == "stein":
-		item_sprite.texture = stone_texture
-	elif item_name == "holz":
-		item_sprite.texture = wood_texture
+	if data["done"]:
+		return
 
-	crate_data[crate.name] = {
-		"item": item_name,
-		"amount": amount,
-		"reward": reward,
-		"done": false
-	}
+	var item_name: String = data["item"]
+	var amount: int = data["amount"]
+	var reward: int = data["reward"]
 
-	if crate is TextureButton:
-		crate.disabled = false
+	if not has_enough_resource(item_name, amount):
+		print("Nicht genug ", item_name)
+		return
 
-func get_crate_info(crate_name: String) -> Dictionary:
-	if crate_data.has(crate_name):
-		return crate_data[crate_name]
-	return {}
+	remove_resource(item_name, amount)
+	add_money(reward)
+
+	data["done"] = true
+	Globals.ship_trades[index] = data
+
+	apply_trade_to_crate(crate, data)
+
+func has_enough_resource(resource_type: String, amount: int) -> bool:
+	match resource_type:
+		"stone":
+			return Globals.stone >= amount
+		"lumber":
+			return Globals.lumber >= amount
+		_:
+			return false
+
+func remove_resource(resource_type: String, amount: int) -> void:
+	match resource_type:
+		"stone":
+			Globals.stone -= amount
+			SignalBus.resource_changed.emit("stone", Globals.stone)
+		"lumber":
+			Globals.lumber -= amount
+			SignalBus.resource_changed.emit("lumber", Globals.lumber)
+
+func add_money(amount: int) -> void:
+	Globals.money += amount
+	SignalBus.resource_changed.emit("money", Globals.money)

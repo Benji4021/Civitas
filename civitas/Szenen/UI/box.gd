@@ -1,27 +1,35 @@
 extends TextureButton
 
+@export var open_texture: Texture2D
+@export var closed_texture: Texture2D
+
 @onready var amount_label = $StoneLabel
 @onready var item_sprite = $FirstTradeImg
 
-@export var closed_texture: Texture2D
+func show_open_state(amount_text: String, item_texture: Texture2D) -> void:
+	if open_texture != null:
+		texture_normal = open_texture
+		texture_hover = open_texture
+		texture_pressed = open_texture
 
-var is_done := false
+	amount_label.text = amount_text
+	amount_label.visible = true
 
-func _pressed() -> void:
-	if is_done:
-		return
+	item_sprite.texture = item_texture
+	item_sprite.visible = true
 
-	is_done = true
+	disabled = false
 
-	# Box schließen
-	texture_normal = closed_texture
-	texture_hover = closed_texture
-	texture_pressed = closed_texture
+func show_closed_state(item_texture: Texture2D, amount_text: String = "") -> void:
+	if closed_texture != null:
+		texture_normal = closed_texture
+		texture_hover = closed_texture
+		texture_pressed = closed_texture
 
-	# 🔥 DAS IST NEU → Zahl ausblenden
+	item_sprite.texture = item_texture
+	item_sprite.visible = true
+
+	amount_label.text = amount_text
 	amount_label.visible = false
-
-	# optional: Item auch ausblenden
-	# item_sprite.visible = false
 
 	disabled = true
