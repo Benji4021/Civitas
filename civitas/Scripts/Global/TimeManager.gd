@@ -7,7 +7,16 @@ var seconds_passed: float = 0.0
 var wood_to_stone = Vector2i(1, 1) # e.g. 1 wood = 3 stone
 var stone_to_wood = Vector2i(1, 1)
 
+var crates = {}
+
 signal day_changed(new_day)
+
+func _ready():
+	for i in range(6):
+		crates[i] = {
+			"type": "",   # "wood" or "stone"
+			"amount": 0
+		}
 
 func _process(delta):
 	seconds_passed += delta
