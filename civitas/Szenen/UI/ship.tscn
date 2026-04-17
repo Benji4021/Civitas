@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chhe8ysct08e2"]
+[gd_scene load_steps=15 format=3 uid="uid://chhe8ysct08e2"]
 
 [ext_resource type="Script" uid="uid://b0ielm6s8d2vs" path="res://Szenen/UI/ship.gd" id="1_hmgn2"]
 [ext_resource type="Texture2D" uid="uid://8p6d3fnblrsn" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - close.png" id="2_ejtga"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvqd4e826xsbn" path="res://Assets/box_closed.png" id="7_l3qua"]
 [ext_resource type="Texture2D" uid="uid://dko57my2m77cq" path="res://Assets/stonetrade.png" id="7_vx4dw"]
 [ext_resource type="Texture2D" uid="uid://dt4k7ka0hvtmp" path="res://Szenen/arrow-right (1).png" id="8_ejtga"]
+[ext_resource type="Texture2D" uid="uid://dh8mubjryq8dt" path="res://Assets/woodtrade.png" id="9_ghix1"]
 [ext_resource type="Texture2D" uid="uid://db1i4s0yi3sl5" path="res://Szenen/coins.png" id="9_hmgn2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjys"]
@@ -41,6 +42,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hmgn2")
+stone_texture = ExtResource("7_vx4dw")
+lumber_texture = ExtResource("9_ghix1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -130,6 +133,8 @@ script = ExtResource("6_7kmng")
 closed_texture = ExtResource("7_l3qua")
 
 [node name="FirstTradeImg" type="TextureRect" parent="Crate/HBoxContainer/VBoxContainer/HBoxContainer/Crate1"]
+z_index = 10
+z_as_relative = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_left = 81.5

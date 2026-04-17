@@ -68,6 +68,9 @@ func apply_trade_to_crate(crate: TextureButton, data: Dictionary) -> void:
 		crate.show_closed_state(item_texture, amount_text)
 	else:
 		crate.show_open_state(amount_text, item_texture)
+		
+	print("item:", data["item"])
+	print("texture:", get_item_texture(data["item"]))
 
 func get_item_texture(item_name: String) -> Texture2D:
 	if item_name == "stone":
