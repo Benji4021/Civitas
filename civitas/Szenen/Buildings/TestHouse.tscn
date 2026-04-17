@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://cim7bstlshpca"]
+[gd_scene load_steps=2 format=3 uid="uid://bwcrspl1i5dsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16us"]
 size = Vector2(49, 50)
 
-[node name="TestHouse" type="Node2D" unique_id=2094469330]
+[node name="TestHouse" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1963742892]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1131022607]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2096197847]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(14.5, 15)
 shape = SubResource("RectangleShape2D_u16us")
