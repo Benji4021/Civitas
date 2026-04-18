@@ -518,6 +518,7 @@ texture_hover = ExtResource("12_dyu3i")
 
 [node name="PlacementArea" type="Control" parent="." unique_id=233022198]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -1367.0
 offset_top = -745.0
 offset_right = 1195.0
