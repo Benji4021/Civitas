@@ -151,6 +151,7 @@ func _place_building(origin: Vector2i, tiles: Array[Vector2i], data: Dictionary)
 	BuildingPlacement.handle_placed(inst)
 	for t in tiles:
 		_set_ground_occupied(t, true)
+	SignalBus.building_placed.emit(inst)
 
 func _global_to_tile(pos: Vector2) -> Vector2i:
 	if ground == null:

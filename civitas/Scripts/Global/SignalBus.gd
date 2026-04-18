@@ -26,3 +26,8 @@ signal lumberMillBuilding_removed(amount: int, source: Node)
 # UI
 signal resource_changed(resource_type: String, new_value: int)
 signal missing_resources_requested(missing: Dictionary)
+
+# Quick Time Events
+signal building_placed(building: Node)
+signal qte_event_started(event_type: String, building: Node)
+signal qte_event_finished(event_type: String, success: bool, building: Node)
