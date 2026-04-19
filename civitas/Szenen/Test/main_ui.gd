@@ -35,7 +35,7 @@ func _process(delta):
 		king_label.text = "Herrscher " + Globals.ruler_name + " aus Königreich " + Globals.kingdom_name
 	var progress = TimeManager.get_day_progress()
 	var start_angle = deg_to_rad(-90)
-	var end_angle = deg_to_rad(270)
+	var end_angle = deg_to_rad(90)
 	pointer_pivot.rotation = lerp(start_angle, end_angle, progress)
 			
 func _on_resource_changed(resource_type: String, new_value: int) -> void:
