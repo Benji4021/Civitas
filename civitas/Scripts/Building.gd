@@ -5,11 +5,11 @@ enum BuildingType {
 	ResidentialBuilding,
 	Mine,
 	Lumbermill,
-	Windmill,
+	Factory,
 	Bank
 }
 
-var type: BuildingType = BuildingType.Windmill
+var type: BuildingType = BuildingType.Factory
 var cost_wood: int = 0
 var cost_stone: int = 0
 var cost_money: int = 0
