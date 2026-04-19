@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://vwllfvx6nkwv"]
 
-[ext_resource type="Script" uid="uid://dm5huoe867yxn" path="res://Scripts/residentialBuilding.gd" id="1_nltlm"]
+[ext_resource type="Script" uid="uid://dlx673c10i2o8" path="res://Scripts/ResidentalBuilding.gd" id="1_an2yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16us"]
 size = Vector2(49, 50)
 
-[node name="ResHouse" type="Node2D" unique_id=801317323]
-script = ExtResource("1_nltlm")
+[node name="ResidentalBuilding" type="Node2D" unique_id=801317323]
+script = ExtResource("1_an2yy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=93354739]
 

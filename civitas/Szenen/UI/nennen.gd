@@ -20,7 +20,7 @@ func start_ruler_naming():
 	Globals.input_locked = true
 	phase = "ruler"
 	btn.text = "Speichern"
-	title_label.text = "Name deines Königs:"
+	title_label.text = "Name deines Herrschers:"
 	name_input.visible = true
 	name_input.text = ""
 	visible = true

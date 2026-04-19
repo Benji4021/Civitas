@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0e1labsfjp3g"]
+
+[ext_resource type="Script" uid="uid://d4dvgd5ggnmtd" path="res://Scripts/Factory.gd" id="1_abhme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u16us"]
+size = Vector2(49, 50)
+
+[node name="Factory" type="Node2D" unique_id=801317323]
+script = ExtResource("1_abhme")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=93354739]
+
+[node name="PlacementArea" type="Area2D" parent="." unique_id=272753241]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea" unique_id=354922342]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_u16us")
