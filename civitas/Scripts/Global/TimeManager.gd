@@ -3,6 +3,7 @@ extends Node
 var current_day: int = 1
 var minutes_per_day: int = 5
 var seconds_passed: float = 0.0
+var is_paused := false
 
 var wood_to_stone = Vector2i(1, 1)
 var stone_to_wood = Vector2i(1, 1)
@@ -27,23 +28,40 @@ func _ready():
 	generate_customers()
 
 func _process(delta):
+	if is_paused:
+		return
+
 	seconds_passed += delta
 
-	# DAY CHANGE
 	if seconds_passed >= minutes_per_day * 60:
-		seconds_passed = 0
+		is_paused = true
+
+		var old_day = current_day
 		current_day += 1
 
-		generate_new_trades()
-		generate_customers()
-
 		emit_signal("day_changed", current_day)
-		print("=== NEW DAY:", current_day, "===")
 
-	for c in customers_today:
-		if not c["spawned"] and seconds_passed >= c["time"]:
-			c["spawned"] = true
-			spawn_customer()
+		# call transition (we'll connect this next)
+		get_tree().call_group("day_transition", "start_transition", old_day, current_day)
+
+		print("=== DAY TRANSITION START ===")
+		
+		for c in customers_today:
+			if not c["spawned"] and seconds_passed >= c["time"]:
+				c["spawned"] = true
+				spawn_customer()
+
+func resume_after_transition():
+	print("=== TRANSITION DONE → NEW DAY START ===")
+
+	seconds_passed = 0
+
+	generate_new_trades()
+	generate_customers()
+
+	is_paused = false
+
+
 
 func get_day_progress() -> float:
 	return seconds_passed / (minutes_per_day * 60.0)

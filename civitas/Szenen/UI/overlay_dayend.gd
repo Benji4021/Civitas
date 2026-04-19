@@ -11,6 +11,7 @@ var elapsed = 0.0
 var is_animating = false
 
 func _ready():
+	add_to_group("day_transition")
 	hide()
 	print("DayTransitionOverlay: _ready() aufgerufen")
 
@@ -65,3 +66,4 @@ func _process(delta):
 func _on_transition_finished():
 	print("Transition finished! Tag 1 ist verschwunden, Tag 2 ist da")
 	emit_signal("transition_finished")
+	get_node("/root/TimeManager").resume_after_transition()
