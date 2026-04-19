@@ -178,7 +178,7 @@ building_id = "Basic_House"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Wohnhaus
-💰20 / 🪵10 / 🪨30"
+💰20 / 🪵10 / 🪨30/👤0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -203,7 +203,7 @@ building_id = "Lumbermill"
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer2" unique_id=1556371731]
 layout_mode = 2
 text = "Holzmühle
-💰40 / 🪵40 / 🪨10"
+💰40 / 🪵40 / 🪨10/👤2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -227,7 +227,7 @@ building_id = "Mine"
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer3" unique_id=927867670]
 layout_mode = 2
 text = "Mine
-💰40 / 🪵40 / 🪨10"
+💰40 / 🪵40 / 🪨10/👤4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -250,7 +250,7 @@ building_id = "Factory"
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer4" unique_id=344111544]
 layout_mode = 2
 text = "Fabrik
-💰50 / 🪵100 / 🪨50"
+💰50 / 🪵100 / 🪨50/👤10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -273,7 +273,7 @@ building_id = "Bank"
 [node name="Label" type="Label" parent="Ui/SidePanel/PanelContainer/ScrollContainer/GridContainer/VBoxContainer5" unique_id=586036187]
 layout_mode = 2
 text = "Bank
-💰100 / 🪵100 / 🪨100"
+💰100 / 🪵100 / 🪨100/👤5"
 horizontal_alignment = 1
 vertical_alignment = 1
 

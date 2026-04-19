@@ -47,26 +47,49 @@ func _on_collect_resources(resource_type: String, amount: int, source: Node) -> 
 	modify(resource_type, amount)
 	print(resource_type.capitalize(), ":", get(resource_type), "(+", amount, " from ", source.name, ")")
 
-func can_afford(wood: int, stone_cost: int, money_cost: int) -> bool:
-	return lumber >= wood and stone >= stone_cost and money >= money_cost
-
-func missing(wood: int, stone_cost: int, money_cost: int) -> Dictionary:
-	var m := {}
-	if lumber < wood:
-		m["wood"] = wood - lumber
+func can_afford(wood_cost: int, stone_cost: int, money_cost: int, population_cost: int = 0) -> bool:
+	if lumber < wood_cost:
+		return false
 	if stone < stone_cost:
-		m["stone"] = stone_cost - stone
+		return false
 	if money < money_cost:
-		m["money"] = money_cost - money
-	return m
+		return false
+	if population_cost > 0 and population < population_cost:
+		return false
+	return true
 
-func spend(wood: int, stone_cost: int, money_cost: int) -> void:
-	lumber -= wood
+func missing(wood_cost: int, stone_cost: int, money_cost: int, population_cost: int = 0) -> Dictionary:
+	var result: Dictionary = {}
+
+	if money < money_cost:
+		result["money"] = money_cost - money
+	if lumber < wood_cost:
+		result["wood"] = wood_cost - lumber
+	if stone < stone_cost:
+		result["stone"] = stone_cost - stone
+	if population_cost > 0 and population < population_cost:
+		result["population"] = population_cost - population
+
+	return result
+
+func spend(wood_cost: int, stone_cost: int, money_cost: int, population_cost: int = 0) -> void:
+	lumber -= wood_cost
 	stone -= stone_cost
 	money -= money_cost
+
+	if population_cost > 0:
+		population -= population_cost
+
 	SignalBus.resource_changed.emit("lumber", lumber)
 	SignalBus.resource_changed.emit("stone", stone)
 	SignalBus.resource_changed.emit("money", money)
+	SignalBus.resource_changed.emit("population", population)
+
+func add_population(amount: int) -> void:
+	population += amount
+	if population < 0:
+		population = 0
+	SignalBus.resource_changed.emit("population", population)
 
 func _on_resBuilding_added(amount: int, source: Node) -> void:
 	population += amount
