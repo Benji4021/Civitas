@@ -62,12 +62,13 @@ func _drop_data(_pos: Vector2, data) -> void:
 	var wood_cost: int = int(costs.get("wood", 0))
 	var stone_cost: int = int(costs.get("stone", 0))
 	var money_cost: int = int(costs.get("gold", 0))
-	if not Globals.can_afford(wood_cost, stone_cost, money_cost):
+	var population_cost: int = int(costs.get("population", 0))
+	if not Globals.can_afford(wood_cost, stone_cost, money_cost, population_cost):
 		var missing := Globals.missing(wood_cost, stone_cost, money_cost)
 		SignalBus.missing_resources_requested.emit(missing)
 		_clear_drag()
 		return
-	Globals.spend(wood_cost, stone_cost, money_cost)
+	Globals.spend(wood_cost, stone_cost, money_cost, population_cost)
 	_place_building(origin, tiles, payload)
 	_clear_drag()
 
