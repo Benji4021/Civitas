@@ -1,7 +1,7 @@
 extends Node
 
 var current_day: int = 1
-var minutes_per_day: int = 1
+var minutes_per_day: int = 5
 var seconds_passed: float = 0.0
 
 var wood_to_stone = Vector2i(1, 1)
@@ -24,13 +24,13 @@ func _ready():
 			"amount": 0
 		}
 
-	generate_customers() # ✅ IMPORTANT FIX
+	generate_customers()
 
 func _process(delta):
 	seconds_passed += delta
 
 	# DAY CHANGE
-	if seconds_passed >= minutes_per_day * 30:
+	if seconds_passed >= minutes_per_day * 60:
 		seconds_passed = 0
 		current_day += 1
 
@@ -40,7 +40,6 @@ func _process(delta):
 		emit_signal("day_changed", current_day)
 		print("=== NEW DAY:", current_day, "===")
 
-	# CUSTOMER SYSTEM
 	for c in customers_today:
 		if not c["spawned"] and seconds_passed >= c["time"]:
 			c["spawned"] = true
@@ -59,10 +58,6 @@ func generate_new_trades():
 		randi_range(1, 5),
 		randi_range(1, 5)
 	)
-
-# -----------------------------
-# CUSTOMER SYSTEM
-# -----------------------------
 
 func generate_customers():
 	customers_today.clear()
@@ -91,7 +86,6 @@ func spawn_customer():
 	var crate_id = available.pick_random()
 	var crate = Globals.crate_storage[crate_id]
 
-	# BUY LOGIC
 	var roll = randf()
 
 	var buy_amount = 0
@@ -106,7 +100,6 @@ func spawn_customer():
 		print("[CUSTOMER] arrived but bought nothing")
 		return
 
-	# ECONOMY
 	var price_per_unit = 5
 	var money_earned = buy_amount * price_per_unit
 

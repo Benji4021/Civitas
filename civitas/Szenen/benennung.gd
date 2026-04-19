@@ -12,7 +12,7 @@ var time_colors = [
 	{ "time": 0.75,  "color": Color(0.9, 0.5, 0.3) },     # sunrise
 	{ "time": 0.35, "color": Color(1.0, 0.9, 0.6) },     # morning
 	{ "time": 0.0,  "color": Color(1.0, 0.8, 0.7) },     # afternoon
-	{ "time": 1.0,  "color": Color(0.179, 0.18, 0.42, 1.0) }    # back to night
+	{ "time": 1.0,  "color": Color(0.414, 0.43, 0.795, 1.0) }    # back to night
 ]
 
 func _ready():
