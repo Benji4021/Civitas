@@ -16,15 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://bub6gfa8qbxb4" path="res://Assets/pauseBtnPressed.png" id="11_2m1ct"]
 [ext_resource type="PackedScene" uid="uid://da7nkdmvg0jl0" path="res://Szenen/Buildings/Mine.tscn" id="11_3hn32"]
 [ext_resource type="Texture2D" uid="uid://b7oqkv0kvk1r3" path="res://Assets/Buildings/Fabrik.png" id="11_jwjmy"]
-[ext_resource type="Texture2D" uid="uid://b02rgmnjo3r0m" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter.png" id="11_v21p0"]
-[ext_resource type="Texture2D" uid="uid://wuoy728vp26i" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - weiter - pressed.png" id="12_hh5s0"]
 [ext_resource type="PackedScene" uid="uid://d0e1labsfjp3g" path="res://Szenen/Buildings/Factory.tscn" id="13_4qr84"]
 [ext_resource type="Texture2D" uid="uid://hbo5j8ejwx8q" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - setting.png" id="13_dck8o"]
 [ext_resource type="Texture2D" uid="uid://dqgtcs0onydff" path="res://Assets/Arrow.png" id="13_oc0ff"]
 [ext_resource type="Texture2D" uid="uid://c1lhwg6qu62w0" path="res://Assets/Buildings/Bank.png" id="14_4qr84"]
 [ext_resource type="PackedScene" uid="uid://otgndonncy3c" path="res://Szenen/Buildings/Bank.tscn" id="15_6203o"]
+[ext_resource type="Texture2D" uid="uid://koks7nho7uig" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back.png" id="16_4qr84"]
 [ext_resource type="Script" uid="uid://bundwclb62oe1" path="res://Szenen/Test/Panel_einaus.gd" id="16_40knm"]
 [ext_resource type="Texture2D" uid="uid://cfbi6k1uv80t5" path="res://Assets/pferd.png" id="17_40knm"]
+[ext_resource type="Texture2D" uid="uid://cfx2ssyywtnq" path="res://Assets/UIBundleFree/__MACOSX/UIBundleFree/MediavelFree - back - pressed.png" id="17_6203o"]
 [ext_resource type="Script" uid="uid://bnrrqplwa8250" path="res://Szenen/Test/button_panel_pressed.gd" id="18_hqnv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4h48"]
@@ -285,10 +285,10 @@ offset_top = 116.0
 offset_right = -6.0
 offset_bottom = 170.0
 toggle_mode = true
-texture_normal = ExtResource("11_v21p0")
-texture_pressed = ExtResource("12_hh5s0")
-texture_hover = ExtResource("12_hh5s0")
-texture_focused = ExtResource("11_v21p0")
+texture_normal = ExtResource("16_4qr84")
+texture_pressed = ExtResource("17_6203o")
+texture_hover = ExtResource("17_6203o")
+texture_focused = ExtResource("17_6203o")
 stretch_mode = 0
 
 [node name="InformationBoard" type="TextureRect" parent="Ui" unique_id=1117519911]

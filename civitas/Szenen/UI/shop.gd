@@ -45,6 +45,8 @@ func _ready():
 	var time_manager = get_node("/root/TimeManager") # adjust path if needed
 	time_manager.connect("day_changed", Callable(self, "_on_day_changed"))
 	time_manager.day_changed.connect(_on_day_changed)
+	time_manager.connect("crate_updated", Callable(self, "_on_crate_updated"))
+
 	
 	_on_day_changed(time_manager.current_day) # update immediately
 	more.pressed.connect(_on_more_pressed)
@@ -180,7 +182,6 @@ func _on_yes_pressed():
 		SignalBus.resource_changed.emit("stone", Globals.stone)
 	var data = Globals.crate_storage[selected_crate_id]
 
-	data["filled"] = true
 	data["resource"] = selected_resource
 	data["amount"] = current_amount
 	data["state"] = "listed"
@@ -236,7 +237,7 @@ func update_crate_visual(crate):
 
 	# SOLD STATE
 	if data["state"] == "sold":
-		label.text = "SOLD"
+		label.visible = false
 		img.texture = sold_icon
 		crate.disabled = false
 		crate.modulate = Color(1, 1, 1)
@@ -244,6 +245,7 @@ func update_crate_visual(crate):
 
 	# LISTED STATE
 	if data["state"] == "listed":
+		label.visible = true
 		label.text = str(data["amount"])
 
 		if data["resource"] == "lumber":
